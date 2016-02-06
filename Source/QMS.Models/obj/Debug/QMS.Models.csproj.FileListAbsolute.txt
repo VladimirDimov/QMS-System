@@ -1,0 +1,13 @@
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.dll.config
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.dll
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.pdb
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.dll
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.xml
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.dll
+D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.pdb
