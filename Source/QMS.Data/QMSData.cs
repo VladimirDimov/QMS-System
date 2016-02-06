@@ -23,6 +23,62 @@ namespace QMS.Data
             this.context = context;
         }
 
+        public IRepository<Area> Areas
+        {
+            get
+            {
+                return this.GetRepository<Area>();
+            }
+        }
+
+        public IRepository<Department> Departments
+        {
+            get
+            {
+                return this.GetRepository<Department>();
+            }
+        }
+
+        public IRepository<Division> Divisions
+        {
+            get
+            {
+                return this.GetRepository<Division>();
+            }
+        }
+
+        public IRepository<Document> Documents
+        {
+            get
+            {
+                return this.GetRepository<Document>();
+            }
+        }
+
+        public IRepository<Note> Notes
+        {
+            get
+            {
+                return this.GetRepository<Note>();
+            }
+        }
+
+        public IRepository<Post> Posts
+        {
+            get
+            {
+                return this.GetRepository<Post>();
+            }
+        }
+
+        public IRepository<Record> Records
+        {
+            get
+            {
+                return this.GetRepository<Record>();
+            }
+        }
+
         public IRepository<User> Users
         {
             get

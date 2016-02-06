@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QMS.Models
 {
-    class Division
+    public class Division
     {
         private ICollection<Department> departments;
 

@@ -12,6 +12,20 @@ namespace QMS.Data
     {
         IRepository<User> Users { get; }
 
+        IRepository<Area> Areas { get; }
+
+        IRepository<Department> Departments { get; }
+
+        IRepository<Division> Divisions { get; }
+
+        IRepository<Document> Documents { get; }
+
+        IRepository<Note> Notes { get; }
+
+        IRepository<Post> Posts { get; }
+
+        IRepository<Record> Records { get; }
+
         int SaveChanges();
     }
 }
