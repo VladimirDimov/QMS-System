@@ -1,0 +1,33 @@
+﻿@model QMS.Web.Models.Departments.DepartmentCreateModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Ajax.BeginForm("Create", new AjaxOptions
+{
+    HttpMethod = "POST",
+    OnSuccess = $"Success(\"Department created\")"
+}))
+{
+    <div class="col-md-6 col-md-offset-3">
+        <h1>Create Department</h1>
+        @Html.AntiForgeryToken()
+
+        @Html.EditorFor(m => m.Name)
+        @Html.EditorFor(m => m.Description)
+
+        @Html.LabelFor(m => m.DivisionId)
+        @Html.DropDownListFor(m => m.DivisionId,
+                                ViewBag.Divisions as IEnumerable<SelectListItem>,
+                                    new { @class = "form-control" })
+        <br />
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="clearfix"></div>

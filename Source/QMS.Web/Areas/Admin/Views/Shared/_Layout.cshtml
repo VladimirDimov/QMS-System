@@ -29,7 +29,13 @@
             </div>
         </div>
     </div>
-
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-dismissible alert-success notification)">
+            <button type="button" class="close" data-dismiss="alert">&close;</button>
+            <strong>@TempData["Success"]</strong>
+        </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -41,5 +47,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('.alert').fadeOut(2000);
+        });
+    </script>
 </body>
 </html>

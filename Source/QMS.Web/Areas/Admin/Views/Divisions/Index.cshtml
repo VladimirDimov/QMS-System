@@ -14,26 +14,26 @@
     }
     else
     {
-        foreach (var division in Model)
-        {
-            <h1>Divisions</h1>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+        <h1>Divisions</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var division in Model)
+                {
                     <tr>
                         <td>@division.Name</td>
                         <td>@division.Description</td>
                         <td><a href="~/admin/divisions/details/@division.Id">Details</a></td>
                     </tr>
-                </tbody>
-            </table>
-        }
+                }
+            </tbody>
+        </table>
     }
 }
 

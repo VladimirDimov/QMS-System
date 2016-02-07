@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.notification {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}

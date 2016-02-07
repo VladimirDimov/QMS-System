@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QMS.Services
 {
-    class DepartmentsServices
+    public class DepartmentsServices
     {
         private IQmsData data;
 
