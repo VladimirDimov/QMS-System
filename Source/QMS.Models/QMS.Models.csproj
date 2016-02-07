@@ -61,6 +61,7 @@
     <Compile Include="Division.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Note.cs" />
+    <Compile Include="Procedure.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

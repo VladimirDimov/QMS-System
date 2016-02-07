@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace QMS.Models
 {
-    class Area
+    public class Area
     {
         private ICollection<Record> records;
 
@@ -15,10 +16,14 @@ namespace QMS.Models
             this.records = new HashSet<Record>();
         }
 
+        [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
 
+        [MaxLength(200)]
         public string Description { get; set; }
 
         public int EmplayeeId { get; set; }

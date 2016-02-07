@@ -62,7 +62,7 @@ namespace QMS.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IQmsData>().To<QmsData>();
+            kernel.Bind<IQmsData>().To<QmsData>().InRequestScope();
         }
     }
 }
