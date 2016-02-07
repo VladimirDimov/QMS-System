@@ -80,3 +80,5 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\WebActivatorEx.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Mvc.xml
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.Models.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.Models.pdb
