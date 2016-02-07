@@ -6,6 +6,7 @@
 
     public class Document
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -16,9 +17,11 @@
         public string Description { get; set; }
 
         [Required]
+        [MaxLength(20)]
         [Index(IsUnique = true)]
         public string Code { get; set; }
 
+        [Required]
         public string FilePath { get; set; }
 
         public DateTime LastUpdate { get; set; }

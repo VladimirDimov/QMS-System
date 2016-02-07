@@ -57,3 +57,8 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Models.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Data.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Models.pdb
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Data.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\WebActivatorEx.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.xml
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.xml
