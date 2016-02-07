@@ -1,14 +1,12 @@
-﻿namespace QMS.Web.Models.Divisions
+﻿namespace QMS.Web.Models.Departments
 {
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
 
-    public class DivisionsListResponseModel : IMapFrom<Division>
+    public class DepartmentDetailsSmallResponseModel : IMapFrom<Department>
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public string Description { get; set; }
     }
 }

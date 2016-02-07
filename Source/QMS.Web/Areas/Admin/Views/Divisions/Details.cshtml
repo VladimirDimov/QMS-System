@@ -1,0 +1,12 @@
+﻿@model QMS.Web.Models.Divisions.DivisionsDetailsResponseModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<p>@Model.Name</p>
+@foreach (var department in Model.Departments)
+{
+    <p>@department.Name</p>
+}
+

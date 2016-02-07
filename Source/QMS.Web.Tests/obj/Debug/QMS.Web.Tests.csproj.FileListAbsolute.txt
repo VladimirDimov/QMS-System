@@ -62,3 +62,11 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.xml
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Models.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Models.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Infrastructure.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\AutoMapper.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Infrastructure.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\AutoMapper.xml
