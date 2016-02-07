@@ -2,6 +2,11 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <WebStackScaffolding_AreaDialogWidth>600</WebStackScaffolding_AreaDialogWidth>
+    <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
+    <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
+    <WebStackScaffolding_IsPartialViewSelected>True</WebStackScaffolding_IsPartialViewSelected>
+    <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
+    <WebStackScaffolding_LayoutPageFile />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

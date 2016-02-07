@@ -280,12 +280,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Templates\EditorTemplates\String.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\Templates\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
