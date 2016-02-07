@@ -1,9 +1,11 @@
 ﻿namespace QMS.Web.Models.Divisions
 {
-    using QMS.Web.Infrastructure.Mappings;
     using QMS.Models;
+    using Infrastructure.Mappings;
     using QMS.Web.Models.Departments;
     using System.Collections.Generic;
+    using AutoMapper;
+    using System;
 
     public class DivisionsDetailsResponseModel : IMapFrom<Division>
     {
