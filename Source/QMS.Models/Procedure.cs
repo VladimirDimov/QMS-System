@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QMS.Models
 {
-    class Procedure
+    public class Procedure
     {
         private ICollection<Document> documents;
 

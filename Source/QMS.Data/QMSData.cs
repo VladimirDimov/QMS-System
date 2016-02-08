@@ -55,6 +55,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<Procedure> Procedures
+        {
+            get
+            {
+                return this.GetRepository<Procedure>();
+            }
+        }
+
         public IRepository<Note> Notes
         {
             get

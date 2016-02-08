@@ -19,6 +19,8 @@
 
         public virtual IDbSet<Document> Documents { get; set; }
 
+        public virtual IDbSet<Procedure> Procedures { get; set; }
+
         public virtual IDbSet<Note> Notes { get; set; }
 
         public virtual IDbSet<Post> Posts { get; set; }

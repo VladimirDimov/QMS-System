@@ -26,6 +26,8 @@ namespace QMS.Data
 
         IRepository<Record> Records { get; }
 
+        IRepository<Procedure> Procedures { get; }
+
         int SaveChanges();
     }
 }
