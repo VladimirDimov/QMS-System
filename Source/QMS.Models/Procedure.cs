@@ -25,8 +25,6 @@ namespace QMS.Models
         [MaxLength(200)]
         public string Description { get; set; }
 
-        public string FilePath { get; set; }
-
         public virtual ICollection<Document> Documents
         {
             get { return this.documents; }

@@ -60,6 +60,7 @@
     <Compile Include="AreasServices.cs" />
     <Compile Include="DepartmentsServices.cs" />
     <Compile Include="DivisionsServices.cs" />
+    <Compile Include="ProceduresServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersServices.cs" />
   </ItemGroup>

@@ -11,6 +11,7 @@
 
         [Required]
         [MaxLength(50)]
+        [Index(IsUnique = true)]
         public string Title { get; set; }
 
         [MaxLength(500)]
