@@ -37,5 +37,20 @@ namespace QMS.Services
         {
             return this.data.Divisions.GetById(id);
         }
+
+        public void Update(int id, string name, string description)
+        {
+            var divisionToUpdate = this.data.Divisions.GetById(id);
+            if (divisionToUpdate == null)
+            {
+                throw new ArgumentException("Invalid division id");
+            }
+            else
+            {
+                divisionToUpdate.Name = name;
+                divisionToUpdate.Description = description;
+                this.data.SaveChanges();
+            }
+        }
     }
 }

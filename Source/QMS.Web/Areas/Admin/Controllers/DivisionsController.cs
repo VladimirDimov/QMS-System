@@ -57,8 +57,43 @@ namespace QMS.Web.Areas.Admin.Controllers
             {
                 return View(Mapper.Map(division, typeof(Division), typeof(DivisionsDetailsResponseModel)));
             }
+            else
+            {
+                TempData["Error"] = $"Invalid division id: {id}";
+                return RedirectToAction("Index");
+            }
+        }
 
-            return View();
+        public ActionResult Edit(int id)
+        {
+            var division = this.divisions
+                .GetById(id);
+
+            if (division != null)
+            {
+                return View(Mapper.Map(division, typeof(Division), typeof(DivisionsUpdateModel)));
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(DivisionsUpdateModel model)
+        {
+            try
+            {
+                this.divisions.Update(model.Id, model.Name, model.Description);
+                TempData["Success"] = "Division successfully updated!";
+                return RedirectToAction("Details", new { id = model.Id });
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
     }
 }

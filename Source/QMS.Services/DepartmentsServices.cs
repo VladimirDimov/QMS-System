@@ -41,5 +41,13 @@ namespace QMS.Services
 
             return departmentToAdd;
         }
+
+        public void Update(int id, string name, string description)
+        {
+            var dbModel = this.data.Departments.GetById(id);
+            dbModel.Name = name;
+            dbModel.Description = description;
+            this.data.SaveChanges();
+        }
     }
 }

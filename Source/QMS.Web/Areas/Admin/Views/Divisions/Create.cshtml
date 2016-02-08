@@ -14,8 +14,8 @@
         @Html.AntiForgeryToken()
 
         @Html.EditorFor(m => m.Name)
-        @Html.EditorFor(m => m.Description, new { @class = "formr-control" })
+        @Html.EditorFor(m => m.Description, new { @class = "form-control" })
         <input type="submit" value="Create" class="btn btn-primary" />
     }
 </div>
-<div style="clear:both"></div>
+<div class="clearfix"></div>

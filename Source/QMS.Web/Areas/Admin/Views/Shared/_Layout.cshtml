@@ -21,6 +21,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Divisions", "Index", "Divisions")</li>
+                    <li>@Html.ActionLink("Departments", "Index", "Departments")</li>
+                    <li>@Html.ActionLink("Areas", "Index", "Areas")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -31,10 +33,11 @@
     </div>
     @if (TempData["Success"] != null)
     {
-        <div class="alert alert-dismissible alert-success notification)">
-            <button type="button" class="close" data-dismiss="alert">&close;</button>
-            <strong>@TempData["Success"]</strong>
-        </div>
+        @Html.Partial("Notifications/_Success")
+    }
+    else if (TempData["Error"] != null)
+    {
+        @Html.Partial("Notifications/_Error")
     }
     <div class="container body-content">
         @RenderBody()
@@ -45,11 +48,13 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
     <script>
         $(document).ready(function () {
+            $('.alert').slideDown(1000);
             $('.alert').fadeOut(2000);
         });
     </script>

@@ -5,8 +5,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<a href="~/admin/divisions/create" class="btn btn-default"> Create </a>
-
+<div class="well well-sm">
+    <a href="~/admin/divisions/create" class="btn btn-default"> Create </a>
+</div>
 @{
     if (Model.Count == 0)
     {

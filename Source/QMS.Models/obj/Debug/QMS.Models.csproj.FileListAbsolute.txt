@@ -11,4 +11,3 @@ D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Core
 D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.dll
 D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.pdb
-D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.csprojResolveAssemblyReference.cache

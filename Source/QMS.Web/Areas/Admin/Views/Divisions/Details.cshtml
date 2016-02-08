@@ -3,10 +3,23 @@
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<br />
+<div class="jumbotron">
+    <h1>@Model.Name</h1>
+    <p>@Model.Description</p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Departments</h3>
+        </div>
 
-<p>@Model.Name</p>
-@foreach (var department in Model.Departments)
-{
-    <p>@department.Name</p>
-}
+        <div class="panel-body">
+            @foreach (var department in Model.Departments)
+            {
+                <p class="form-control-static">@department.Name</p>
+            }
+        </div>
+    </div>
+    <a href="~/admin/divisions/edit?id=@Model.Id" class="btn btn-primary">Edit</a>
+</div>
 
+<div class="clearfix"></div>

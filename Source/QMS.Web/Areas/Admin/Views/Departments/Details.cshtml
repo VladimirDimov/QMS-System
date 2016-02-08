@@ -1,0 +1,26 @@
+﻿@model QMS.Web.Models.Departments.DepartmentDetailsModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="jumbotron">
+    <h1>@Model.Name</h1>
+    <p>@Model.Description</p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Areas</h3>
+        </div>
+        <div class="panel-body">
+            @foreach (var area in Model.Areas)
+            {
+                <p class="form-control-static">@area.Name</p>
+            }
+        </div>
+    </div>
+    <a href="~/admin/departments/edit?id=@Model.Id" class="btn btn-primary">Edit</a>
+</div>
+
+<div class="clearfix"></div>

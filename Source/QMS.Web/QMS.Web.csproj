@@ -218,13 +218,16 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Divisions\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\String.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\TextArea.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Divisions\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Divisions\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Departments\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Departments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Divisions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Departments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Departments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Notifications\_Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Notifications\_Success.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -277,12 +280,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Templates\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\Notifications\_Error.cshtml" />
+    <Content Include="Views\Shared\Notifications\_Success.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Views\Templates\DisplayTemplates\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,25 @@
+﻿@model QMS.Web.Models.Departments.DepartmentCreateModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-6 col-md-offset-3">
+    <h1>Edit Department</h1>
+    @using (Ajax.BeginForm("Update", new AjaxOptions
+    {
+        HttpMethod = "POST"
+    }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.Id)
+        @Html.EditorFor(m => m.Name)
+        @Html.EditorFor(m => m.Description)
+        @Html.LabelFor(m => m.DivisionId)
+        <br />
+        <input type="submit" value="Update" class="btn btn-primary" />
+    }
+</div>
+
+<div class="clearfix"></div>

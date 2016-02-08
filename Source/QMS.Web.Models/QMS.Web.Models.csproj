@@ -53,13 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\AreaDetailsModel.cs" />
     <Compile Include="Departments\DepartmentCreateModel.cs" />
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />
+    <Compile Include="Departments\DepartmentDetailsModel.cs" />
     <Compile Include="Departments\DepartmentListResponseModel.cs" />
     <Compile Include="Divisions\DivisionRequestModel.cs" />
     <Compile Include="Divisions\DivisionsDetailsResponseModel.cs" />
     <Compile Include="Divisions\DivisionsListResponseModel.cs" />
+    <Compile Include="Divisions\DivisionsUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Records\RecordListDetails.cs" />
+    <Compile Include="Users\UserDetailsModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,6 +80,7 @@
       <Name>QMS.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

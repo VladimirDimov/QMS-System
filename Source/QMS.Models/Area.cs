@@ -26,7 +26,7 @@ namespace QMS.Models
         [MaxLength(200)]
         public string Description { get; set; }
 
-        public int EmplayeeId { get; set; }
+        public int EmployeeId { get; set; }
 
         public virtual User Employee { get; set; }
 

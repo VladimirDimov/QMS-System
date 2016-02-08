@@ -1,0 +1,29 @@
+﻿@model QMS.Web.Models.Divisions.DivisionsUpdateModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Ajax.BeginForm("Update", new AjaxOptions
+{
+    HttpMethod = "POST"
+}))
+{
+    @Html.AntiForgeryToken()
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Legend</legend>
+            <div class="form-group">
+                @Html.HiddenFor(m => m.Id)
+                @Html.EditorFor(m => m.Name)
+                @Html.EditorFor(m => m.Description, new { @class = "formr-control" })
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+}

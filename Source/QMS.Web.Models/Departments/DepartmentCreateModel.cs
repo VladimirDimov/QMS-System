@@ -13,6 +13,7 @@
         public string Name { get; set; }
 
         [MaxLength(200)]
+        [UIHint("TextArea")]
         public string Description { get; set; }
 
         public int DivisionId { get; set; }
