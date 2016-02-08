@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\AreaCreateModel.cs" />
     <Compile Include="Areas\AreaDetailsModel.cs" />
+    <Compile Include="Areas\AreaEditModel.cs" />
     <Compile Include="Areas\AreaListModel.cs" />
     <Compile Include="Departments\DepartmentCreateModel.cs" />
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />

@@ -230,6 +230,9 @@
     <Content Include="Areas\Admin\Views\Shared\Notifications\_Error.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Notifications\_Success.cshtml" />
     <Content Include="Areas\Admin\Views\Areas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

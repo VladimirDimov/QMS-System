@@ -1,6 +1,7 @@
-﻿using System;
+﻿using QMS.Models;
+using QMS.Web.Infrastructure.Mappings;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QMS.Web.Models.Areas
 {
-    public class AreaCreateModel
+    public class AreaEditModel : IMapFrom<Area>
     {
         public int Id { get; set; }
 
@@ -19,11 +20,5 @@ namespace QMS.Web.Models.Areas
         [MaxLength(200)]
         [UIHint("TextArea")]
         public string Description { get; set; }
-
-        [DisplayName("Department")]
-        public int DepartmentId { get; set; }
-
-        [DisplayName("Employee")]
-        public int EmployeeId { get; set; }
     }
 }

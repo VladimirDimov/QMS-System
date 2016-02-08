@@ -8,7 +8,8 @@
     <h1>Edit Department</h1>
     @using (Ajax.BeginForm("Update", new AjaxOptions
     {
-        HttpMethod = "POST"
+        HttpMethod = "POST",
+        
     }))
     {
         @Html.AntiForgeryToken()
