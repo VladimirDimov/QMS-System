@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AreasController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepartmentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DivisionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -228,6 +229,7 @@
     <Content Include="Areas\Admin\Views\Departments\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Notifications\_Error.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Notifications\_Success.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

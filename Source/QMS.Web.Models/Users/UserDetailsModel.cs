@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Users
+﻿namespace QMS.Web.Models.Users
 {
-    public class UserDetailsModel
+    using QMS.Models;
+    using QMS.Web.Infrastructure.Mappings;
+
+    public class UserDetailsModel : IMapFrom<User>
     {
         public string Email { get; set; }
 
