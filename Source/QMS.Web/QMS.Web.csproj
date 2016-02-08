@@ -194,7 +194,7 @@
     <Compile Include="Areas\Admin\Controllers\DepartmentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DivisionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProcedureController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProceduresController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -236,6 +236,10 @@
     <Content Include="Areas\Admin\Views\Areas\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Areas\Edit.cshtml" />
     <Content Include="Areas\Private\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Procedures\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Procedures\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Procedures\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Procedures\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -296,7 +300,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Procedure\" />
     <Folder Include="Areas\Private\Controllers\" />
     <Folder Include="Areas\Private\Models\" />
     <Folder Include="Areas\Private\Views\Shared\" />

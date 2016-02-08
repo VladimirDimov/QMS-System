@@ -65,6 +65,11 @@
     <Compile Include="Divisions\DivisionsDetailsResponseModel.cs" />
     <Compile Include="Divisions\DivisionsListResponseModel.cs" />
     <Compile Include="Divisions\DivisionsUpdateModel.cs" />
+    <Compile Include="Documents\DocumentShortModel.cs" />
+    <Compile Include="Procedures\ProcedureCreateModel.cs" />
+    <Compile Include="Procedures\ProcedureDetailsModel.cs" />
+    <Compile Include="Procedures\ProcedureListModel.cs" />
+    <Compile Include="Procedures\ProcedureUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Records\RecordListDetails.cs" />
     <Compile Include="Users\UserDetailsModel.cs" />

@@ -8,7 +8,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class ProceduresServices
+    public class ProceduresServices
     {
         private IQmsData data;
 
@@ -17,7 +17,7 @@
             this.data = data;
         }
 
-        IQueryable<Procedure> All()
+        public IQueryable<Procedure> All()
         {
             return this.data.Procedures.All();
         }
@@ -27,15 +27,22 @@
             return this.data.Procedures.GetById(id);
         }
 
-        public void Add(string name, string description, string filePath)
+        public void Add(string name, string description)
         {
             this.data.Procedures
                 .Add(new Procedure
                 {
                     Name = name,
                     Description = description,
-                    FilePath = filePath
                 });
+        }
+
+        public void Update(int id, string name, string description)
+        {
+            var procedure = this.data.Procedures.GetById(id);
+            procedure.Name = name;
+            procedure.Description = description;
+            this.data.SaveChanges();
         }
     }
 }
