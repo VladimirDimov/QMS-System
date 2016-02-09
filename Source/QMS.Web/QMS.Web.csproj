@@ -308,6 +308,7 @@
     <Folder Include="Areas\Private\Controllers\" />
     <Folder Include="Areas\Private\Models\" />
     <Folder Include="Areas\Private\Views\Shared\" />
+    <Folder Include="Files\Documents\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +322,10 @@
     <ProjectReference Include="..\QMS.Data\QMS.Data.csproj">
       <Project>{cf200301-22dc-4dea-b0a9-f40714a76116}</Project>
       <Name>QMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QMS.Helpers\QMS.Helpers.csproj">
+      <Project>{3b24a81f-9065-4109-90c2-4ff6414e7161}</Project>
+      <Name>QMS.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\QMS.Models\QMS.Models.csproj">
       <Project>{b53bc96e-b958-420f-8097-2a28def561f5}</Project>

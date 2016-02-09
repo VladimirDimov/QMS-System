@@ -28,13 +28,14 @@ namespace QMS.Services
             return model;
         }
 
-        public int Add(string title, string description, string code)
+        public int Add(string title, string description, string code, int procedureId)
         {
             var document = new Document
             {
                 Title = title,
                 Description = description,
                 Code = code,
+                ProcedureId = procedureId,
                 LastUpdate = DateTime.Now
             };
 
@@ -52,13 +53,18 @@ namespace QMS.Services
                 Code = code
             };
 
-            this.data.Documents.Add(document);
             this.data.SaveChanges();
         }
 
         public void Delete(int id)
         {
             this.data.Documents.Delete(id);
+        }
+
+        public void UpdateFilePath(Document document, string filePath)
+        {
+            document.FilePath = filePath;
+            this.data.SaveChanges();
         }
     }
 }

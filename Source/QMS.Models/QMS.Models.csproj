@@ -60,6 +60,7 @@
     <Compile Include="Department.cs" />
     <Compile Include="Division.cs" />
     <Compile Include="Document.cs" />
+    <Compile Include="File.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Procedure.cs" />
     <Compile Include="Record.cs" />

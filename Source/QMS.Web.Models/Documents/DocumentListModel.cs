@@ -1,5 +1,6 @@
 ﻿using QMS.Models;
 using QMS.Web.Infrastructure.Mappings;
+using QMS.Web.Models.Procedures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,7 @@ namespace QMS.Web.Models.Documents
         public string FilePath { get; set; }
 
         public DateTime LastUpdate { get; set; }
+
+        public ProcedureShortModel Procedure { get; set; }
     }
 }

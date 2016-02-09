@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Documents
+﻿namespace QMS.Web.Models.Documents
 {
-    public class DocumentUpdateModel
+    using QMS.Models;
+    using Infrastructure.Mappings;
+    using System.ComponentModel.DataAnnotations;
+    using Procedures;
+
+    public class DocumentUpdateModel : IMapFrom<Document>
     {
         public int Id { get; set; }
 
@@ -21,5 +19,8 @@ namespace QMS.Web.Models.Documents
         [Required]
         [MaxLength(20)]
         public string Code { get; set; }
+
+        [Required]
+        public int ProcedureId { get; set; }
     }
 }

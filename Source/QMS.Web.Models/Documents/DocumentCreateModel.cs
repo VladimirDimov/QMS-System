@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Documents
+﻿namespace QMS.Web.Models.Documents
 {
+    using QMS.Web.Models.Procedures;
+    using System.ComponentModel.DataAnnotations;
+
     public class DocumentCreateModel
     {
         [Required]
@@ -19,5 +15,8 @@ namespace QMS.Web.Models.Documents
         [Required]
         [MaxLength(20)]
         public string Code { get; set; }
+
+        [Required]
+        public int ProcedureId { get; set; }
     }
 }

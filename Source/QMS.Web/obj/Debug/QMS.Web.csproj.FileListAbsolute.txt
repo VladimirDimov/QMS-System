@@ -86,3 +86,5 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.Owin.Security.MicrosoftAccoun
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.csprojResolveAssemblyReference.cache
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.dll
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.pdb
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.pdb
