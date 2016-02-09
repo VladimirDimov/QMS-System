@@ -12,6 +12,7 @@
             <th>@Html.DisplayNameFor(m => m.Title)</th>
             <th>@Html.DisplayNameFor(m => m.Description)</th>
             <th>@Html.DisplayNameFor(m => m.LastUpdate)</th>
+            <th>@Html.DisplayNameFor(m => m.Procedure.Name)</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
                 <td>@Html.DisplayFor(item => m.Title)</td>
                 <td>@Html.DisplayFor(item => m.Description)</td>
                 <td>@Html.DisplayFor(item => m.LastUpdate)</td>
+                <td><a href="~/admin/procedures/details/@m.Procedure.Id">@m.Procedure.Name</a></td>
                 <td>@Html.ActionLink("Details", "Details", new { id = m.Id })</td>
             </tr>
         }

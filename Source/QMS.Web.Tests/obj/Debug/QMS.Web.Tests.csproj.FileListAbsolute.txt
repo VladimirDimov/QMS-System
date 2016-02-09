@@ -70,3 +70,5 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\AutoMapper.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.csprojResolveAssemblyReference.cache
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.pdb

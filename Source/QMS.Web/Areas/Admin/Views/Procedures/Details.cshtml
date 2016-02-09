@@ -26,27 +26,34 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Documents)
+
         </dt>
 
         <dd>
-            @if (Model.Documents.Count != 0)
-            {
-                <ul>
-                    @foreach (var doc in Model.Documents)
-                    {
-                        <li>@Html.ActionLink("Documents", "Details", new { id = doc.Id })</li>
-                    }
-                </ul>
-            }
-            else
-            {
-                <span>No documents yet to display.</span>
-            }
+
         </dd>
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
 </p>
+
+<div class="list-group col-md-6 col-md-offset-3">
+    <a href="#" class="list-group-item active">@Html.DisplayNameFor(model => model.Documents) (@Model.Documents.Count)</a>
+    @if (Model.Documents.Count != 0)
+    {
+        foreach (var doc in Model.Documents)
+        {
+            <a href="~/admin/documents/details/@doc.Id" class="list-group-item">
+                @doc.Title
+            </a>
+        }
+    }
+    else
+    {
+        <span>No documents yet to display.</span>
+    }
+</div>
+<div class="clearfix"></div>
+

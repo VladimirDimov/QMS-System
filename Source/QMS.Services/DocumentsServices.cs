@@ -44,14 +44,14 @@ namespace QMS.Services
             return document.Id;
         }
 
-        public void Update(string title, string description, string code)
+        public void Update(int id, string title, string description, string code, int procedureId)
         {
-            var document = new Document
-            {
-                Title = title,
-                Description = description,
-                Code = code
-            };
+            var doxcumentToUpdate = this.data.Documents.GetById(id);
+
+            doxcumentToUpdate.Title = title;
+            doxcumentToUpdate.Description = description;
+            doxcumentToUpdate.Code = code;
+            doxcumentToUpdate.ProcedureId = procedureId;
 
             this.data.SaveChanges();
         }

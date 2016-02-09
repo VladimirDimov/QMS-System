@@ -50,16 +50,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var allProcedures = this.procedures.All()
-                .Select(p => new SelectListItem
-                {
-                    Value = p.Id.ToString(),
-                    Text = p.Name
-                })
-                .ToList();
-
-            ViewBag.Procedures = allProcedures;
-
+            ViewBag.Procedures = GetProceduresListItems();
             return View();
         }
 
@@ -87,6 +78,7 @@ namespace QMS.Web.Areas.Admin.Controllers
                 return this.HttpNotFound($"Invalid document id: {id}");
             }
 
+            ViewBag.Procedures = GetProceduresListItems();
             var fromModel = Mapper.Map<DocumentUpdateModel>(dbModel);
             return View(fromModel);
         }
@@ -97,14 +89,19 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.documents.Update(model.Title, model.Description, model.Code);
-                TempData["Success"] = "Document successfully created";
+                this.documents.Update(
+                    model.Id,
+                    model.Title,
+                    model.Description,
+                    model.Code,
+                    model.ProcedureId);
 
                 if (file != null)
                 {
                     this.SaveDocumentFile(model.Id, file);
                 }
 
+                TempData["Success"] = "Document successfully updated";
                 return RedirectToAction("Details", new { id = model.Id });
             }
 
@@ -159,6 +156,19 @@ namespace QMS.Web.Areas.Admin.Controllers
             }
 
             return $"{saveDirPath}/{documentId}{fileExtension}";
+        }
+
+        private IEnumerable<SelectListItem> GetProceduresListItems()
+        {
+            var allProcedures = this.procedures.All()
+                .Select(p => new SelectListItem
+                {
+                    Value = p.Id.ToString(),
+                    Text = p.Name
+                })
+                .ToList();
+
+            return allProcedures;
         }
     }
 }
