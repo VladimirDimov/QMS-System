@@ -1,4 +1,5 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using QMS.Services;
 using QMS.Web.Models.Procedures;
 using System;
@@ -60,6 +61,13 @@ namespace QMS.Web.Areas.Admin.Controllers
             }
 
             return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var procedure = this.procedures.GetById(id);
+            var fromModel = Mapper.Map<ProcedureDetailsModel>(procedure);
+            return View(fromModel);
         }
     }
 }

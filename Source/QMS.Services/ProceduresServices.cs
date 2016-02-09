@@ -35,6 +35,8 @@
                     Name = name,
                     Description = description,
                 });
+
+            this.data.SaveChanges();
         }
 
         public void Update(int id, string name, string description)

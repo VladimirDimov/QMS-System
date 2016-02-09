@@ -193,6 +193,7 @@
     <Compile Include="Areas\Admin\Controllers\AreasController.cs" />
     <Compile Include="Areas\Admin\Controllers\DepartmentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DivisionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProceduresController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
@@ -240,6 +241,10 @@
     <Content Include="Areas\Admin\Views\Procedures\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Procedures\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Procedures\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
