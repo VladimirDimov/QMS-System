@@ -3,10 +3,10 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "form-horizontal col-md-6 col-md-offset-3", role = "form" }))
 {
+    <legend>@ViewBag.Title</legend>
     @Html.AntiForgeryToken()
     <fieldset>
         @Html.EditorFor(m => m.UserName)
@@ -17,13 +17,28 @@
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             </div>
         </div>
-        @Html.TextBoxFor(m => m.Password)
-        @Html.TextBoxFor(m => m.ConfirmPassword)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+            <div>
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
+            <div>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m)
+            </div>
+        </div>
         @Html.EditorFor(m => m.FirstName)
         @Html.EditorFor(m => m.LastName)
-        <input type="submit" name="name" value="Register" />
+        <div class="form-group">
+            <input type="submit" name="name" value="Register" class="btn btn-primary" />
+        </div>
     </fieldset>
 }
+<div class="clearfix"></div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
