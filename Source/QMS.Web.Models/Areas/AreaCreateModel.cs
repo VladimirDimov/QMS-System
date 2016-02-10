@@ -24,6 +24,6 @@ namespace QMS.Web.Models.Areas
         public int DepartmentId { get; set; }
 
         [DisplayName("Employee")]
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
     }
 }

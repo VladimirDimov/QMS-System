@@ -22,16 +22,18 @@ namespace QMS.Services
             return this.data.Areas.All();
         }
 
-        public void Add(string name, string description, int departmentId)
+        public int Add(string name, string description, int departmentId)
         {
-            this.data.Areas.Add(new Area
+            var areaToAdd = new Area
             {
                 Name = name,
                 Description = description,
                 DepartmentId = departmentId
-            });
+            };
 
+            this.data.Areas.Add(areaToAdd);
             this.data.SaveChanges();
+            return areaToAdd.Id;
         }
 
         public Area GetById(int id)
@@ -39,11 +41,12 @@ namespace QMS.Services
             return this.data.Areas.GetById(id);
         }
 
-        public void Update(int id, string name, string description)
+        public void Update(int id, string name, string description, string employeeId)
         {
             var area = this.data.Areas.GetById(id);
             area.Name = name;
             area.Description = description;
+            area.EmployeeId = employeeId;
             this.data.SaveChanges();
         }
     }

@@ -8,6 +8,8 @@ using AutoMapper;
 using QMS.Web.Models.Areas;
 using AutoMapper.QueryableExtensions;
 using QMS.Models;
+using QMS.Web.Models.Users;
+using Microsoft.AspNet.Identity;
 
 namespace QMS.Web.Areas.Admin.Controllers
 {
@@ -39,20 +41,8 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Departments = this.departments.All()
-                .ToList()
-                .Select(d => new SelectListItem
-                {
-                    Text = d.Name,
-                    Value = d.Id.ToString()
-                });
-
-            ViewBag.Employees = this.users.All()
-                .Select(e => new SelectListItem
-                {
-                    Text = e.UserName,
-                    Value = e.Id
-                });
+            ViewBag.Departments = GetDepartmentsSelecItemsData();
+            ViewBag.Employees = GetUsersSelecItemsData();
 
             return View();
         }
@@ -63,9 +53,12 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                this.areas.Add(model.Name, model.Description, model.DepartmentId);
+                var areaId = this.areas.Add(model.Name, model.Description, model.DepartmentId);
+                return RedirectToAction("Details", new { id = areaId });
             }
 
+            ViewBag.Departments = GetDepartmentsSelecItemsData();
+            ViewBag.Employees = GetUsersSelecItemsData();
             return View(model);
         }
 
@@ -78,6 +71,14 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
+            var users = this.users.All()
+                .Select(u => new SelectListItem
+                {
+                    Text = u.UserName,
+                    Value = u.Id
+                });
+
+            ViewBag.Users = users;
             var dbModel = this.areas.GetById(id);
             var fromModel = Mapper.Map<AreaEditModel>(dbModel);
             return View(fromModel);
@@ -87,12 +88,34 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                this.areas.Update(model.Id, model.Name, model.Description);
+                this.areas.Update(model.Id, model.Name, model.Description, model.EmployeeId);
                 TempData["Success"] = "Area successfully created!";
                 return this.Details(model.Id);
             };
 
             return View(model);
+        }
+
+        private IEnumerable<SelectListItem> GetUsersSelecItemsData()
+        {
+            return this.users.All()
+                .Select(e => new SelectListItem
+                {
+                    Text = e.UserName,
+                    Value = e.Id
+                })
+                .ToList();
+        }
+
+        private IEnumerable<SelectListItem> GetDepartmentsSelecItemsData()
+        {
+            return this.departments.All()
+                .Select(d => new SelectListItem
+                {
+                    Text = d.Name,
+                    Value = d.Id.ToString()
+                })
+                .ToList();
         }
     }
 }

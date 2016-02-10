@@ -17,24 +17,24 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.DepartmentId)
                 @Html.DropDownListFor(m => m.DepartmentId,
-               ViewBag.Departments as IEnumerable<SelectListItem>,
-            new { @class = "form-control" })
+                    ViewBag.Departments as IEnumerable<SelectListItem>,
+                    new { @class = "form-control" })
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(m => m.EmployeeId)
                 @Html.DropDownListFor(m => m.EmployeeId,
-               ViewBag.Employees as IEnumerable<SelectListItem>,
-            new { @class = "form-control" })
+                    ViewBag.Employees as IEnumerable<SelectListItem>,
+                    new { @class = "form-control" })
             </div>
-                <div class="form-group">
-                    <div>
-                        <input type="submit" name="Create" value="Create" class="btn btn-primary" />
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-                    </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" name="Create" value="Create" class="btn btn-primary" />
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
                 </div>
-            </fieldset>
-        </div>
+            </div>
+        </fieldset>
+    </div>
 }
 
 <div class="clearfix"></div>

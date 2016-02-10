@@ -14,6 +14,7 @@
             @Html.HiddenFor(m => m.Id)
             @Html.EditorFor(m => m.Name)
             @Html.EditorFor(m => m.Description)
+            @Html.DropDownListFor(m => m.EmployeeId, ViewBag.Users as IEnumerable<SelectListItem>)
             <input type="submit" value="Update" class="btn btn-primary" />
         </fieldset>
     }
