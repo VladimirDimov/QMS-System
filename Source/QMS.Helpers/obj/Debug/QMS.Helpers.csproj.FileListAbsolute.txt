@@ -2,4 +2,3 @@ D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\QMS.Helpers.dll
 D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\QMS.Helpers.pdb
 D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.dll
 D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.pdb
-D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.csprojResolveAssemblyReference.cache
