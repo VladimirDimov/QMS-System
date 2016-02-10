@@ -24,9 +24,9 @@ namespace QMS.Web.Areas.Private.Controllers
         {
             var areas = this.areas.all()
                 .ProjectTo<AreaListModel>()
-                .ToList();
+                .OrderBy(a => a.Name);
 
-            return View(areas.ToPagedList(page, 2));
+            return View(areas);
         }
 
         public ActionResult MyAreas()
@@ -34,9 +34,21 @@ namespace QMS.Web.Areas.Private.Controllers
             var userId = this.User.Identity.GetUserId();
             var myAreas = this.areas.GetByUserId(userId)
                     .ProjectTo<AreaListModel>()
-                    .ToList();
+                    .OrderBy(a => a.Name);
 
             return View("Index", myAreas);
+        }
+
+        public ActionResult GetCurrentUserAreas()
+        {
+            var userId = this.User.Identity.GetUserId();
+            var currentUserAreas = this.areas.GetByUserId(userId)
+                    .ProjectTo<AreaShortModel>()
+                    .OrderBy(a => a.Name)
+                    .ToList();
+
+            return PartialView("_UserAreasDropDownList", currentUserAreas);
+
         }
     }
 }

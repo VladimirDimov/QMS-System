@@ -29,10 +29,14 @@ namespace QMS.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/toastr.css"));
+                      "~/Content/toastr.css",
+                      "~/Content/Gridmvc.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
                       "~/Scripts/toastr.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/gridmvc").Include(
+                     "~/Scripts/gridmvc.js"));
         }
     }
 }

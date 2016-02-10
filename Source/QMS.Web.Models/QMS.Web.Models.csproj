@@ -118,6 +118,7 @@
     <Compile Include="Areas\AreaDetailsModel.cs" />
     <Compile Include="Areas\AreaEditModel.cs" />
     <Compile Include="Areas\AreaListModel.cs" />
+    <Compile Include="Areas\AreaShortModel.cs" />
     <Compile Include="Departments\DepartmentCreateModel.cs" />
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />
     <Compile Include="Departments\DepartmentDetailsModel.cs" />

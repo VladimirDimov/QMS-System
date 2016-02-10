@@ -1,56 +1,35 @@
 ﻿@using PagedList
-@model PagedList.IPagedList<QMS.Web.Models.Areas.AreaListModel>
+@using Microsoft.AspNet.Identity
+@using QMS.Web.Models.Areas
+
+@model IQueryable<AreaListModel>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Areas</h2>
+@using GridMvc.Html
 
-<table class="table table-hover">
-    <caption>Caption</caption>
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
-            </th>
-            <th>Username</th>
-            <th></th>
-        </tr>
-    </thead>
+@Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).Width = "20%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "40%";
+    col.Add(m => m.Employee.UserName).Titled("Employee username")
+    .Filterable(true)
+    .Sortable(true)
+    .RenderValueAs(m => m.Employee == null ? "" : m.Employee.UserName)
+    .Width = "20%";
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Employee.UserName)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
-                    @if (item.Employee != null && this.User.Identity.Name == item.Employee.UserName)
-                {
-                        @Html.ActionLink("Manage", "Manage", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => @Html.ActionLink("Details", "Details", new { id = m.Id }));
 
-    <tfoot>
-        <tr class="center">
-            <td>
-                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-            </td>
-        </tr>
-    </tfoot>
-</table>
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m =>
+    m.Employee != null && m.Employee.Id.ToString() == User.Identity.GetUserId().ToString() ?
+    Html.ActionLink("Manage", "Manage", "Areas", new { id = m.Id, area = "Private" }) : MvcHtmlString.Create(string.Empty));
+}).WithPaging(2, 3)
