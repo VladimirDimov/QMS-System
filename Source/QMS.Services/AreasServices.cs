@@ -36,6 +36,12 @@ namespace QMS.Services
             return areaToAdd.Id;
         }
 
+        public IQueryable<Area> GetByUserId(string userId)
+        {
+            return this.data.Areas.All()
+                .Where(a => a.EmployeeId == userId);
+        }
+
         public Area GetById(int id)
         {
             return this.data.Areas.GetById(id);
