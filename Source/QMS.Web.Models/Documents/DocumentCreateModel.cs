@@ -1,6 +1,7 @@
 ﻿namespace QMS.Web.Models.Documents
 {
     using QMS.Web.Models.Procedures;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public class DocumentCreateModel
@@ -17,6 +18,7 @@
         public string Code { get; set; }
 
         [Required]
+        [DisplayName("Procedure")]
         public int ProcedureId { get; set; }
     }
 }

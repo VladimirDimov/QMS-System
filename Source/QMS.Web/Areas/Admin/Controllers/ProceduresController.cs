@@ -40,7 +40,8 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.procedures.Add(model.Name, model.Description);
+                var procedure = this.procedures.Add(model.Name, model.Description);
+                return RedirectToAction("Details", new { id = procedure.Id });
             }
 
             return View(model);

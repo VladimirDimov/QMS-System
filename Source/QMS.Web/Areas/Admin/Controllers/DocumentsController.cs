@@ -56,16 +56,20 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DocumentCreateModel model)
+        public ActionResult Create(DocumentCreateModel model, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && file != null)
             {
-                var id = this.documents
+                var newDocumentId = this.documents
                     .Add(model.Title, model.Description, model.Code, model.ProcedureId);
+
+                this.SaveDocumentFile(newDocumentId, file);
+
                 TempData["Success"] = "Document successfully created";
-                return RedirectToAction("Details", new { id = id });
+                return RedirectToAction("Details", new { id = newDocumentId });
             }
 
+            ViewBag.Procedures = GetProceduresListItems();
             return View(model);
         }
 

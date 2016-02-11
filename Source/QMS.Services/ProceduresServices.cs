@@ -27,16 +27,18 @@
             return this.data.Procedures.GetById(id);
         }
 
-        public void Add(string name, string description)
+        public Procedure Add(string name, string description)
         {
-            this.data.Procedures
-                .Add(new Procedure
-                {
-                    Name = name,
-                    Description = description,
-                });
+            var newProcedure = new Procedure
+            {
+                Name = name,
+                Description = description,
+            };
 
+            this.data.Procedures.Add(newProcedure);
             this.data.SaveChanges();
+
+            return newProcedure;
         }
 
         public void Update(int id, string name, string description)
