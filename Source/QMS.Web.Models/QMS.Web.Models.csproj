@@ -118,6 +118,7 @@
     <Compile Include="Areas\AreaDetailsModel.cs" />
     <Compile Include="Areas\AreaEditModel.cs" />
     <Compile Include="Areas\AreaListModel.cs" />
+    <Compile Include="Areas\AreaManageModel.cs" />
     <Compile Include="Areas\AreaShortModel.cs" />
     <Compile Include="Departments\DepartmentCreateModel.cs" />
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />
@@ -139,6 +140,11 @@
     <Compile Include="Procedures\ProcedureShortModel.cs" />
     <Compile Include="Procedures\ProcedureUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordFiles\RecordFileCreateEditModel.cs" />
+    <Compile Include="RecordFiles\RecordFileDetailsModel.cs" />
+    <Compile Include="Records\RecordCreateModel.cs" />
+    <Compile Include="Records\RecordDetailsModel.cs" />
+    <Compile Include="Records\RecordEditModel.cs" />
     <Compile Include="Records\RecordListDetails.cs" />
     <Compile Include="Users\UserDetailsModel.cs" />
     <Compile Include="Users\UserShortModel.cs" />

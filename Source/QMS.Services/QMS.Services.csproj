@@ -63,6 +63,7 @@
     <Compile Include="DocumentsServices.cs" />
     <Compile Include="ProceduresServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordesServices.cs" />
     <Compile Include="UsersServices.cs" />
   </ItemGroup>
   <ItemGroup>

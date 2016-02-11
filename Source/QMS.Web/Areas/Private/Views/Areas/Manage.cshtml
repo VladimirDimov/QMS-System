@@ -1,0 +1,19 @@
+﻿@using PagedList
+@model QMS.Web.Models.Areas.AreaManageModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Area.Name</h3>
+<h4>@Model.Area.Description</h4>
+
+@using GridMvc.Html
+
+@Html.ActionLink("Create new record", "Create", "Records",new { area="Private"}, new { @class="btn btn-default"})
+@Html.Grid(Model.Records).Columns(col =>
+{
+    col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "20%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "40%";
+}).WithPaging(2, 3)
+

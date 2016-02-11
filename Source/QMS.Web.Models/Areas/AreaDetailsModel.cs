@@ -22,6 +22,6 @@ namespace QMS.Web.Models.Areas
 
         public UserDetailsModel Employee { get; set; }
 
-        public ICollection<RecordListDetails> Records { get; set; }
+        public ICollection<RecordListModel> Records { get; set; }
     }
 }

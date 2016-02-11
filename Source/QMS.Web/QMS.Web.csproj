@@ -210,6 +210,7 @@
     <Compile Include="Areas\Admin\Controllers\ProceduresController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Private\Controllers\AreasController.cs" />
+    <Compile Include="Areas\Private\Controllers\RecordsController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -264,6 +265,8 @@
     <Content Include="Areas\Private\Views\Areas\Index.cshtml" />
     <Content Include="Grid.mvc.readme" />
     <Content Include="Areas\Private\Views\Areas\My.cshtml" />
+    <Content Include="Areas\Private\Views\Areas\Manage.cshtml" />
+    <Content Include="Areas\Private\Views\Records\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -335,6 +338,7 @@
     <Folder Include="Areas\Private\Models\" />
     <Folder Include="Areas\Private\Views\Shared\" />
     <Folder Include="Files\Documents\" />
+    <Folder Include="Files\Records\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>

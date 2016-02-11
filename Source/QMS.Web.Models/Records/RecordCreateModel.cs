@@ -1,24 +1,16 @@
-﻿using System;
+﻿using QMS.Models;
+using QMS.Web.Models.RecordFiles;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QMS.Models
+namespace QMS.Web.Models.Records
 {
-    public class Record
+    public class RecordCreateModel
     {
-        private ICollection<Note> notes;
-
-        public Record()
-        {
-            this.notes = new HashSet<Note>();
-        }
-
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string Title { get; set; }
@@ -26,13 +18,8 @@ namespace QMS.Models
         [MaxLength(200)]
         public string Description { get; set; }
 
+        [Required]
         public int DocumentId { get; set; }
-
-        public virtual Document Document { get; set; }
-
-        public int? RecordFileId { get; set; }
-
-        public RecordFile RecordFile { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }
@@ -47,12 +34,6 @@ namespace QMS.Models
 
         public int AreaId { get; set; }
 
-        public Area Area { get; set; }
-
-        public ICollection<Note> Notes
-        {
-            get { return this.notes; }
-            set { this.notes = value; }
-        }
+        public RecordFileCreateEditModel File { get; set; }
     }
 }

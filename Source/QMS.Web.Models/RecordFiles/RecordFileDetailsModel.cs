@@ -1,8 +1,8 @@
-﻿namespace QMS.Models
+﻿namespace QMS.Web.Models.RecordFiles
 {
     using System;
 
-    public class File
+    class RecordFileDetailsModel
     {
         public int Id { get; set; }
 

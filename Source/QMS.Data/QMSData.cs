@@ -95,6 +95,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<RecordFile> RecordFiles
+        {
+            get
+            {
+                return this.GetRepository<RecordFile>();
+            }
+        }
+
         public void Dispose()
         {
             if (this.context != null)

@@ -4,7 +4,6 @@
         <li><a href="~/private/areas">All</a></li>
         <li><a href="~/private/areas/myareas">My</a></li>
         <li class="divider"></li>
-        @Html.Action("GetCurrentUserAreas", "Areas")
+        @Html.Action("GetCurrentUserAreas", "Areas", new { area = "Private" })
     </ul>
 </li>
-
