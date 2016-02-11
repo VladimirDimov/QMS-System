@@ -33,5 +33,13 @@
         {
             return new QmsDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Record>()
+            .HasOptional(f => f.RecordFile)
+            .WithRequired(s => s.Record);
+        }
     }
 }

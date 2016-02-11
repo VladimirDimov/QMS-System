@@ -10,10 +10,25 @@
 
 @using GridMvc.Html
 
-@Html.ActionLink("Create new record", "Create", "Records",new { area="Private"}, new { @class="btn btn-default"})
+<a href="~/Private/Areas/Manage/@Model.Area.Id/createrecord" class="btn btn-default">Create new record</a>
+
 @Html.Grid(Model.Records).Columns(col =>
 {
-    col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "20%";
-    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "40%";
-}).WithPaging(2, 3)
+    col.Add(m => m.Status).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Title).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Code).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.FinishingDate).Filterable(true).Sortable(true).Width = "10%";
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => m.RecordFileId == null ?
+    Html.DisplayText("No file") :
+    Ajax.ActionLink("File", "GetRecordFile", "Records", new { id = m.RecordFileId }, new AjaxOptions
+    {
+        HttpMethod = "GET",
+    }));
+}).WithPaging(10, 5).Selectable(true)
 

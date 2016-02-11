@@ -48,10 +48,10 @@ namespace QMS.Web.Models
 
     public class LoginViewModel
     {
+        //[EmailAddress]
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

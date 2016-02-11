@@ -1,0 +1,29 @@
+﻿@model QMS.Web.Models.Records.RecordCreateModel
+@{
+    ViewBag.Title = "CreateRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("CreateRecord", "Areas", FormMethod.Post, new { @class = "" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.DropDownListFor(m => m.DocumentId, ViewBag.Documents as IEnumerable<SelectListItem>)
+    @Html.EditorFor(m => m.Title)
+    @Html.EditorFor(m => m.Description)
+    @Html.EditorFor(m => m.DateCreated)
+    @Html.EditorFor(m => m.FinishingDate)
+    @Html.EnumDropDownListFor(m => m.Status)
+    @Html.EditorFor(m => m.StatusDate, null, new { @class = "datepicker form-control" })
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@section scripts{
+    <script>
+        $('.datepicker').datepicker({
+            format: 'mm-dd-yyyy',
+            dateFormat: 'dd-mm-yy'
+        });
+    </script>
+}

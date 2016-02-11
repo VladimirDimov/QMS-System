@@ -26,7 +26,7 @@
         }
 
         public Record Create(string title, string description, DateTime dateCreated, DateTime? finishingDate,
-            RecordStatus status, DateTime statusDate, int documentId, int areaId)
+            RecordStatus status, DateTime statusDate, int documentId, int areaId, string fileExtension)
         {
             var record = new Record
             {
@@ -37,6 +37,7 @@
                 FinishingDate = finishingDate,
                 Status = status,
                 StatusDate = statusDate,
+                DocumentId = documentId
             };
 
             var recordFile = new RecordFile
@@ -46,12 +47,20 @@
 
             this.data.Records.Add(record);
             this.data.RecordFiles.Add(recordFile);
+            this.data.SaveChanges();
 
-            var filePath = $"~/Files/Records/{recordFile.Id % 1000}";
+            var filePath = $"~/Files/Records/{recordFile.Id % 1000}/{recordFile.Id}-{DateTime.Now.ToShortDateString()}{fileExtension}";
+
+            recordFile.Path = filePath;
             record.RecordFile = recordFile;
             this.data.SaveChanges();
 
             return record;
+        }
+
+        public Record GetById(int id)
+        {
+            return this.data.Records.GetById(id);
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿namespace QMS.Web.Models.RecordFiles
 {
+    using QMS.Models;
+    using Infrastructure.Mappings;
     using System;
 
-    class RecordFileDetailsModel
+    public class RecordFileDetailsModel : IMapFrom<RecordFile>
     {
         public int Id { get; set; }
 

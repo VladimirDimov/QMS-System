@@ -31,5 +31,5 @@
     .Encoded(false)
     .RenderValueAs(m =>
     m.Employee != null && m.Employee.Id.ToString() == User.Identity.GetUserId().ToString() ?
-    Html.ActionLink("Manage", "Manage", "Areas", new { id = m.Id, area = "Private" }) : MvcHtmlString.Create(string.Empty));
+    Html.ActionLink("Manage", "Manage", "Areas", new { id = m.Id, area = "Private" }, null) : MvcHtmlString.Create(string.Empty));
 }).WithPaging(2, 3)

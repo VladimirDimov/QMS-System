@@ -6,21 +6,34 @@
 }
 
 <br />
-<div class="jumbotron">
-    <h1>@Model.Name</h1>
-    <p>@Model.Description</p>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Areas</h3>
-        </div>
-        <div class="panel-body">
-            @foreach (var area in Model.Areas)
-            {
-                <p class="form-control-static">@area.Name</p>
-            }
-        </div>
-    </div>
-    <a href="~/admin/departments/edit?id=@Model.Id" class="btn btn-primary">Edit</a>
-</div>
+<h4>Department details</h4>
+<dl class="dl-horizontal">
+    <dt>@Html.NameFor(m => m.Name)</dt>
+    <dd>@Html.DisplayTextFor(m => m.Name)</dd>
 
+    <dt>@Html.NameFor(m => m.Description)</dt>
+    <dd>@Html.DisplayTextFor(m => m.Description)</dd>
+
+    <dt>@Html.NameFor(m => m.Division.Name)</dt>
+    <dd>@Html.DisplayTextFor(m => m.Division.Name)</dd>
+    <dt></dt>
+    <dd><a href="~/admin/departments/edit?id=@Model.Id" class="btn btn-primary">Edit</a></dd>
+</dl>
+
+<div class="list-group col-md-6 col-md-offset-3">
+    <a href="~/admin/departments" class="list-group-item list-heading">@Html.DisplayNameFor(model => model.Areas) (@Model.Areas.Count)</a>
+    @if (Model.Areas.Count != 0)
+    {
+        foreach (var area in Model.Areas)
+        {
+            <a href="~/admin/areas/details/@area.Id" class="list-group-item">
+                @area.Name
+            </a>
+        }
+    }
+    else
+    {
+        <span>No areas yet to display.</span>
+    }
+</div>
 <div class="clearfix"></div>

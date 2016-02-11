@@ -2,6 +2,7 @@
 {
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
+    using RecordFiles;
     using System;
     using System.Collections.Generic;
 
@@ -24,5 +25,7 @@
         public RecordStatus Status { get; set; }
 
         public ICollection<Note> Notes { get; set; }
+
+        public int? RecordFileId { get; set; }
     }
 }

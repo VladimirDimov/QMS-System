@@ -26,3 +26,21 @@ textarea {
 .notification {
     position: fixed;
 }
+
+.datepicker {
+    background-color: #fff;
+    color: #333;
+}
+
+.ui-datepicker {
+    background-color: #808080;
+}
+
+.timesheet {
+    width: 100%;
+}
+
+.list-heading{
+    font-weight: bold;
+    background-color: #aeadad;
+}

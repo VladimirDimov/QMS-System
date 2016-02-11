@@ -124,8 +124,10 @@
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />
     <Compile Include="Departments\DepartmentDetailsModel.cs" />
     <Compile Include="Departments\DepartmentListResponseModel.cs" />
+    <Compile Include="Departments\DepartmentUpdateModel.cs" />
     <Compile Include="Divisions\DivisionRequestModel.cs" />
     <Compile Include="Divisions\DivisionsDetailsResponseModel.cs" />
+    <Compile Include="Divisions\DivisionShortModel.cs" />
     <Compile Include="Divisions\DivisionsListResponseModel.cs" />
     <Compile Include="Divisions\DivisionsUpdateModel.cs" />
     <Compile Include="Documents\DocumentCreateModel.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Records\RecordDetailsModel.cs" />
     <Compile Include="Records\RecordEditModel.cs" />
     <Compile Include="Records\RecordListDetails.cs" />
+    <Compile Include="Timesheet\TimesheetViewModel.cs" />
     <Compile Include="Users\UserDetailsModel.cs" />
     <Compile Include="Users\UserShortModel.cs" />
   </ItemGroup>

@@ -3,6 +3,10 @@
     using QMS.Services;
     using QMS.Web.Models.Records;
     using System.Web.Mvc;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class RecordsController : Controller
     {
@@ -20,32 +24,25 @@
             return View();
         }
 
-        public ActionResult Create()
+        public FileResult GetRecordFile(int id)
         {
-            return View("Create");
+            var record = this.records.GetById(id);
+            var filePath = record.RecordFile.Path;
+            var filePathMapped = Server.MapPath(filePath);
+            var bytes = System.IO.File.ReadAllBytes(filePathMapped);
+            var extension = System.IO.Path.GetExtension(filePathMapped);
+            var fileName = System.IO.Path.GetFileName(filePathMapped);
+            return File(bytes, extension, $"{ fileName}-{DateTime.UtcNow.ToShortDateString()}");
         }
 
-        public ActionResult Create(RecordCreateModel model)
+        private IEnumerable<SelectListItem> GetDocumentsSelectListItems()
         {
-            if (ModelState.IsValid)
-            {
-                var documentTemplateFilePath = Server.MapPath(this.documents.GetById(model.DocumentId).FilePath);
-                var newRecord = this.records.Create(model.Title, model.Description, model.DateCreated, model.FinishingDate,
-                model.Status, model.StatusDate, model.DocumentId, model.AreaId);
-
-                this.CreateFileOfRecord(this.documents.GetById(model.DocumentId).FilePath, newRecord.RecordFile.Path);
-                return View();
-            }
-
-            return View(model);
-        }
-
-        /// <summary>
-        /// Materializes the file. Copy from templates to existing file path property
-        /// </summary>
-        private void CreateFileOfRecord(string fromPath, string toPath)
-        {
-            System.IO.File.Copy(Server.MapPath(fromPath), Server.MapPath(toPath));
+            return this.documents.All()
+                .Select(d => new SelectListItem
+                {
+                    Text = d.Title,
+                    Value = d.Id.ToString()
+                });
         }
     }
 }
