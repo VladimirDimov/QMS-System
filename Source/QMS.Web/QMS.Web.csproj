@@ -305,6 +305,7 @@
     <Content Include="Areas\Private\Views\Records\Create.cshtml" />
     <Content Include="Areas\Private\Views\Areas\CreateRecord.cshtml" />
     <Content Include="Areas\Private\Views\Areas\Timesheet.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />

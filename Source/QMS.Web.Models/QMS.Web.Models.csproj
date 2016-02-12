@@ -150,6 +150,8 @@
     <Compile Include="Records\RecordListDetails.cs" />
     <Compile Include="Timesheet\TimesheetViewModel.cs" />
     <Compile Include="Users\UserDetailsModel.cs" />
+    <Compile Include="Users\UserEditViewModel.cs" />
+    <Compile Include="Users\UserManageViewModel.cs" />
     <Compile Include="Users\UserShortModel.cs" />
   </ItemGroup>
   <ItemGroup>

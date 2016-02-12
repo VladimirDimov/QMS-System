@@ -91,6 +91,10 @@ namespace QMS.Web.Models
 
         [MaxLength(50)]
         public string LastName { get; set; }
+
+        [MaxLength(30)]
+        [Display(Name = "Phone")]
+        public string PhoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel
