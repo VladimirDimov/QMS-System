@@ -40,7 +40,12 @@ textarea {
     width: 100%;
 }
 
-.list-heading{
+.list-heading {
     font-weight: bold;
     background-color: #aeadad;
+}
+
+body {
+    /*background-image: url("Images/inside-background.jpg");*/
+    /*background-color: azure;*/
 }

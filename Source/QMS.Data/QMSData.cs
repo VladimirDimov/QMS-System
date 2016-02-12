@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QMS.Data.Repository;
 using QMS.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace QMS.Data
 {
@@ -126,6 +128,14 @@ namespace QMS.Data
             }
 
             return (IRepository<T>)this.repositories[typeof(T)];
+        }
+
+        public RoleManager<IdentityRole> RolesManager
+        {
+            get
+            {
+                return new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            }
         }
     }
 }

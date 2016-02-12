@@ -2,3 +2,17 @@ D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\QMS.Helpers.dll
 D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\QMS.Helpers.pdb
 D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.dll
 D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.pdb
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Helpers.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Mvc.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Razor.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Helpers.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Mvc.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.Razor.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Telerik\QMS-System\Source\QMS.Helpers\obj\Debug\QMS.Helpers.csprojResolveAssemblyReference.cache

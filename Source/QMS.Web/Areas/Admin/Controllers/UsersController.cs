@@ -13,22 +13,34 @@
     using System.Web.Mvc;
     using Services;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using System.Net.Mail;
+    using System.ComponentModel;
+    using System.Web.Security;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Data;
 
     public class UsersController : Controller
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
         private UsersServices users;
+        private RolesServices roles;
 
-        public UsersController(UsersServices users)
+        public UsersController(UsersServices users, RolesServices roles)
         {
             this.users = users;
+            this.roles = roles;
         }
 
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return View();
+            var users = this.users.All()
+                .ProjectTo<UserDetailsModel>()
+                .OrderBy(u => u.UserName);
+
+            return View("Index", users);
         }
 
         public ActionResult Register()
@@ -98,9 +110,22 @@
             }
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(string id)
         {
-            return View("Edit");
+            var user = this.users.GetById(id);
+            var userFromModel = Mapper.Map<UserEditViewModel>(user);
+            var userRoles = user.Roles.Select(r => r.RoleId);
+            var allRoles = roles.All()
+                .Where(r => !userRoles.Contains(r.Id))
+                .Select(r => new SelectListItem
+                {
+                    Text = r.Name,
+                    Value = r.Id
+                }).ToList();
+
+            ViewBag.Roles = allRoles;
+
+            return View("Edit", userFromModel);
         }
 
         public ActionResult Update(UserEditViewModel model)
@@ -108,7 +133,8 @@
             if (ModelState.IsValid)
             {
                 var user = this.users.Update(model.Id, model.UserName, model.FirstName, model.LastName, model.PhoneNumber, model.Email);
-                return RedirectToAction("Details", user.Id);
+                TempData["Success"] = "User updated successfully.";
+                return Redirect($"~/admin/users/edit/{user.Id}");
             }
 
             return View("Edit", model);
@@ -120,6 +146,27 @@
             var userFromModel = Mapper.Map<UserDetailsModel>(user);
 
             return View("Details", userFromModel);
+        }
+
+        public ActionResult SetPassword(string userId)
+        {
+            return PartialView("_SetPassword", new UserResetPasswordViewModel { UserId = userId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SetPassword(UserResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = this.users.GetById(model.UserId);
+                user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.Password);
+                TempData["Success"] = "User password has been reset";
+
+                return RedirectToAction("Edit", new { id = model.UserId });
+            }
+
+            return PartialView("_SetPassword", model);
         }
     }
 }

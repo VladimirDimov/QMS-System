@@ -20,6 +20,13 @@ namespace QMS.Web.Areas.Admin
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "QMS.Web.Areas.Admin.Controllers" }
             );
+
+            context.MapRoute(
+                "Admin_Manage_Users",
+                "Admin/users/{id}/{action}",
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "QMS.Web.Areas.Admin.Controllers" }
+            );
         }
     }
 }

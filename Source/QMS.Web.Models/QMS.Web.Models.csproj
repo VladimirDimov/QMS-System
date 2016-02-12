@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -152,6 +152,7 @@
     <Compile Include="Users\UserDetailsModel.cs" />
     <Compile Include="Users\UserEditViewModel.cs" />
     <Compile Include="Users\UserManageViewModel.cs" />
+    <Compile Include="Users\UserResetPasswordViewModel.cs" />
     <Compile Include="Users\UserShortModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Qms.Common\Qms.Common.csproj">
+      <Project>{a32f118a-757e-43c9-a4f2-1648632b9fba}</Project>
+      <Name>Qms.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QMS.Models\QMS.Models.csproj">
       <Project>{b53bc96e-b958-420f-8097-2a28def561f5}</Project>
       <Name>QMS.Models</Name>

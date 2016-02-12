@@ -4,6 +4,8 @@
     using System.Data.Entity;
     using System.Linq;
     using QMS.Data;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class EfGenericRepository<T> : IRepository<T> where T : class
     {

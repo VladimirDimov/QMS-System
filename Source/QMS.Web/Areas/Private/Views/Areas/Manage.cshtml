@@ -18,9 +18,10 @@
     col.Add(m => m.Document.Title).Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Document.Code).Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "10%";
-    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "20%";
     col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.FinishingDate).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.StatusDate).Filterable(true).Sortable(true).Width = "10%";
     col.Add()
     .Sanitized(false)
     .Encoded(false)

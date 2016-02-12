@@ -93,3 +93,5 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\GridMvc.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.pdb

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS.Web.Models", "QMS.Web.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS.Web.Infrastructure", "QMS.Web.Infrastructure\QMS.Web.Infrastructure.csproj", "{E864B5E1-4536-4C98-A70B-6B78951CBCAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qms.Common", "Qms.Common\Qms.Common.csproj", "{A32F118A-757E-43C9-A4F2-1648632B9FBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{E864B5E1-4536-4C98-A70B-6B78951CBCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E864B5E1-4536-4C98-A70B-6B78951CBCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E864B5E1-4536-4C98-A70B-6B78951CBCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32F118A-757E-43C9-A4F2-1648632B9FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32F118A-757E-43C9-A4F2-1648632B9FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32F118A-757E-43C9-A4F2-1648632B9FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32F118A-757E-43C9-A4F2-1648632B9FBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
