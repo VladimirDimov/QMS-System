@@ -145,8 +145,7 @@
     <Compile Include="RecordFiles\RecordFileCreateEditModel.cs" />
     <Compile Include="RecordFiles\RecordFileDetailsModel.cs" />
     <Compile Include="Records\RecordCreateModel.cs" />
-    <Compile Include="Records\RecordDetailsModel.cs" />
-    <Compile Include="Records\RecordEditModel.cs" />
+    <Compile Include="Records\RecordUpdateModel.cs" />
     <Compile Include="Records\RecordListDetails.cs" />
     <Compile Include="Timesheet\TimesheetViewModel.cs" />
     <Compile Include="Users\UserDetailsModel.cs" />

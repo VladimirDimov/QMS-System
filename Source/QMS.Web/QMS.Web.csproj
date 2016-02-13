@@ -309,6 +309,7 @@
     <Content Include="Areas\Private\Views\Areas\Timesheet.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SetPassword.cshtml" />
+    <Content Include="Areas\Private\Views\Records\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />

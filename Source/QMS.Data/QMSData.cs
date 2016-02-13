@@ -134,7 +134,19 @@ namespace QMS.Data
         {
             get
             {
-                return new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                var roleStore = new RoleStore<IdentityRole>(context);
+                var rolesManager = new RoleManager<IdentityRole>(roleStore);
+                return rolesManager;
+            }
+        }
+
+        public UserManager<User> UserManager
+        {
+            get
+            {
+                var userStore = new UserStore<User>(context);
+                var userManager = new UserManager<User>(userStore);
+                return userManager;
             }
         }
     }

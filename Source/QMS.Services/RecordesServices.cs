@@ -28,6 +28,7 @@
         public Record Create(string title, string description, DateTime dateCreated, DateTime? finishingDate,
             RecordStatus status, DateTime statusDate, int documentId, int areaId, string fileExtension)
         {
+            //Create record
             var record = new Record
             {
                 Title = title,
@@ -40,19 +41,23 @@
                 DocumentId = documentId
             };
 
+            this.data.Records.Add(record);
+
+            //Create file to record
             var recordFile = new RecordFile
             {
-                DateUpdated = DateTime.Now
+                DateUpdated = DateTime.Now,
+                RecordId = record.Id
             };
 
-            this.data.Records.Add(record);
             this.data.RecordFiles.Add(recordFile);
+
+            record.RecordFiles.Add(recordFile);
             this.data.SaveChanges();
 
             var filePath = $"~/Files/Records/{recordFile.Id % 1000}/{recordFile.Id}-{DateTime.Now.ToShortDateString()}{fileExtension}";
 
             recordFile.Path = filePath;
-            record.RecordFile = recordFile;
             this.data.SaveChanges();
 
             return record;
@@ -61,6 +66,28 @@
         public Record GetById(int id)
         {
             return this.data.Records.GetById(id);
+        }
+
+        public Record Update(int id, string title, string description, RecordStatus status,
+            DateTime statusDate, DateTime dateCreated, DateTime? finishingDate, int documentId)
+        {
+            var record = this.data.Records.GetById(id);
+
+            record.Title = title;
+            record.Description = description;
+            record.Status = status;
+            record.StatusDate = statusDate;
+            record.DateCreated = dateCreated;
+            record.FinishingDate = finishingDate;
+            record.DocumentId = documentId;
+
+            this.data.SaveChanges();
+            return record;
+        }
+
+        public void Delete(int id)
+        {
+            this.data.Records.Delete(id);
         }
     }
 }

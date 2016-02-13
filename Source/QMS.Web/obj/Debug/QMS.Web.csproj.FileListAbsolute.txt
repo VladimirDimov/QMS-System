@@ -17,6 +17,7 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Antlr3.Runtime.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\AutoMapper.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\EntityFramework.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\EntityFramework.SqlServer.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\GridMvc.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.AspNet.Identity.Core.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -36,7 +37,11 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Common.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Mvc.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Owin.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Data.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Models.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Services.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.Infrastructure.dll
@@ -50,7 +55,9 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.WebPages.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.WebPages.Razor.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\WebActivatorEx.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\WebGrease.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.pdb
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Data.pdb
+D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.pdb
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Models.pdb
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Services.pdb
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.Infrastructure.pdb
@@ -60,6 +67,8 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.CodeDom.Providers.DotNetCompi
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Mvc.xml
+D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.xml
+D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Helpers.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Mvc.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Optimization.xml
@@ -86,12 +95,3 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Microsoft.Owin.Security.MicrosoftAccoun
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.csprojResolveAssemblyReference.cache
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.dll
 D:\Telerik\QMS-System\Source\QMS.Web\obj\Debug\QMS.Web.pdb
-D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.dll
-D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Helpers.pdb
-D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.dll
-D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.dll
-D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.xml
-D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.xml
-D:\Telerik\QMS-System\Source\QMS.Web\bin\GridMvc.dll
-D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.dll
-D:\Telerik\QMS-System\Source\QMS.Web\bin\Qms.Common.pdb

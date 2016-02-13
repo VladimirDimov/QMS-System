@@ -90,7 +90,7 @@
                 var newRecord = this.records.Create(model.Title, model.Description, model.DateCreated, model.FinishingDate,
                 model.Status, model.StatusDate, model.DocumentId, id, fileExtension);
 
-                this.CreateFileOfRecord(this.documents.GetById(model.DocumentId).FilePath, newRecord.RecordFile.Path);
+                this.CreateFileOfRecord(this.documents.GetById(model.DocumentId).FilePath, newRecord.RecordFiles.ToList()[newRecord.RecordFiles.ToList().Count - 1].Path);
 
                 return RedirectToAction("Manage", new { id = id });
             }

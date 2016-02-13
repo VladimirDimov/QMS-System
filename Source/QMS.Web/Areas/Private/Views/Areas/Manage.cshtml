@@ -25,11 +25,11 @@
     col.Add()
     .Sanitized(false)
     .Encoded(false)
-    .RenderValueAs(m => m.RecordFileId == null ?
-    Html.DisplayText("No file") :
-    Ajax.ActionLink("File", "GetRecordFile", "Records", new { id = m.RecordFileId }, new AjaxOptions
-    {
-        HttpMethod = "GET",
-    }));
+    .RenderValueAs(m => Html.ActionLink(
+        "Edit",
+        "Edit",
+        "Records",
+        new { @Area = "Private", id = m.Id }, new { @class="btn btn-default"}))
+    .Width = "10%";
 }).WithPaging(10, 5).Selectable(true)
 

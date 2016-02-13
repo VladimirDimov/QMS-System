@@ -11,12 +11,15 @@ namespace QMS.Models
     public class Record
     {
         private ICollection<Note> notes;
+        private ICollection<RecordFile> recordFiles;
 
         public Record()
         {
             this.notes = new HashSet<Note>();
+            this.recordFiles = new HashSet<RecordFile>();
         }
 
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -29,10 +32,6 @@ namespace QMS.Models
         public int DocumentId { get; set; }
 
         public virtual Document Document { get; set; }
-
-        public int? RecordFileId { get; set; }
-
-        public RecordFile RecordFile { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }
@@ -53,6 +52,12 @@ namespace QMS.Models
         {
             get { return this.notes; }
             set { this.notes = value; }
+        }
+
+        public virtual ICollection<RecordFile> RecordFiles
+        {
+            get { return this.recordFiles; }
+            set { this.recordFiles = value; }
         }
     }
 }

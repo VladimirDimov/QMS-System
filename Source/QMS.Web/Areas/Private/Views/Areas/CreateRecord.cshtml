@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("CreateRecord", "Areas", FormMethod.Post, new { @class = "" }))
+@using (Html.BeginForm("CreateRecord", "Areas", FormMethod.Post))
 {
     <fieldset>
         <legend>Create new record</legend>
@@ -36,7 +36,7 @@
 @section scripts{
     <script>
         $('.datepicker').datepicker({
-            format: 'mm-dd-yyyy',
+            format: 'dd-mm-yyyy',
             dateFormat: 'dd-mm-yy'
         });
     </script>

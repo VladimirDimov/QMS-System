@@ -32,12 +32,13 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.O
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Security.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Owin.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Models.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Data.dll
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\EntityFramework.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Infrastructure.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
@@ -57,12 +58,13 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Models.pdb
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Security.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.pdb
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Models.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Services.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.pdb
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Data.pdb
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\EntityFramework.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Infrastructure.pdb
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
@@ -70,5 +72,3 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\AutoMapper.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.csprojResolveAssemblyReference.cache
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.dll
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\obj\Debug\QMS.Web.Tests.pdb
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.dll
-D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Helpers.pdb

@@ -24,8 +24,8 @@
                     @Html.EditorFor(m => m.LastName, new { @class = "form-control" })
                     @Html.EditorFor(m => m.Email, new { @class = "form-control" })
                     @Html.EditorFor(m => m.PhoneNumber, new { @class = "form-control" })
-                    @Html.ListBox("Roles", ViewBag.Roles as IEnumerable<SelectListItem>, new { @class="form-control"})
                 </div>
+
                 <div class="form-group">
                     <div class="form-group">
                         <input type="submit" value="Update" class="btn btn-primary" />
@@ -38,7 +38,40 @@
 </div>
 
 <fieldset class="form-group col-md-3 col-md-offset-3">
-    <legend>
+    <legend>Manage user roles</legend>
+    @using (Html.BeginForm("AddRoleToUser", "Users", "POST", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", Model.Id)
+            @Html.DropDownList(
+               "roleId",
+               ViewBag.RolesMissing as IEnumerable<SelectListItem>,
+               new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add role" class="btn btn-default" />
+        </div>
+    }
+
+    @using (Html.BeginForm("RemoveUserRole", "Users", "POST", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", Model.Id)
+            @Html.DropDownList(
+               "roleId",
+               ViewBag.RolesAvailable as IEnumerable<SelectListItem>,
+               new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Remove role" class="btn btn-default" />
+        </div>
+    }
+</fieldset>
+
+<fieldset class="form-group col-md-3 col-md-offset-3">
+    <legend class="btn btn-default">
         @Ajax.ActionLink("ResetPassword", "SetPassword", new { userId = Model.Id }, new AjaxOptions
    {
        HttpMethod = "GET",

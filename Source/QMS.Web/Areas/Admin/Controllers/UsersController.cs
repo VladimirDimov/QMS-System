@@ -115,7 +115,7 @@
             var user = this.users.GetById(id);
             var userFromModel = Mapper.Map<UserEditViewModel>(user);
             var userRoles = user.Roles.Select(r => r.RoleId);
-            var allRoles = roles.All()
+            var userMissingRolesSelectListItems = roles.All()
                 .Where(r => !userRoles.Contains(r.Id))
                 .Select(r => new SelectListItem
                 {
@@ -123,11 +123,21 @@
                     Value = r.Id
                 }).ToList();
 
-            ViewBag.Roles = allRoles;
+            var userRolesSelectListItems = user.Roles.Select(r => new SelectListItem
+            {
+                Text = this.roles.GetRoleNameById(r.RoleId),
+                Value = r.RoleId
+            })
+            .ToList();
+
+            ViewBag.RolesMissing = userMissingRolesSelectListItems;
+            ViewBag.RolesAvailable = userRolesSelectListItems;
 
             return View("Edit", userFromModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update(UserEditViewModel model)
         {
             if (ModelState.IsValid)
@@ -138,14 +148,6 @@
             }
 
             return View("Edit", model);
-        }
-
-        public ActionResult Details(string id)
-        {
-            var user = this.users.GetById(id);
-            var userFromModel = Mapper.Map<UserDetailsModel>(user);
-
-            return View("Details", userFromModel);
         }
 
         public ActionResult SetPassword(string userId)
@@ -167,6 +169,34 @@
             }
 
             return PartialView("_SetPassword", model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddRoleToUser(string roleId, string userId)
+        {
+            if (ModelState.IsValid)
+            {
+                this.roles.AddRoleToUser(userId, roleId);
+                TempData["Success"] = $"Role added to user!";
+                return this.Edit(userId);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveUserRole(string roleId, string userId)
+        {
+            if (ModelState.IsValid)
+            {
+                this.roles.RemoveUserRole(userId, roleId);
+                TempData["Success"] = $"Role added to user!";
+                return this.Edit(userId);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

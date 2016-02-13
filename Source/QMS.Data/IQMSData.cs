@@ -35,5 +35,7 @@ namespace QMS.Data
         int SaveChanges();
 
         RoleManager<IdentityRole> RolesManager { get; }
+
+        UserManager<User> UserManager { get; }
     }
 }
