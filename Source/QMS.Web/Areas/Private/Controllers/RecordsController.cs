@@ -36,8 +36,8 @@
             var filePathMapped = Server.MapPath(filePath);
             var bytes = System.IO.File.ReadAllBytes(filePathMapped);
             var extension = System.IO.Path.GetExtension(filePathMapped);
-            var fileName = System.IO.Path.GetFileName(filePathMapped);
-            return File(bytes, extension, $"{ fileName}-{DateTime.UtcNow.ToShortDateString()}");
+            var fileName = System.IO.Path.GetFileNameWithoutExtension(filePathMapped);
+            return File(bytes, extension, $"{ fileName}-{DateTime.UtcNow.ToShortDateString()}{extension}");
         }
 
         public ActionResult Edit(int id)
@@ -64,7 +64,7 @@
 
                 if (file != null)
                 {
-                    //TODO: Add new FilerecordsServices and add the logic of creating new record file there.
+                    //TODO: Add new FileRecordsServices and add the logic of creating new record file there.
                 }
 
                 TempData["Success"] = $"Record with id {record.Id} successfully updated.";

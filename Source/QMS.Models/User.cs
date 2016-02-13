@@ -26,7 +26,7 @@
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        public ICollection<Area> Areas
+        public virtual ICollection<Area> Areas
         {
             get { return this.areas; }
             set { this.areas = value; }

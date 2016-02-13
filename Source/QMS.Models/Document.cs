@@ -19,7 +19,7 @@
 
         public int ProcedureId { get; set; }
 
-        public Procedure Procedure { get; set; }
+        public virtual Procedure Procedure { get; set; }
 
         [Required]
         [MaxLength(20)]

@@ -46,9 +46,9 @@ namespace QMS.Models
 
         public int AreaId { get; set; }
 
-        public Area Area { get; set; }
+        public virtual Area Area { get; set; }
 
-        public ICollection<Note> Notes
+        public virtual ICollection<Note> Notes
         {
             get { return this.notes; }
             set { this.notes = value; }

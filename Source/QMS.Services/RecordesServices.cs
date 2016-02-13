@@ -88,6 +88,7 @@
         public void Delete(int id)
         {
             this.data.Records.Delete(id);
+            this.data.SaveChanges();
         }
     }
 }
