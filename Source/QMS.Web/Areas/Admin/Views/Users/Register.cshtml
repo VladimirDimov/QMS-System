@@ -1,0 +1,28 @@
+﻿@model QMS.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+@using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "form-horizontal col-md-6 col-md-offset-3", role = "form" }))
+{
+    <legend>@ViewBag.Title</legend>
+    @Html.AntiForgeryToken()
+    <fieldset>
+        @Html.EditorFor(m => m.UserName)
+        @Html.EditorFor(m => m.Email)
+        @Html.EditorFor(m => m.Password)
+        @Html.EditorFor(m => m.ConfirmPassword)
+        @Html.EditorFor(m => m.FirstName)
+        @Html.EditorFor(m => m.LastName)
+        @Html.EditorFor(m => m.PhoneNumber)
+        <div class="form-group">
+            <input type="submit" name="name" value="Register" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}
+<div class="clearfix"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

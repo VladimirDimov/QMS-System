@@ -22,7 +22,7 @@ namespace QMS.Models
         [MaxLength(200)]
         public string Name { get; set; }
 
-        public ICollection<User> Users
+        public virtual ICollection<User> Users
         {
             get { return this.users; }
             set { this.users = value; }

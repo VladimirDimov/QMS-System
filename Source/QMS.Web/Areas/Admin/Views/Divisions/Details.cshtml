@@ -1,25 +1,34 @@
 ﻿@model QMS.Web.Models.Divisions.DivisionsDetailsResponseModel
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <br />
-<div class="jumbotron">
-    <h1>@Model.Name</h1>
-    <p>@Model.Description</p>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Departments</h3>
-        </div>
+<h4>Division details</h4>
+<dl class="dl-horizontal">
+    <dt>@Html.NameFor(m => m.Name)</dt>
+    <dd>@Html.DisplayTextFor(m => m.Name)</dd>
 
-        <div class="panel-body">
-            @foreach (var department in Model.Departments)
-            {
-                <p class="form-control-static">@department.Name</p>
-            }
-        </div>
-    </div>
-    <a href="~/admin/divisions/edit?id=@Model.Id" class="btn btn-primary">Edit</a>
+    <dt>@Html.NameFor(m => m.Description)</dt>
+    <dd>@Html.DisplayTextFor(m => m.Description)</dd>
+    <dt></dt>
+    <dd><a href="~/admin/divisions/edit?id=@Model.Id" class="btn btn-primary">Edit</a></dd>
+</dl>
+
+<div class="list-group col-md-6 col-md-offset-3">
+    <a href="~/admin/departments" class="list-group-item list-heading">@Html.DisplayNameFor(model => model.Departments) (@Model.Departments.Count)</a>
+    @if (Model.Departments.Count != 0)
+    {
+        foreach (var department in Model.Departments)
+        {
+            <a href="~/admin/departments/details/@department.Id" class="list-group-item">
+                @department.Name
+            </a>
+        }
+    }
+    else
+    {
+        <span>No documents yet to display.</span>
+    }
 </div>
-
 <div class="clearfix"></div>

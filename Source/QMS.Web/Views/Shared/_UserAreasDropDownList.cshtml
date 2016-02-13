@@ -1,0 +1,6 @@
+﻿@model IEnumerable<QMS.Web.Models.Areas.AreaShortModel>
+
+@foreach (var m in Model)
+{
+    <li><a href="~/private/areas/manage/@m.Id">@m.Name</a></li>
+}

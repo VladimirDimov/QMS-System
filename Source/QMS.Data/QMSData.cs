@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QMS.Data.Repository;
 using QMS.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace QMS.Data
 {
@@ -55,6 +57,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<Procedure> Procedures
+        {
+            get
+            {
+                return this.GetRepository<Procedure>();
+            }
+        }
+
         public IRepository<Note> Notes
         {
             get
@@ -87,6 +97,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<RecordFile> RecordFiles
+        {
+            get
+            {
+                return this.GetRepository<RecordFile>();
+            }
+        }
+
         public void Dispose()
         {
             if (this.context != null)
@@ -110,6 +128,26 @@ namespace QMS.Data
             }
 
             return (IRepository<T>)this.repositories[typeof(T)];
+        }
+
+        public RoleManager<IdentityRole> RolesManager
+        {
+            get
+            {
+                var roleStore = new RoleStore<IdentityRole>(context);
+                var rolesManager = new RoleManager<IdentityRole>(roleStore);
+                return rolesManager;
+            }
+        }
+
+        public UserManager<User> UserManager
+        {
+            get
+            {
+                var userStore = new UserStore<User>(context);
+                var userManager = new UserManager<User>(userStore);
+                return userManager;
+            }
         }
     }
 }

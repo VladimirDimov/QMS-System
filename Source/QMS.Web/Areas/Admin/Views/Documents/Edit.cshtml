@@ -1,0 +1,29 @@
+﻿@model QMS.Web.Models.Documents.DocumentUpdateModel
+@{
+    ViewBag.Title = "Edit";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Update", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <legend>Edit document</legend>
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.EditorFor(m => m.Title)
+        @Html.EditorFor(m => m.Description)
+        @Html.EditorFor(m => m.Code)
+        @Html.DropDownListFor(
+           m => m.ProcedureId,
+           ViewBag.Procedures as IEnumerable<SelectListItem>,
+           new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="file" name="file" class="form-control" id="file" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary" />
+        <a href="~/admin/documents" class="btn btn-default">Back to list</a>
+    </div>
+}

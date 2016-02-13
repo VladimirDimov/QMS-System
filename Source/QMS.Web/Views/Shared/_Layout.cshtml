@@ -22,14 +22,38 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        @Html.Partial("_PrivateMenuOptions")
+                    }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li><a href="~/admin/">Administration</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Administration <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="~/admin/divisions">Divisions</a></li>
+                            <li><a href="~/admin/departments">Departments</a></li>
+                            <li><a href="~/admin/areas">Areas</a></li>
+                            <li><a href="~/admin/procedures">Procedures</a></li>
+                            <li><a href="~/admin/documents">Documents</a></li>
+                            <li><a href="~/admin/users">Users</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
+    @if (TempData["Success"] != null)
+    {
+        @Html.Partial("Notifications/_Success")
+    }
+    else if (TempData["Error"] != null)
+    {
+        @Html.Partial("Notifications/_Error")
+    }
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -40,7 +64,15 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/gridmvc")
+    @Scripts.Render("~/bundles/timesheet")
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('.alert').slideDown(1000);
+            $('.alert').fadeOut(2000);
+        });
+    </script>
 </body>
 </html>

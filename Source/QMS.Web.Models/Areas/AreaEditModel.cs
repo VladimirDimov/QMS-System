@@ -2,6 +2,7 @@
 using QMS.Web.Infrastructure.Mappings;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -20,5 +21,8 @@ namespace QMS.Web.Models.Areas
         [MaxLength(200)]
         [UIHint("TextArea")]
         public string Description { get; set; }
+
+        [DisplayName("Employee username")]
+        public string EmployeeId { get; set; }
     }
 }

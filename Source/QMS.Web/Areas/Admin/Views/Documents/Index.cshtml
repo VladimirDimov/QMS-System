@@ -1,0 +1,35 @@
+﻿@model IEnumerable<QMS.Web.Models.Documents.DocumentListModel>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@Html.ActionLink("Create", "Create", null, new { @class = "btn btn-default" })
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Code)</th>
+            <th>@Html.DisplayNameFor(m => m.Title)</th>
+            <th>@Html.DisplayNameFor(m => m.Description)</th>
+            <th>@Html.DisplayNameFor(m => m.LastUpdate)</th>
+            <th>@Html.DisplayNameFor(m => m.Procedure.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(item => m.Code)</td>
+                <td>@Html.DisplayFor(item => m.Title)</td>
+                <td>@Html.DisplayFor(item => m.Description)</td>
+                <td>@Html.DisplayFor(item => m.LastUpdate)</td>
+                <td><a href="~/admin/procedures/details/@m.Procedure.Id">@m.Procedure.Name</a></td>
+                <td>@Html.ActionLink("Details", "Details", new { id = m.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.Count() == 0)
+{
+    <h4>No documents yet to display.</h4>
+}

@@ -6,11 +6,13 @@
     using System.Collections.Generic;
     using AutoMapper;
     using System;
+    using System.ComponentModel;
 
     public class DivisionsDetailsResponseModel : IMapFrom<Division>
     {
         public int Id { get; set; }
 
+        [DisplayName("Division name")]
         public string Name { get; set; }
 
         public string Description { get; set; }

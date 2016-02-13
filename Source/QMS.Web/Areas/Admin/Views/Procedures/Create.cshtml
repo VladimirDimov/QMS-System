@@ -1,0 +1,15 @@
+﻿@model QMS.Web.Models.Procedures.ProcedureCreateModel
+
+@{
+    ViewBag.Title = "Create";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h1 class="text-center"><span class="label label-default">Procedures</span></h1>
+
+@using (Html.BeginForm("Create", null, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(m => m.Name)
+    @Html.EditorFor(m => m.Description)
+    <input type="submit" value="Create" class="btn btn-primary" />
+}

@@ -1,0 +1,9 @@
+﻿@model DateTime?
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "form-label" })
+    <div>
+        @Html.TextBoxFor(m => m, new { @class = "datepicker" })
+        @Html.ValidationMessageFor(m => m)
+    </div>
+</div>

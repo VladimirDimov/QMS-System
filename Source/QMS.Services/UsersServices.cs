@@ -21,5 +21,30 @@ namespace QMS.Services
         {
             return this.data.Users.All();
         }
+
+        public User Update(
+            string id,
+            string userName,
+            string firstName,
+            string lastName,
+            string phoneNumber,
+            string email)
+        {
+            var user = this.data.Users.GetById(id);
+
+            user.UserName = userName;
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.PhoneNumber = phoneNumber;
+            user.Email = email;
+
+            this.data.SaveChanges();
+            return user;
+        }
+
+        public User GetById(string id)
+        {
+            return this.data.Users.GetById(id);
+        }
     }
 }

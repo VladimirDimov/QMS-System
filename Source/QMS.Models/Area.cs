@@ -22,7 +22,7 @@
         [MaxLength(200)]
         public string Description { get; set; }
 
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
 
         public virtual User Employee { get; set; }
 

@@ -1,0 +1,41 @@
+﻿@model QMS.Web.Models.Documents.DocumentDetailsModel
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Document details</h4>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Title)</dt>
+        <dd>@Html.DisplayTextFor(m => m.Title)</dd>
+        <dt>@Html.DisplayNameFor(m => m.Code)</dt>
+        <dd>@Html.DisplayTextFor(m => m.Code)</dd>
+        <dt>@Html.DisplayNameFor(m => m.Description)</dt>
+        <dd>@Html.DisplayTextFor(m => m.Description)</dd>
+        <dt>@Html.DisplayNameFor(m => m.LastUpdate)</dt>
+        <dd>@Html.DisplayTextFor(m => m.LastUpdate)</dd>
+        <dt>File</dt>
+        <dd>
+            @if (Model.FilePath != null)
+            {
+                @Ajax.ActionLink(
+               "File",
+               "GetFile",
+               new { id = Model.Id },
+               new AjaxOptions
+               {
+                   HttpMethod = "Get"
+               })
+            }
+            else
+            {
+                <span>No file</span>
+            }
+        </dd>
+    </dl>
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Back to list", "Index", null, new { @class = "btn btn-default" })
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model QMS.Web.Models.Documents.DocumentCreateModel
+@{
+    ViewBag.Title = "Create";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Documents", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <legend>Create new document</legend>
+    <div class="form-group">
+        @Html.EditorFor(m => m.Title)
+        @Html.EditorFor(m => m.Description)
+        @Html.EditorFor(m => m.Code)
+        @Html.LabelFor(m => m.ProcedureId)
+        @Html.DropDownListFor(
+       m => m.ProcedureId,
+       ViewBag.Procedures as IEnumerable<SelectListItem>,
+       new { @class = "form-control" })
+
+        <div class="form-group">
+            <label for="file">File</label>
+            <input type="file" name="file" class="form-control" id="file" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a href="~/admin/documents" class="btn btn-default">Back to list</a>
+    </div>
+}
+

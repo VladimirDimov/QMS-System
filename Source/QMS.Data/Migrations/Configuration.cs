@@ -59,9 +59,14 @@ namespace QMS.Data.Migrations
         {
             var store = new RoleStore<IdentityRole>(context);
             var manager = new RoleManager<IdentityRole>(store);
-            var role = new IdentityRole { Name = "admin" };
 
-            manager.Create(role);
+            var roles = new string[] { "admin", "manage-all-areas" };
+
+            foreach (var role in roles)
+            {
+                var newRole = new IdentityRole { Name = role };
+                manager.Create(newRole);
+            }
         }
     }
 }

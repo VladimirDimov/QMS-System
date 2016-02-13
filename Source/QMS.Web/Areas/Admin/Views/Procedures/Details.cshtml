@@ -1,0 +1,60 @@
+﻿@model QMS.Web.Models.Procedures.ProcedureDetailsModel
+
+@{
+    ViewBag.Title = "Details";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h1 class="text-center"><span class="label label-default">Procedures</span></h1>
+
+<div>
+    <h4>Procedure details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+
+        </dt>
+
+        <dd>
+
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</p>
+
+<div class="list-group col-md-6 col-md-offset-3">
+    <a href="#" class="list-group-item active">@Html.DisplayNameFor(model => model.Documents) (@Model.Documents.Count)</a>
+    @if (Model.Documents.Count != 0)
+    {
+        foreach (var doc in Model.Documents)
+        {
+            <a href="~/admin/documents/details/@doc.Id" class="list-group-item">
+                @doc.Title
+            </a>
+        }
+    }
+    else
+    {
+        <span>No documents yet to display.</span>
+    }
+</div>
+<div class="clearfix"></div>
+

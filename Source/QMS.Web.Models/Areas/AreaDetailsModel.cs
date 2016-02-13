@@ -18,10 +18,10 @@ namespace QMS.Web.Models.Areas
 
         public string Description { get; set; }
 
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
 
         public UserDetailsModel Employee { get; set; }
 
-        public ICollection<RecordListDetails> Records { get; set; }
+        public ICollection<RecordListModel> Records { get; set; }
     }
 }

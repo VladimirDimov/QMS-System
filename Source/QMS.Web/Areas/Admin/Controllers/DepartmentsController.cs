@@ -6,6 +6,8 @@
     using QMS.Services;
     using QMS.Web.Models.Departments;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -65,7 +67,18 @@
                 return this.HttpNotFound($"Invalid department id: {id}");
             }
 
+            ViewBag.Divisions = this.GetDivisionsListItems();
             return View(Mapper.Map(department, typeof(Department), typeof(DepartmentCreateModel)));
+        }
+
+        private IEnumerable<SelectListItem> GetDivisionsListItems()
+        {
+            return this.divisions.GetAll()
+                .Select(d => new SelectListItem
+                {
+                    Text = d.Name,
+                    Value = d.Id.ToString()
+                });
         }
 
         public ActionResult Details(int id)
@@ -84,19 +97,25 @@
             return View("Details", fromModel);
         }
 
-        public ActionResult Update(DepartmentCreateModel model)
+        public ActionResult Update(DepartmentUpdateModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                this.departments.Update(model.Id, model.Name, model.Description);
-                TempData["Success"] = "Department successfully updated";
-                return this.Details(model.Id);
+                try
+                {
+                    this.departments.Update(model.Id, model.Name, model.Description, model.DivisionId);
+                    TempData["Success"] = "Department successfully updated";
+                    return this.Details(model.Id);
+                }
+                catch (Exception ex)
+                {
+                    TempData["Error"] = ex.Message;
+                    return this.Index();
+                }
             }
-            catch (Exception ex)
-            {
-                TempData["Error"] = ex.Message;
-                return this.Index();
-            }
+
+            ViewBag.Divisions = this.GetDivisionsListItems();
+            return View(model);
         }
     }
 }

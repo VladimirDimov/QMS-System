@@ -1,7 +1,7 @@
 ﻿@model QMS.Web.Models.Departments.DepartmentCreateModel
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-6 col-md-offset-3">
@@ -9,7 +9,7 @@
     @using (Ajax.BeginForm("Update", new AjaxOptions
     {
         HttpMethod = "POST",
-        
+
     }))
     {
         @Html.AntiForgeryToken()
@@ -17,7 +17,11 @@
         @Html.HiddenFor(m => m.Id)
         @Html.EditorFor(m => m.Name)
         @Html.EditorFor(m => m.Description)
-        @Html.LabelFor(m => m.DivisionId)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DivisionId, new { @class="form-label"})
+            @Html.DropDownListFor(m => m.DivisionId, ViewBag.Divisions as IEnumerable<SelectListItem>, new { @class = "form-control" })
+        </div>
         <br />
         <input type="submit" value="Update" class="btn btn-primary" />
     }

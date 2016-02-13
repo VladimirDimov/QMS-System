@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QMS.Models
 {
-    class Procedure
+    public class Procedure
     {
         private ICollection<Document> documents;
 
@@ -24,8 +24,6 @@ namespace QMS.Models
 
         [MaxLength(200)]
         public string Description { get; set; }
-
-        public string FilePath { get; set; }
 
         public virtual ICollection<Document> Documents
         {

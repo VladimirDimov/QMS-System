@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QMS.Data.Repository;
 using QMS.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace QMS.Data
 {
@@ -26,6 +28,14 @@ namespace QMS.Data
 
         IRepository<Record> Records { get; }
 
+        IRepository<Procedure> Procedures { get; }
+
+        IRepository<RecordFile> RecordFiles { get; }
+
         int SaveChanges();
+
+        RoleManager<IdentityRole> RolesManager { get; }
+
+        UserManager<User> UserManager { get; }
     }
 }

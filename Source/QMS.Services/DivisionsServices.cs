@@ -22,15 +22,18 @@ namespace QMS.Services
             return this.data.Divisions.All();
         }
 
-        public void Create(string name, string description)
+        public Division Create(string name, string description)
         {
-            this.data.Divisions.Add(new Division
+            var newDivision = new Division
             {
                 Name = name,
                 Description = description
-            });
+            };
 
+            this.data.Divisions.Add(newDivision);
             this.data.SaveChanges();
+
+            return newDivision;
         }
 
         public Division GetById(int id)

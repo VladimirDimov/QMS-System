@@ -1,0 +1,35 @@
+﻿@using PagedList
+@using Microsoft.AspNet.Identity
+@using QMS.Web.Models.Areas
+
+@model IQueryable<AreaListModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Areas</h2>
+@using GridMvc.Html
+
+@Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).Width = "20%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "40%";
+    col.Add(m => m.Employee.UserName).Titled("Employee username")
+    .Filterable(true)
+    .Sortable(true)
+    .RenderValueAs(m => m.Employee == null ? "" : m.Employee.UserName)
+    .Width = "20%";
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => @Html.ActionLink("Details", "Details", new { id = m.Id }));
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m =>
+    m.Employee != null && m.Employee.Id.ToString() == User.Identity.GetUserId().ToString() ?
+    Html.ActionLink("Manage", "Manage", "Areas", new { id = m.Id, area = "Private" }, null) : MvcHtmlString.Create(string.Empty));
+}).WithPaging(2, 3)

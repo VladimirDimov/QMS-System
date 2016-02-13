@@ -1,0 +1,85 @@
+﻿@model QMS.Web.Models.Users.UserEditViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-3">
+    @using (Html.BeginForm("Update", null))
+    {
+        @Html.AntiForgeryToken()
+        <form class="form-horizontal col-md-3">
+            <fieldset>
+                <legend>Legend</legend>
+                <div class="form-group">
+                    @Html.HiddenFor(m => m.Id)
+
+                    <div class="form-group">
+                        <label class="control-label" for="UserName">@Html.DisplayNameFor(m => m.UserName)</label>
+                        <input type="text" id="UserName" value="@Model.UserName" disabled class="form-control" />
+                        @Html.HiddenFor(m => m.UserName)
+                    </div>
+
+                    @Html.EditorFor(m => m.FirstName, new { @class = "form-control" })
+                    @Html.EditorFor(m => m.LastName, new { @class = "form-control" })
+                    @Html.EditorFor(m => m.Email, new { @class = "form-control" })
+                    @Html.EditorFor(m => m.PhoneNumber, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                        <a href="~/admin/users" class="btn btn-default">Back to list</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    }
+</div>
+
+<fieldset class="form-group col-md-3 col-md-offset-3">
+    <legend>Manage user roles</legend>
+    @using (Html.BeginForm("AddRoleToUser", "Users", "POST", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", Model.Id)
+            @Html.DropDownList(
+               "roleId",
+               ViewBag.RolesMissing as IEnumerable<SelectListItem>,
+               new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add role" class="btn btn-default" />
+        </div>
+    }
+
+    @using (Html.BeginForm("RemoveUserRole", "Users", "POST", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.AntiForgeryToken()
+            @Html.Hidden("userId", Model.Id)
+            @Html.DropDownList(
+               "roleId",
+               ViewBag.RolesAvailable as IEnumerable<SelectListItem>,
+               new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Remove role" class="btn btn-default" />
+        </div>
+    }
+</fieldset>
+
+<fieldset class="form-group col-md-3 col-md-offset-3">
+    <legend class="btn btn-default">
+        @Ajax.ActionLink("ResetPassword", "SetPassword", new { userId = Model.Id }, new AjaxOptions
+   {
+       HttpMethod = "GET",
+       UpdateTargetId = "reset-password",
+       InsertionMode = InsertionMode.Replace,
+   })
+    </legend>
+    <div id="reset-password"></div>
+</fieldset>
+
+<div class="clearfix"></div>

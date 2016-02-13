@@ -1,0 +1,35 @@
+﻿@using PagedList
+@model QMS.Web.Models.Areas.AreaManageModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Area.Name</h3>
+<h4>@Model.Area.Description</h4>
+
+@using GridMvc.Html
+
+<a href="~/Private/Areas/Manage/@Model.Area.Id/createrecord" class="btn btn-default">Create new record</a>
+
+@Html.Grid(Model.Records).Columns(col =>
+{
+    col.Add(m => m.Status).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Title).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Code).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "20%";
+    col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.FinishingDate).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.StatusDate).Filterable(true).Sortable(true).Width = "10%";
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink(
+        "Edit",
+        "Edit",
+        "Records",
+        new { @Area = "Private", id = m.Id }, new { @class="btn btn-default"}))
+    .Width = "10%";
+}).WithPaging(10, 5).Selectable(true)
+

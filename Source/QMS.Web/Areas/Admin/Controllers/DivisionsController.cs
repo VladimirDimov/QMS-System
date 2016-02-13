@@ -42,10 +42,11 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.divisions.Create(model.Name, model.Description);
+                var newDivision = this.divisions.Create(model.Name, model.Description);
+                return RedirectToAction("Details", new { id = newDivision.Id });
             }
 
-            return View();
+            return View(model);
         }
 
         public ActionResult Details(int id)
