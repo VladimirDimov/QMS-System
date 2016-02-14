@@ -136,6 +136,8 @@
     <Compile Include="Documents\DocumentShortModel.cs" />
     <Compile Include="Documents\DocumentUpdateModel.cs" />
     <Compile Include="ManageViewModels.cs" />
+    <Compile Include="Notes\NoteDetailsViewModel.cs" />
+    <Compile Include="Notes\NoteCreateViewModel.cs" />
     <Compile Include="Procedures\ProcedureCreateModel.cs" />
     <Compile Include="Procedures\ProcedureDetailsModel.cs" />
     <Compile Include="Procedures\ProcedureListModel.cs" />

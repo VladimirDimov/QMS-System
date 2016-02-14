@@ -44,6 +44,16 @@
             return View("Index", myAreas);
         }
 
+        //public ActionResult Upcoming()
+        //{
+        //    var userId = this.User.Identity.GetUserId();
+        //    var myAreas = this.areas.GetByUserId(userId)
+        //            .ProjectTo<AreaListModel>()
+        //            .OrderBy(a => a.Name);
+
+        //    return View("Index", myAreas);
+        //}
+
         public ActionResult GetCurrentUserAreas()
         {
             var userId = this.User.Identity.GetUserId();
@@ -57,19 +67,29 @@
 
         public ActionResult Manage(int id)
         {
-            var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
             var recordsViewModel = this.records.GetByAreaId(id)
                 .ProjectTo<RecordListModel>()
                 .OrderBy(r => r.DateCreated);
 
-            var areaManageViewModel = new AreaManageModel
-            {
-                Area = areaViewModel,
-                Records = recordsViewModel
-            };
+            return this.LoadManagePage(id, recordsViewModel);
+        }
 
-            return View("Manage", areaManageViewModel);
+        public ActionResult Missed(int id)
+        {
+            var recordsViewModel = this.records.GetPassedByAreaId(id)
+                .ProjectTo<RecordListModel>()
+                .OrderBy(r => r.DateCreated);
+
+            return this.LoadManagePage(id, recordsViewModel);
+        }
+
+        public ActionResult Upcoming(int id)
+        {
+            var recordsViewModel = this.records.GetUpcomingByAreaId(id)
+                .ProjectTo<RecordListModel>()
+                .OrderBy(r => r.DateCreated);
+
+            return this.LoadManagePage(id, recordsViewModel);
         }
 
         public ActionResult CreateRecord()
@@ -139,6 +159,20 @@
             };
 
             return View("Timesheet", timesheetViewModel);
+        }
+
+        private ActionResult LoadManagePage(int id, IOrderedQueryable<RecordListModel> recordsViewModel)
+        {
+            var area = this.areas.GetById(id);
+            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
+
+            var areaManageViewModel = new AreaManageModel
+            {
+                Area = areaViewModel,
+                Records = recordsViewModel
+            };
+
+            return View("Manage", areaManageViewModel);
         }
     }
 }

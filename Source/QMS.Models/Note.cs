@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace QMS.Models
+﻿namespace QMS.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public class Note
     {
         public int Id { get; set; }
@@ -12,6 +13,8 @@ namespace QMS.Models
         [Required]
         [MaxLength(200)]
         public string Text { get; set; }
+
+        public DateTime DateCreated { get; set; }
 
         public int RecordId { get; set; }
 

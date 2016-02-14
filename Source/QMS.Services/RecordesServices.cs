@@ -85,6 +85,22 @@
             return record;
         }
 
+        public IQueryable<Record> GetPassedByAreaId(int id)
+        {
+            return this.data.Records.All()
+                .Where(r => r.AreaId == id)
+                .Where(r => r.Status == RecordStatus.Active)
+                .Where(r => r.FinishingDate != null && r.FinishingDate < DateTime.UtcNow);
+        }
+
+        public IQueryable<Record> GetUpcomingByAreaId(int id)
+        {
+            return this.data.Records.All()
+                .Where(r => r.AreaId == id)
+                .Where(r => r.Status == RecordStatus.Active)
+                .Where(r => r.FinishingDate != null && r.FinishingDate > DateTime.UtcNow);
+        }
+
         public void Delete(int id)
         {
             this.data.Records.Delete(id);
