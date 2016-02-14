@@ -57,19 +57,29 @@
 
         public ActionResult Manage(int id)
         {
-            var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
-            var recordsViewModel = this.records.GetByAreaId(id)
+            var records = this.records.GetByAreaId(id)
                 .ProjectTo<RecordListModel>()
                 .OrderBy(r => r.DateCreated);
 
-            var areaManageViewModel = new AreaManageModel
-            {
-                Area = areaViewModel,
-                Records = recordsViewModel
-            };
+            return this.ShowRecords(id, records);
+        }
 
-            return View("Manage", areaManageViewModel);
+        public ActionResult GetMissedRecords(int id)
+        {
+            var records = this.records.GetMissedByAreaId(id)
+                .ProjectTo<RecordListModel>()
+                .OrderBy(r => r.DateCreated);
+
+            return this.ShowRecords(id, records);
+        }
+
+        public ActionResult GetUpcomingRecords(int id)
+        {
+            var records = this.records.GetUpcomingByAreaId(id)
+                .ProjectTo<RecordListModel>()
+                .OrderBy(r => r.DateCreated);
+
+            return this.ShowRecords(id, records);
         }
 
         public ActionResult CreateRecord()
@@ -139,6 +149,19 @@
             };
 
             return View("Timesheet", timesheetViewModel);
+        }
+
+        private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListModel> recordsListViewModel)
+        {
+            var area = this.areas.GetById(id);
+            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
+            var areaManageViewModel = new AreaManageModel
+            {
+                Area = areaViewModel,
+                Records = recordsListViewModel
+            };
+
+            return View("Manage", areaManageViewModel);
         }
     }
 }
