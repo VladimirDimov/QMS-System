@@ -11,9 +11,9 @@
 @using GridMvc.Html
 
 <a href="~/Private/Areas/Manage/@Model.Area.Id/createrecord" class="btn btn-default">Create new record</a>
-<a href="~/private/areas/Manage/@Model.Area.Id">All</a>
-<a href="~/private/areas/GetUpcomingRecords/@Model.Area.Id">Upcoming</a>
-<a href="~/private/areas/GetMissedRecords/@Model.Area.Id">Missed</a>
+<a href="~/private/areas/Manage/@Model.Area.Id" class="btn btn-default">All</a>
+<a href="~/private/areas/GetUpcomingRecords/@Model.Area.Id" class="btn btn-default">Upcoming</a>
+<a href="~/private/areas/GetMissedRecords/@Model.Area.Id" class="btn btn-default">Missed</a>
 
 @Html.Grid(Model.Records).Columns(col =>
 {
