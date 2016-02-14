@@ -389,6 +389,7 @@
     <Folder Include="Areas\Private\Views\Notes\" />
     <Folder Include="Files\Documents\" />
     <Folder Include="Files\Records\" />
+    <Folder Include="FIlters\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>

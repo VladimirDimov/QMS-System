@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace QMS.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class DivisionsController : Controller
     {
         private DivisionsServices divisions;
