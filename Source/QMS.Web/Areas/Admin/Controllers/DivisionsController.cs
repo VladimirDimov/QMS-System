@@ -57,7 +57,8 @@ namespace QMS.Web.Areas.Admin.Controllers
 
             if (division != null)
             {
-                return View(Mapper.Map(division, typeof(Division), typeof(DivisionsDetailsResponseModel)));
+                var divisionFromModel = Mapper.Map<DivisionsDetailsResponseModel>(division);
+                return View("Details", divisionFromModel);
             }
             else
             {
@@ -73,7 +74,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 
             if (division != null)
             {
-                return View(Mapper.Map(division, typeof(Division), typeof(DivisionsUpdateModel)));
+                return View("Edit", Mapper.Map(division, typeof(Division), typeof(DivisionsUpdateModel)));
             }
             else
             {

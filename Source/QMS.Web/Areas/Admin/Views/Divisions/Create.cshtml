@@ -6,10 +6,7 @@
 
 <div class="col-md-6 col-md-offset-3">
     <h1>Create Division</h1>
-    @using (Ajax.BeginForm("Create", new AjaxOptions
-    {
-        HttpMethod = "POST"
-    }))
+    @using (Html.BeginForm("Create", "Divisions", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 

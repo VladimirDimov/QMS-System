@@ -22,13 +22,14 @@ namespace QMS.Services
             return this.data.Areas.All();
         }
 
-        public int Add(string name, string description, int departmentId)
+        public int Add(string name, string description, int departmentId, string employeeId)
         {
             var areaToAdd = new Area
             {
                 Name = name,
                 Description = description,
-                DepartmentId = departmentId
+                DepartmentId = departmentId,
+                EmployeeId = employeeId
             };
 
             this.data.Areas.Add(areaToAdd);

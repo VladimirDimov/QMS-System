@@ -6,11 +6,7 @@
 
 <div class="col-md-6 col-md-offset-3">
     <h1>Edit Department</h1>
-    @using (Ajax.BeginForm("Update", new AjaxOptions
-    {
-        HttpMethod = "POST",
-
-    }))
+    @using (Html.BeginForm("Update", "Departments", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -19,7 +15,7 @@
         @Html.EditorFor(m => m.Description)
 
         <div class="form-group">
-            @Html.LabelFor(m => m.DivisionId, new { @class="form-label"})
+            @Html.LabelFor(m => m.DivisionId, new { @class = "form-label" })
             @Html.DropDownListFor(m => m.DivisionId, ViewBag.Divisions as IEnumerable<SelectListItem>, new { @class = "form-control" })
         </div>
         <br />

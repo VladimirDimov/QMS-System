@@ -53,7 +53,7 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var areaId = this.areas.Add(model.Name, model.Description, model.DepartmentId);
+                var areaId = this.areas.Add(model.Name, model.Description, model.DepartmentId, model.EmployeeId);
                 return RedirectToAction("Details", new { id = areaId });
             }
 
