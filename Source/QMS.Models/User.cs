@@ -12,10 +12,12 @@
     public class User : IdentityUser
     {
         private ICollection<Area> areas;
+        private ICollection<Message> messages;
 
         public User()
         {
             this.areas = new HashSet<Area>();
+            this.messages = new HashSet<Message>();
         }
 
         public DateTime? RegisterDate { get; set; }
@@ -30,6 +32,12 @@
         {
             get { return this.areas; }
             set { this.areas = value; }
+        }
+
+        public virtual ICollection<Message> Messages
+        {
+            get { return this.messages; }
+            set { this.messages = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
