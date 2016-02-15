@@ -92,7 +92,6 @@
         [ValidateAntiForgeryToken]
         public ActionResult CreateRecord(int id, RecordCreateModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var documentTemplateFilePath = Server.MapPath(this.documents.GetById(model.DocumentId).FilePath);

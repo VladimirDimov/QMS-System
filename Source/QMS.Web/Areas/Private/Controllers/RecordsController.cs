@@ -16,12 +16,18 @@
         private RecordsServices records;
         private DocumentsServices documents;
         private AreasServices areas;
+        private RecordFilesServices recordFiles;
 
-        public RecordsController(RecordsServices records, DocumentsServices documents, AreasServices areas)
+        public RecordsController(
+            RecordsServices records,
+            DocumentsServices documents,
+            AreasServices areas,
+            RecordFilesServices recordFiles)
         {
             this.records = records;
             this.documents = documents;
             this.areas = areas;
+            this.recordFiles = recordFiles;
         }
 
         public ActionResult Index()
@@ -64,7 +70,20 @@
 
                 if (file != null)
                 {
-                    //TODO: Add new FileRecordsServices and add the logic of creating new record file there.
+                    var recordFile = this.recordFiles.Create(model.Id);
+                    var extension = file.FileName.Substring(file.FileName.LastIndexOf("."));
+                    var savePath = $"~/Files/Records/{recordFile.Id % 1000}/{model.Id}-{DateTime.UtcNow.ToShortDateString()}{extension}";
+                    var saveDirPathMapped = System.IO.Path.GetDirectoryName(Server.MapPath(savePath));
+
+                    if (!System.IO.Directory.Exists(saveDirPathMapped))
+                    {
+                        System.IO.Directory.CreateDirectory(saveDirPathMapped);
+                    }
+
+                    file.SaveAs(Server.MapPath(savePath));
+                    this.recordFiles.SetPath(recordFile, savePath);
+
+                    this.records.UpdateFile(model.Id, recordFile.Id);
                 }
 
                 TempData["Success"] = $"Record with id {record.Id} successfully updated.";

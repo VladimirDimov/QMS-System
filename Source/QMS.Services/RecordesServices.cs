@@ -107,6 +107,14 @@
             return missed;
         }
 
+        public void UpdateFile(int recordId, int recordFileId)
+        {
+            var record = this.data.Records.GetById(recordId);
+            var recordFile = this.data.RecordFiles.GetById(recordFileId);
+            record.RecordFiles.Add(recordFile);
+            this.data.SaveChanges();
+        }
+
         public void Delete(int id)
         {
             this.data.Records.Delete(id);
