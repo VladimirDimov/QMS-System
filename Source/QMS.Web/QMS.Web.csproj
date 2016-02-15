@@ -214,7 +214,7 @@
     <Compile Include="Areas\Private\Controllers\RecordsController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\CompanyAreasController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -386,7 +386,7 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Divisions\Index.cshtml" />
     <Content Include="Views\Departments\Index.cshtml" />
-    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\CompanyAreas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
