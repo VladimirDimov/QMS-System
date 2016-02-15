@@ -1,0 +1,23 @@
+﻿@model QMS.Web.Models.Users.UserDetailsModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<dl class="dl-horizontal">
+    <dt>Username</dt>
+    <dd>@Model.UserName</dd>
+    <dt>First name</dt>
+    <dd>@Model.FirstName</dd>
+    <dt>Last name</dt>
+    <dd>@Model.LastName</dd>
+    <dt>Email</dt>
+    <dd>@Model.Email</dd>
+    <dt>Areas</dt>
+    <dd>
+        @foreach (var area in Model.Areas)
+        {
+            <span>@Html.ActionLink(area.Name, "Details", "CompanyAreas", new { id = area.Id }, null)</span>
+        }
+    </dd>
+</dl>

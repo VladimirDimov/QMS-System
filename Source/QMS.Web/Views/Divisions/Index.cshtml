@@ -1,0 +1,33 @@
+﻿@using PagedList
+@model IQueryable<QMS.Web.Models.Divisions.DivisionsListResponseModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using GridMvc.Html
+
+<div class="col-md-10 col-md-offset-1">
+    <h1 class="text-left"><span class="label label-default">Divisions</span></h1>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Description).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("Departments", "Index", "Departments", new { divisionId = m.Id }, null))
+    .SetWidth(20);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("Employees", "Index", "Users", new { divisionId = m.Id }, null))
+    .SetWidth(20);
+}).WithPaging(10, 5).Selectable(false)
+</div>
+
+<div class="clearfix"></div>
+

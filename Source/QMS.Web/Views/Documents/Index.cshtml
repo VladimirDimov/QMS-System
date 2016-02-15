@@ -1,0 +1,31 @@
+﻿@using PagedList
+@model IQueryable<QMS.Web.Models.Documents.DocumentListModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using GridMvc.Html
+
+<div class="col-md-10 col-md-offset-1">
+    <h1 class="text-left"><span class="label label-default">Documents</span></h1>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Description).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Procedure.Name).Titled("Procedure").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add(m => m.LastUpdate).Titled("Date updated").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("File", "GetFile", "Documents", new { documentId = m.Id, area = "" }, null))
+    .SetWidth(20);
+}).WithPaging(10, 5).Selectable(false)
+</div>
+
+<div class="clearfix"></div>
+
+

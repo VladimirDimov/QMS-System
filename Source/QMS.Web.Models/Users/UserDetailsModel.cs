@@ -2,6 +2,8 @@
 {
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
+    using Areas;
+    using System.Collections.Generic;
 
     public class UserDetailsModel : IMapFrom<User>
     {
@@ -18,5 +20,7 @@
         public bool PhoneNumberConfirmed { get; set; }
 
         public string UserName { get; set; }
+
+        public ICollection<AreaShortModel> Areas { get; set; }
     }
 }

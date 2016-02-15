@@ -1,0 +1,95 @@
+﻿@model QMS.Web.Models.Records.RecordUpdateModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Update", "Records", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset class="col-md-4">
+        <legend>Record details</legend>
+        <div class="form-group">
+            @Html.ActionLink(
+               "File",
+               "GetRecordFile",
+               new { id = Model.Id },
+                new { @class = "btn btn-default" })
+        </div>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+
+
+
+        <div class="form-group">
+            <input type="file" name="file" value=" " id="file" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DocumentId, new { @class = "form-label" })
+            @Html.DropDownListFor(
+                           m => m.DocumentId,
+                           ViewBag.Documents as IEnumerable<SelectListItem>,
+                           new { @class = "form-control" })
+        </div>
+
+        @Html.EditorFor(m => m.Title)
+        @Html.EditorFor(m => m.Description)
+        @Html.EditorFor(m => m.DateCreated)
+        @Html.EditorFor(m => m.FinishingDate)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Status, new { @class = "form-label" })
+            @Html.EnumDropDownListFor(m => m.Status, new { @class = "form-control" })
+        </div>
+        @Html.EditorFor(m => m.StatusDate, null, new { @class = "datepicker form-control" })
+
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </fieldset>
+}
+
+<div class="col-md-3">
+    <fieldset>
+        <legend>Add note</legend>
+        <div id="create-note">
+            @Ajax.ActionLink(
+       "Add note",
+       "AddNote",
+       "Notes",
+       new { recordId = Model.Id },
+       new AjaxOptions { HttpMethod = "Get", UpdateTargetId = "create-note" },
+       new { @class = "btn btn-default" })
+        </div>
+    </fieldset>
+</div>
+
+<div class="col-md-3">
+    <fieldset>
+        <legend>Notes</legend>
+        @foreach (var note in Model.Notes)
+        {
+            <div class="well well-lg">
+                <p>@note.Title</p>
+                <p>@note.Text</p>
+                @Ajax.ActionLink("Delete", "DeleteNote", "Notes", new { recordId = Model.Id, noteId = note.Id }, new AjaxOptions
+           {
+               HttpMethod = "Post",
+               OnComplete = "refresh()"
+           })
+            </div>
+        }
+    </fieldset>
+</div>
+
+<div class="clearfix"></div>
+@section scripts{
+    <script>
+        $('.datepicker').datepicker({
+            format: 'dd-mm-yyyy',
+            dateFormat: 'dd-mm-yy'
+        });
+
+        function refresh() {
+            location.reload(true);
+        }
+    </script>
+}
+

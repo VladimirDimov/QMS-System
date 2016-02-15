@@ -1,0 +1,20 @@
+﻿@model QMS.Web.Models.Notes.NoteCreateModel
+
+@{
+    ViewBag.Title = "_AddNote";
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddNote", "Notes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+    <fieldset>
+        @Html.HiddenFor(m => m.RecordId, new { value = ViewBag.RecordId })
+        @Html.EditorFor(m => m.Title)
+        @Html.EditorFor(m => m.Text)
+
+        <input type="submit" name="name" value="Add" class="btn btn-primary" />
+    </fieldset>
+}

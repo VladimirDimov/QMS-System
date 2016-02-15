@@ -1,0 +1,30 @@
+﻿@using PagedList
+@model IQueryable<QMS.Web.Models.Users.UserDetailsModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using GridMvc.Html
+
+<div class="col-md-10 col-md-offset-1">
+    <h1 class="text-left"><span class="label label-default">Users</span></h1>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.UserName).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.FirstName).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.LastName).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.PhoneNumber).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Email).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("Details", "Details", "Users", new { area = "", id = m.Id }, null))
+    .SetWidth(20);
+}).WithPaging(10, 5).Selectable(false)
+</div>
+
+<div class="clearfix"></div>
+
