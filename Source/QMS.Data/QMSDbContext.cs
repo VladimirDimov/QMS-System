@@ -29,6 +29,8 @@
 
         public virtual IDbSet<RecordFile> RecordFiles { get; set; }
 
+        public virtual IDbSet<Message> Messages { get; set; }
+
         public static QmsDbContext Create()
         {
             return new QmsDbContext();

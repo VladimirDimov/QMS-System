@@ -105,6 +105,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<Message> Messages
+        {
+            get
+            {
+                return this.GetRepository<Message>();
+            }
+        }
+
         public void Dispose()
         {
             if (this.context != null)

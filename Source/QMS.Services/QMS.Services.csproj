@@ -91,6 +91,7 @@
     <Compile Include="DepartmentsServices.cs" />
     <Compile Include="DivisionsServices.cs" />
     <Compile Include="DocumentsServices.cs" />
+    <Compile Include="MessagesServices.cs" />
     <Compile Include="NotesServices.cs" />
     <Compile Include="ProceduresServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

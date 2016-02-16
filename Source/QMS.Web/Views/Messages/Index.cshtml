@@ -8,6 +8,7 @@
 
 <div class="container">
     @Html.DropDownList("Users", ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
+    <input type="text" id="title" name="title" class="form-control" />
     <textarea type="text" id="message" class="form-control"></textarea>
     <input type="button" id="sendmessage" value="Send" class="btn btn-default" />
     <input type="hidden" id="displayname" />
@@ -20,10 +21,10 @@
             // Declare a proxy to reference the hub.
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
-            chat.client.broadcastMessage = function (name, message) {
+            chat.client.broadcastMessage = function (senderUsername, title, content, sentOn) {
                 // Html encode display name and message.
-                var encodedName = $('<div />').text(name).html();
-                var encodedMsg = $('<div />').text(message).html();
+                var encodedName = $('<div />').text(senderUsername).html();
+                var encodedMsg = $('<div />').text(title + content + sentOn).html();
                 // Add the message to the page.
                 $('#discussion').append('<li><strong>' + encodedName
                     + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
@@ -35,8 +36,10 @@
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
                     var receiverId = $('#receiverId').val();
-                    var message = $('#message').val();
-                    chat.server.send(receiverId, message);
+                    var content = $('#message').val();
+                    var title = $('#title').val();
+
+                    chat.server.send(receiverId, title, content);
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });
