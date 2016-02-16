@@ -5,18 +5,24 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 <div class="col-md-6 col-md-offset-3">
 
     @using (Html.BeginForm("Update", "Areas", FormMethod.Post))
     {
-        <fieldset>
-            <legend>Edit Area</legend>
-            @Html.HiddenFor(m => m.Id)
-            @Html.EditorFor(m => m.Name)
-            @Html.EditorFor(m => m.Description)
-            @Html.DropDownListFor(m => m.EmployeeId, ViewBag.Users as IEnumerable<SelectListItem>)
-            <input type="submit" value="Update" class="btn btn-primary" />
-        </fieldset>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+
+        @Html.EditorFor(m => m.Name)
+        @Html.EditorFor(m => m.Description)
+        @Html.DropDownListFor(m => m.EmployeeId, ViewBag.Users as IEnumerable<SelectListItem>)
+        <input type="submit" value="Update" class="btn btn-primary" />
     }
 </div>
 

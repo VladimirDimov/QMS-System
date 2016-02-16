@@ -4,10 +4,17 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Documents</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+
 @using (Html.BeginForm("Update", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <legend>Edit document</legend>
     <div class="form-group">
         @Html.HiddenFor(m => m.Id)
 

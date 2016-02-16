@@ -4,19 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 @using (Html.BeginForm("CreateRecord", "Areas", FormMethod.Post))
 {
-    <fieldset>
-        <legend>Create new record</legend>
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.DocumentId, new { @class = "form-label" })
-            @Html.DropDownListFor(
+    <div class="form-group">
+        @Html.LabelFor(m => m.DocumentId, new { @class = "form-label" })
+        @Html.DropDownListFor(
                            m => m.DocumentId,
                            ViewBag.Documents as IEnumerable<SelectListItem>,
                            new { @class = "form-control" })
-        </div>
+    </div>
 
         @Html.EditorFor(m => m.Title)
         @Html.EditorFor(m => m.Description)
@@ -30,7 +35,6 @@
         @Html.EditorFor(m => m.StatusDate, null, new { @class = "datepicker form-control" })
 
         <input type="submit" value="Create" class="btn btn-default" />
-    </fieldset>
 }
 
 @section scripts{

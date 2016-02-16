@@ -56,5 +56,11 @@ namespace QMS.Services
             area.EmployeeId = employeeId;
             this.data.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            this.data.Areas.Delete(id);
+            this.data.SaveChanges();
+        }
     }
 }

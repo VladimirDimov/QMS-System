@@ -4,10 +4,17 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Documents</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+
 @using (Html.BeginForm("Create", "Documents", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <legend>Create new document</legend>
     <div class="form-group">
         @Html.EditorFor(m => m.Title)
         @Html.EditorFor(m => m.Description)

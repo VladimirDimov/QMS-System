@@ -8,7 +8,14 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1 class="text-left"><span class="label label-default">Areas</span></h1>
+
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+    </h1>
+</div>
+
+
 @using GridMvc.Html
 
 @Html.Grid(Model).Columns(col =>

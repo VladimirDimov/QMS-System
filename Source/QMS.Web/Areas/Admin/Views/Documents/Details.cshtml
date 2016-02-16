@@ -4,8 +4,15 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Documents</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+
 <div>
-    <h4>Document details</h4>
     <dl class="dl-horizontal">
         <dt>@Html.DisplayNameFor(m => m.Title)</dt>
         <dd>@Html.DisplayTextFor(m => m.Title)</dd>
@@ -19,14 +26,10 @@
         <dd>
             @if (Model.FilePath != null)
             {
-                @Ajax.ActionLink(
-               "File",
-               "GetFile",
+                @Html.ActionLink(
+               "File", "GetFile",
                new { id = Model.Id },
-               new AjaxOptions
-               {
-                   HttpMethod = "Get"
-               })
+               new { @class = "btn btn-default" })
             }
             else
             {

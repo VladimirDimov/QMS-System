@@ -5,35 +5,39 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 @using (Html.BeginForm("Create", "Areas"))
 {
     @Html.AntiForgeryToken()
     <div class="col-md-6 col-md-offset-3">
-        <fieldset>
-            <legend>Create new area</legend>
-            @Html.EditorFor(m => m.Name)
-            @Html.EditorFor(m => m.Description)
+        @Html.EditorFor(m => m.Name)
+        @Html.EditorFor(m => m.Description)
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.DepartmentId)
-                @Html.DropDownListFor(m => m.DepartmentId,
+        <div class="form-group">
+            @Html.LabelFor(m => m.DepartmentId)
+            @Html.DropDownListFor(m => m.DepartmentId,
                     ViewBag.Departments as IEnumerable<SelectListItem>,
                     new { @class = "form-control" })
-            </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.EmployeeId)
-                @Html.DropDownListFor(m => m.EmployeeId,
+        <div class="form-group">
+            @Html.LabelFor(m => m.EmployeeId)
+            @Html.DropDownListFor(m => m.EmployeeId,
                     ViewBag.Employees as IEnumerable<SelectListItem>,
                     new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <div>
+                <input type="submit" name="Create" value="Create" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
             </div>
-            <div class="form-group">
-                <div>
-                    <input type="submit" name="Create" value="Create" class="btn btn-primary" />
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
-                </div>
-            </div>
-        </fieldset>
+        </div>
     </div>
 }
 

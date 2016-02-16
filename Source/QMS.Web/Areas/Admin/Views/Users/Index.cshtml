@@ -5,13 +5,18 @@
     ViewBag.Title = "Index";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<br />
-@Html.ActionLink("Register", "Register", null, new { @class = "btn btn-default" })
 
-<h2>Users</h2>
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Users</span>
+    </h1>
+</div>
+
+@Html.ActionLink("Register", "Register", null, new { @class = "btn btn-default pull-right" })
+
 @using GridMvc.Html
 
-<div class="col-md-10 col-md-offset-1">
+<div>
     @Html.Grid(Model).Columns(col =>
 {
     col.Add(m => m.UserName).Titled("Username").Filterable(true).Sortable(true).Width = "20%";
@@ -24,7 +29,7 @@
     .Sanitized(false)
     .Encoded(false)
     .RenderValueAs(m => Html.ActionLink("Manage", "Edit", "Users", new { id = m.Id, area = "Admin" }, null));
-}).WithPaging(10, 5)
+}).WithPaging(10, 5).Selectable(false).Named("Users")
 </div>
 
 <div class="clearfix"></div>

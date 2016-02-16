@@ -4,13 +4,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Users</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+
 <div class="col-md-3">
     @using (Html.BeginForm("Update", null))
     {
         @Html.AntiForgeryToken()
         <form class="form-horizontal col-md-3">
             <fieldset>
-                <legend>Legend</legend>
+                <legend>User info</legend>
                 <div class="form-group">
                     @Html.HiddenFor(m => m.Id)
 

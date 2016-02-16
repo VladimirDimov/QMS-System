@@ -117,5 +117,12 @@
             ViewBag.Divisions = this.GetDivisionsListItems();
             return View(model);
         }
+
+        public ActionResult Delete(int id)
+        {
+            this.departments.Delete(id);
+            TempData["Success"] = "Department successfully deleted";
+            return RedirectToAction("Index");
+        }
     }
 }

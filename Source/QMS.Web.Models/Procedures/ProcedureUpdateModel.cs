@@ -1,8 +1,10 @@
 ﻿namespace QMS.Web.Models.Procedures
 {
+    using QMS.Models;
+    using Infrastructure.Mappings;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProcedureUpdateModel
+    public class ProcedureUpdateModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }
 

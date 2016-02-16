@@ -19,6 +19,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Request.IsAuthenticated)
+                {
+                    <span id="new-message-note">@Html.Action("HasNewMessages", "Messages", new { area = "" })</span>
+                   
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -50,12 +55,6 @@
                     </li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li id="new-message-note">
-                        @if (Request.IsAuthenticated)
-                        {
-                            @Html.Action("HasNewMessages", "Messages", new { area = ""})
-                        }
-                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

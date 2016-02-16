@@ -5,8 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>@Model.Area.Name</h3>
-<h4>@Model.Area.Description</h4>
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+<p><strong>@Model.Area.Name</strong></p>
+<p><em>@Model.Area.Description</em></p>
 
 @using GridMvc.Html
 
@@ -22,9 +29,9 @@
     col.Add(m => m.Document.Code).Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "20%";
-    col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Width = "10%";
-    col.Add(m => m.FinishingDate).Filterable(true).Sortable(true).Width = "10%";
-    col.Add(m => m.StatusDate).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Format("{0:dd/MM/yyyy}").SetWidth(10);
+    col.Add(m => m.FinishingDate).Filterable(true).Sortable(true).Format("{0:dd/MM/yyyy}").SetWidth(10);
+    col.Add(m => m.StatusDate).Filterable(true).Sortable(true).Format("{0:dd/MM/yyyy}").SetWidth(10);
     col.Add()
     .Sanitized(false)
     .Encoded(false)

@@ -36,7 +36,7 @@ namespace QMS.Web.Areas.Admin.Controllers
                 .ProjectTo<AreaListModel>()
                 .ToList();
 
-            return View(allAreas);
+            return View("Index", allAreas);
         }
 
         public ActionResult Create()
@@ -79,9 +79,9 @@ namespace QMS.Web.Areas.Admin.Controllers
                 });
 
             ViewBag.Users = users;
-            var dbModel = this.areas.GetById(id);
-            var fromModel = Mapper.Map<AreaEditModel>(dbModel);
-            return View(fromModel);
+            var area = this.areas.GetById(id);
+            var areaViewModel = Mapper.Map<AreaEditModel>(area);
+            return View(areaViewModel);
         }
 
         public ActionResult Update(AreaEditModel model)
@@ -94,6 +94,14 @@ namespace QMS.Web.Areas.Admin.Controllers
             };
 
             return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            this.areas.Delete(id);
+
+            TempData["Success"] = "Area successfully deleted";
+            return View("Index");
         }
 
         private IEnumerable<SelectListItem> GetUsersSelecItemsData()

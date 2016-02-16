@@ -4,8 +4,14 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Departments</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 <div class="col-md-6 col-md-offset-3">
-    <h1>Edit Department</h1>
     @using (Html.BeginForm("Update", "Departments", FormMethod.Post))
     {
         @Html.AntiForgeryToken()

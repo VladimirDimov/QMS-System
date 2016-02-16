@@ -4,7 +4,23 @@
     ViewBag.Title = "Edit";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<h1 class="text-center"><span class="label label-default">Procedures</span></h1>
 
-<h2>Update</h2>
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Procedures</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
+@using (Html.BeginForm("Update", "Procedures", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
+    @Html.EditorFor(m => m.Name)
+    @Html.EditorFor(m => m.Description)
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+}
 

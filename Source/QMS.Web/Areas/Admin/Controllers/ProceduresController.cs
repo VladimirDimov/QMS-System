@@ -47,9 +47,12 @@ namespace QMS.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View();
+            var procedure = this.procedures.GetById(id);
+            var procedureViewModel = Mapper.Map<ProcedureUpdateModel>(procedure);
+
+            return View("Edit", procedureViewModel);
         }
 
         [HttpPost]
@@ -59,9 +62,10 @@ namespace QMS.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 this.procedures.Update(model.Id, model.Name, model.Description);
+                TempData["Success"] = "Procedure successfully updated";
             }
 
-            return View(model);
+            return View("Edit", model);
         }
 
         public ActionResult Details(int id)

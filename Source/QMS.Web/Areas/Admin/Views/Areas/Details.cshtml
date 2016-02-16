@@ -5,9 +5,14 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Areas</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 <div>
-    <h4>Area details</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -40,5 +45,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger" })
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
 </p>

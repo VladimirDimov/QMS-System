@@ -4,15 +4,24 @@
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<div class="col-md-6 col-md-offset-3">
-    <h1>Create Division</h1>
-    @using (Html.BeginForm("Create", "Divisions", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Divisions</span>
+        <small>Create</small>
+    </h1>
+</div>
 
-        @Html.EditorFor(m => m.Name)
-        @Html.EditorFor(m => m.Description, new { @class = "form-control" })
-        <input type="submit" value="Create" class="btn btn-primary" />
-    }
+
+<div class="col-md-6 col-md-offset-3">
+    <fieldset>
+        @using (Html.BeginForm("Create", "Divisions", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.EditorFor(m => m.Name)
+            @Html.EditorFor(m => m.Description, new { @class = "form-control" })
+            <input type="submit" value="Create" class="btn btn-primary" />
+        }
+    </fieldset>
 </div>
 <div class="clearfix"></div>

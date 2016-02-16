@@ -8,8 +8,14 @@
 
 @using GridMvc.Html
 
-<div class="col-md-10 col-md-offset-1">
-    <h1 class="text-left"><span class="label label-default">Divisions</span></h1>
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Divisions</span>
+    </h1>
+</div>
+
+
+<div>
     @Html.Grid(Model).Columns(col =>
 {
     col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);

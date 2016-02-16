@@ -3,12 +3,17 @@
     ViewBag.Title = "Register";
 }
 
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Users</span>
+        <small>@ViewBag.Title</small>
+    </h1>
+</div>
+
 
 @using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "form-horizontal col-md-6 col-md-offset-3", role = "form" }))
 {
-    <legend>@ViewBag.Title</legend>
     @Html.AntiForgeryToken()
-    <fieldset>
         @Html.EditorFor(m => m.UserName)
         @Html.EditorFor(m => m.Email)
         @Html.EditorFor(m => m.Password)
@@ -19,7 +24,6 @@
         <div class="form-group">
             <input type="submit" name="name" value="Register" class="btn btn-primary" />
         </div>
-    </fieldset>
 }
 <div class="clearfix"></div>
 

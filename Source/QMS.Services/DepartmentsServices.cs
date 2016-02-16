@@ -50,5 +50,11 @@ namespace QMS.Services
             dbModel.DivisionId = divisionId;
             this.data.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            this.data.Departments.Delete(id);
+            this.data.SaveChanges();
+        }
     }
 }

@@ -3,7 +3,13 @@
     ViewBag.Title = "Index";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<h1 class="text-center"><span class="label label-default">Procedures</span></h1>
+
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Procedures</span>
+    </h1>
+</div>
+
 @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-default" })
 <table class="table table-responsive table-hover">
     <thead>

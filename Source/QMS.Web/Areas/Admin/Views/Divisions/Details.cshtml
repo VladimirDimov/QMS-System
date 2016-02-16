@@ -3,8 +3,14 @@
     ViewBag.Title = "Details";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<br />
-<h4>Division details</h4>
+
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Divisions</span>
+        <small>Details</small>
+    </h1>
+</div>
+
 <dl class="dl-horizontal">
     <dt>@Html.NameFor(m => m.Name)</dt>
     <dd>@Html.DisplayTextFor(m => m.Name)</dd>
