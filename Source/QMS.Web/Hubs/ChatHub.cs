@@ -13,6 +13,7 @@
     public class ChatHub : Hub
     {
         private static Dictionary<string, string> dict = new Dictionary<string, string>();
+        //TODO: Make dictionary concurrent (use: ConcurrentDictionary)
         private MessagesServices messages;
 
         //public ChatHub()
