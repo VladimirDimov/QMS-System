@@ -43,8 +43,12 @@
 
             if (dict.ContainsKey(receiverId))
             {
-                Clients.Client(dict[receiverId]).broadcastMessage(message.Sender.UserName,
+                var receiverClient = Clients.Client(dict[receiverId]);
+                if (receiverClient != null)
+                {
+                    receiverClient.broadcastMessage(Context.User.Identity.Name,
                     message.Title, message.Content, message.CreatedOn);
+                }
             }
             else
             {

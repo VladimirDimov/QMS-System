@@ -50,5 +50,21 @@ namespace QMS.Web.Controllers
 
             return PartialView("_ChatHistory", messages);
         }
+
+        public ActionResult HasNewMessages()
+        {
+            var user = this.users.GetById(this.User.Identity.GetUserId());
+            if (user.HasNewMessages)
+            {
+                return PartialView("_NewMessagesNote");
+            }
+
+            return null;
+        }
+
+        public void SetUserToNoNewMessages()
+        {
+            this.users.SetUserToNoNewMessages(this.User.Identity.GetUserId());
+        }
     }
 }

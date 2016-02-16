@@ -46,5 +46,15 @@ namespace QMS.Services
         {
             return this.data.Users.GetById(id);
         }
+
+        public void SetUserToNoNewMessages(string id)
+        {
+            var user = this.data.Users.GetById(id);
+            if (user.HasNewMessages)
+            {
+                user.HasNewMessages = false;
+                this.data.SaveChanges();
+            }
+        }
     }
 }
