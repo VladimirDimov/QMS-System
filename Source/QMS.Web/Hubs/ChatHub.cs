@@ -56,6 +56,16 @@
             }
         }
 
+        public override Task OnConnected()
+        {
+            if (Context.User.Identity.IsAuthenticated)
+            {
+                this.CacheUserContextToDictionary();
+            }
+
+            return base.OnConnected();
+        }
+
         private bool IsValidInput(string receiverId, string title, string content)
         {
             if (receiverId == null)
@@ -76,7 +86,7 @@
             return true;
         }
 
-        public override Task OnConnected()
+        private void CacheUserContextToDictionary()
         {
             var userId = Context.User.Identity.GetUserId();
             if (!dict.ContainsKey(userId))
@@ -87,7 +97,6 @@
             {
                 dict[userId] = Context.ConnectionId;
             }
-            return base.OnConnected();
         }
     }
 }

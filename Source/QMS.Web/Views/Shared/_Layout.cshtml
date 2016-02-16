@@ -53,7 +53,7 @@
                     <li id="new-message-note">
                         @if (Request.IsAuthenticated)
                         {
-                            @Html.Action("HasNewMessages", "Messages")
+                            @Html.Action("HasNewMessages", "Messages", new { area = ""})
                         }
                     </li>
                 </ul>
