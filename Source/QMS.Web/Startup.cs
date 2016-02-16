@@ -1,5 +1,7 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
+using QMS.Web.Hubs;
 
 [assembly: OwinStartupAttribute(typeof(QMS.Web.Startup))]
 namespace QMS.Web

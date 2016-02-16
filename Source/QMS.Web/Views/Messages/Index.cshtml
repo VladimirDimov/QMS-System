@@ -7,8 +7,9 @@
 <h2>Index</h2>
 
 <div class="container">
+    @Html.DropDownList("Users", ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
     <textarea type="text" id="message" class="form-control"></textarea>
-    <input type="button" id="sendmessage" value="Send" class="btn btn-default"/>
+    <input type="button" id="sendmessage" value="Send" class="btn btn-default" />
     <input type="hidden" id="displayname" />
     <ul id="discussion"></ul>
 </div>
@@ -33,7 +34,9 @@
             $.connection.hub.start().done(function () {
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
-                    chat.server.send($('#message').val());
+                    var receiverId = $('#receiverId').val();
+                    var message = $('#message').val();
+                    chat.server.send(receiverId, message);
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });
