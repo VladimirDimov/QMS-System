@@ -98,5 +98,12 @@ namespace QMS.Web.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            this.divisions.delete(id);
+            TempData["Success"] = $"Division successfully deleted.";
+            return RedirectToAction("Index");
+        }
     }
 }

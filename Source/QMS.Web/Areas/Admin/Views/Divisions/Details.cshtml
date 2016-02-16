@@ -12,7 +12,10 @@
     <dt>@Html.NameFor(m => m.Description)</dt>
     <dd>@Html.DisplayTextFor(m => m.Description)</dd>
     <dt></dt>
-    <dd><a href="~/admin/divisions/edit?id=@Model.Id" class="btn btn-primary">Edit</a></dd>
+    <dd>
+        <a href="~/admin/divisions/edit?id=@Model.Id" class="btn btn-primary">Edit</a>
+        <a href="~/admin/divisions/delete?id=@Model.Id" class="btn btn-danger">Delete</a>
+    </dd>
 </dl>
 
 <div class="list-group col-md-6 col-md-offset-3">

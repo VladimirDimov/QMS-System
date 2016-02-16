@@ -55,5 +55,11 @@ namespace QMS.Services
                 this.data.SaveChanges();
             }
         }
+
+        public void delete(int id)
+        {
+            this.data.Divisions.Delete(id);
+            this.data.SaveChanges();
+        }
     }
 }

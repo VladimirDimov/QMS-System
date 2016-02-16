@@ -7,7 +7,7 @@
     public class QmsDbContext : IdentityDbContext<User>
     {
         public QmsDbContext()
-            : base("AzureConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
