@@ -1,5 +1,8 @@
 ﻿using AutoMapper.QueryableExtensions;
+using Microsoft.AspNet.Identity;
 using QMS.Services;
+using QMS.Web.Hubs;
+using QMS.Web.Models.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +14,12 @@ namespace QMS.Web.Controllers
     public class MessagesController : Controller
     {
         private UsersServices users;
+        private MessagesServices messages;
 
-        public MessagesController(UsersServices users)
+        public MessagesController(UsersServices users, MessagesServices messages)
         {
             this.users = users;
+            this.messages = messages;
         }
         // GET: Messages
         public ActionResult Index()
@@ -29,6 +34,21 @@ namespace QMS.Web.Controllers
             ViewBag.Users = users;
 
             return View("Index");
+        }
+
+        public void SendMessage(MessageCreateViewModel model)
+        {
+        }
+
+        public ActionResult LoadChatHistory()
+        {
+            var userId = this.User.Identity.GetUserId();
+            var messages = this.messages.LoadUserChatHistory(userId)
+                .ProjectTo<MessageDetailsViewModel>()
+                .OrderByDescending(m => m.CreatedOn)
+                .ToList();
+
+            return PartialView("_ChatHistory", messages);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model QMS.Web.Models.Messages.MessageCreateViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,15 +7,25 @@
 <h2>Index</h2>
 
 <div class="container">
-    @Html.DropDownList("Users", ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
-    <input type="text" id="title" name="title" class="form-control" />
-    <textarea type="text" id="message" class="form-control"></textarea>
-    <input type="button" id="sendmessage" value="Send" class="btn btn-default" />
+    @using (Ajax.BeginForm("SendMessage", "Messages", new { area = "" }, new AjaxOptions
+    {
+        HttpMethod = "GET"
+    }))
+    {
+        @Html.DropDownListFor(m => m.ReceiverId, ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
+        @Html.EditorFor(m => m.Title, null, new { id = "title", name = "title", @class = "form-control" })
+        @Html.EditorFor(m => m.Content, null, new { type = "text", @class = "form-control" })
+        <input type="submit" id="sendmessage" value="Send" class="btn btn-default" />
+    }
     <input type="hidden" id="displayname" />
-    <ul id="discussion"></ul>
+    <ul id="discussion" class="list-group">
+        @Html.Action("LoadChatHistory")
+        //TODO: Load history;
+    </ul>
 </div>
 
 @section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
         $(function () {
             // Declare a proxy to reference the hub.
@@ -24,10 +34,19 @@
             chat.client.broadcastMessage = function (senderUsername, title, content, sentOn) {
                 // Html encode display name and message.
                 var encodedName = $('<div />').text(senderUsername).html();
-                var encodedMsg = $('<div />').text(title + content + sentOn).html();
+                var encodedTitle = $('<div />').text(title).html();
+                var encodedContent = $('<div />').text(content).html();
+                var encodedSentOn = $('<div />').text(sentOn).html();
                 // Add the message to the page.
-                $('#discussion').append('<li><strong>' + encodedName
-                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                $('#discussion').prepend(
+                    '<li class="list-group-item">' +
+                        '<div class="well well-lg">' +
+                        '<p><strong>' + encodedSentOn + '</strong></p>' +
+                        '<p><strong>' + encodedName + '</strong></p>' +
+                        '<p>' + encodedTitle + '</p>' +
+                        '<p><strong>' + encodedContent + '</strong></p>' +
+                        '</div>' +
+                        '</li>');
             };
 
             $('#message').focus();
@@ -36,8 +55,8 @@
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
                     var receiverId = $('#receiverId').val();
-                    var content = $('#message').val();
-                    var title = $('#title').val();
+                    var content = $('#Content').val();
+                    var title = $('#Title').val();
 
                     chat.server.send(receiverId, title, content);
                     // Clear text box and reset focus for next comment.

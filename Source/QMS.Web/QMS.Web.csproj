@@ -408,6 +408,7 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\CompanyAreas\Details.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Shared\_ChatHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

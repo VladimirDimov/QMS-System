@@ -4,6 +4,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -27,6 +28,9 @@
 
         [MaxLength(50)]
         public string LastName { get; set; }
+
+        [DefaultValue(false)]
+        public bool HasNewMessages { get; set; }
 
         public virtual ICollection<Area> Areas
         {

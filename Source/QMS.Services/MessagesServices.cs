@@ -18,7 +18,7 @@ namespace QMS.Services
         }
 
         public Message Create(string title, string content, string senderId,
-            ICollection<User> receivers)
+            ICollection<string> receiversIds)
         {
             var message = new Message
             {
@@ -28,16 +28,24 @@ namespace QMS.Services
                 SenderId = senderId
             };
 
-            this.data.SaveChanges();
-
-            foreach (var user in receivers)
+            foreach (var userId in receiversIds)
             {
-                message.Users.Add(user);
+                var receiver = this.data.Users.GetById(userId);
+                message.Users.Add(receiver);
+                receiver.HasNewMessages = true;
             }
 
             this.data.Messages.Add(message);
             this.data.SaveChanges();
             return message;
+        }
+
+        public IQueryable<Message> LoadUserChatHistory(string userId)
+        {
+            var messages = this.data.Messages.All()
+                .Where(m => m.SenderId == userId || m.Users.Any(u => u.Id == userId));
+
+            return messages;
         }
     }
 }

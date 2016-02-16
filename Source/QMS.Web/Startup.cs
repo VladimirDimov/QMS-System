@@ -16,7 +16,7 @@ namespace QMS.Web
 
             GlobalHost.DependencyResolver.Register(
                 typeof(ChatHub),
-                () => new ChatHub(new MessagesServices(new QmsData()), new UsersServices(new QmsData())));
+                () => new ChatHub(new MessagesServices(new QmsData())));
             app.MapSignalR();
         }
     }
