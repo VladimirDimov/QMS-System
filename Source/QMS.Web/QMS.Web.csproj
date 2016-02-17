@@ -231,6 +231,7 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\ProceduresController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="FIlters\AuthorizeArea.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -418,8 +419,8 @@
     <Folder Include="Areas\Private\Views\Notes\" />
     <Folder Include="Files\Documents\" />
     <Folder Include="Files\Records\" />
-    <Folder Include="FIlters\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\AuthorizeArea\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

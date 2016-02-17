@@ -72,3 +72,5 @@ D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Ninject.xml
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\QMS.Web.Infrastructure.pdb
 D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\AutoMapper.xml
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Telerik\QMS-System\Source\QMS.Web.Tests\bin\Debug\Microsoft.AspNet.SignalR.Core.xml

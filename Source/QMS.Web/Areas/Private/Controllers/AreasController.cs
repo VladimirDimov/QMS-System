@@ -11,18 +11,25 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using FIlters;
 
     public class AreasController : Controller
     {
         private AreasServices areas;
         private RecordsServices records;
         private DocumentsServices documents;
+        private UsersServices users;
 
-        public AreasController(AreasServices areas, RecordsServices records, DocumentsServices documents)
+        public AreasController(
+            AreasServices areas,
+            RecordsServices records,
+            DocumentsServices documents,
+            UsersServices users)
         {
             this.areas = areas;
             this.records = records;
             this.documents = documents;
+            this.users = users;
         }
         // GET: Private/Areas
         public ActionResult Index(int page = 1)
@@ -55,6 +62,7 @@
             return PartialView("_UserAreasDropDownList", currentUserAreas);
         }
 
+        [AuthorizeArea(RolesProvided = new string[] { "admin" }, RolesRequired = new string[] { "admin" })]
         public ActionResult Manage(int id)
         {
             var records = this.records.GetByAreaId(id)
