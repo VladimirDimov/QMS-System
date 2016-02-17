@@ -11,6 +11,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    [Authorize(Roles = "admin, admin-departments")]
     public class DepartmentsController : Controller
     {
         private DepartmentsServices departments;

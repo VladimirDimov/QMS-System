@@ -1,8 +1,55 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<br />
 
-<h2>Admin home page</h2>
+<div class="list-group">
+    <div class="list-group-item">
+        <h4 class="list-group-item-heading">Available options</h4>
+        <p class="list-group-item-text">You have access to the following options</p>
+    </div>
+    @if (User.IsInRole("admin") || User.IsInRole("admin-divisions"))
+    {
+        <a href="~/admin/divisions" class="list-group-item">
+            <h4 class="list-group-item-heading">Divisions</h4>
+        </a>
+    }
+    @if (User.IsInRole("admin") || User.IsInRole("admin-departments"))
+    {
+        <a href="~/admin/departments" class="list-group-item">
+            <h4 class="list-group-item-heading">Departments</h4>
+        </a>
+    }
+    @if (User.IsInRole("admin") || User.IsInRole("admin-areas"))
+    {
+        <a href="~/admin/areas" class="list-group-item">
+            <h4 class="list-group-item-heading">Areas</h4>
+        </a>
+    }
+
+    @if (User.IsInRole("admin") || User.IsInRole("admin-procedures"))
+    {
+        <a href="~/admin/procedures" class="list-group-item">
+            <h4 class="list-group-item-heading">Procedures</h4>
+        </a>
+    }
+
+    @if (User.IsInRole("admin") || User.IsInRole("admin-documents"))
+    {
+        <a href="~/admin/documents" class="list-group-item">
+            <h4 class="list-group-item-heading">Documents</h4>
+        </a>
+    }
+
+    @if (User.IsInRole("admin") || User.IsInRole("admin-users"))
+    {
+        <a href="~/admin/users" class="list-group-item">
+            <h4 class="list-group-item-heading">Users</h4>
+        </a>
+    }
+</div>
+
+
+
 

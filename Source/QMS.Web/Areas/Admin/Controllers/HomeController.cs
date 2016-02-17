@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Areas.Admin.Controllers
+﻿namespace QMS.Web.Areas.Admin.Controllers
 {
+    using System.Web.Mvc;
+
+    [Authorize(Roles = "admin")]
     public class HomeController : Controller
     {
         // GET: Admin/Home
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
     }
 }

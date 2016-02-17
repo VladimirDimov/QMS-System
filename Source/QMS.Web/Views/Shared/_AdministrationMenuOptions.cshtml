@@ -1,0 +1,46 @@
+﻿@if (
+                                            User.IsInRole("admin") ||
+                                            User.IsInRole("admin-users") ||
+                                            User.IsInRole("admin-procedures") ||
+                                            User.IsInRole("admin-departments") ||
+                                            User.IsInRole("admin-areas") ||
+                                            User.IsInRole("admin-divisions") ||
+                                            User.IsInRole("admin-documents"))
+{
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Administration <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="~/admin/home">All options</a></li>
+            <li class="divider"></li>
+
+            @if (User.IsInRole("admin") || User.IsInRole("admin-divisions"))
+            {
+                <li><a href="~/admin/divisions">Divisions</a></li>
+            }
+            @if (User.IsInRole("admin") || User.IsInRole("admin-departments"))
+            {
+                <li><a href="~/admin/departments">Departments</a></li>
+            }
+
+            @if (User.IsInRole("admin") || User.IsInRole("admin-areas"))
+            {
+                <li><a href="~/admin/areas">Areas</a></li>
+            }
+
+            @if (User.IsInRole("admin") || User.IsInRole("admin-procedures"))
+            {
+                <li><a href="~/admin/procedures">Procedures</a></li>
+            }
+
+            @if (User.IsInRole("admin") || User.IsInRole("admin-documents"))
+            {
+                <li><a href="~/admin/documents">Documents</a></li>
+            }
+
+            @if (User.IsInRole("admin") || User.IsInRole("admin-users"))
+            {
+                <li><a href="~/admin/users">Users</a></li>
+            }
+        </ul>
+    </li>
+}

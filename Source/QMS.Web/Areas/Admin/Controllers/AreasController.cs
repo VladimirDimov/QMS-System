@@ -1,18 +1,15 @@
-﻿using QMS.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using QMS.Web.Models.Areas;
-using AutoMapper.QueryableExtensions;
-using QMS.Models;
-using QMS.Web.Models.Users;
-using Microsoft.AspNet.Identity;
-
-namespace QMS.Web.Areas.Admin.Controllers
+﻿namespace QMS.Web.Areas.Admin.Controllers
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using QMS.Models;
+    using QMS.Services;
+    using QMS.Web.Models.Areas;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    [Authorize(Roles = "admin, admin-areas")]
     public class AreasController : Controller
     {
         private AreasServices areas;

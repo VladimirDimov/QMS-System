@@ -14,8 +14,6 @@
 
         public string[] RolesRequired { get; set; }
 
-        public string[] RolesProvided { get; set; }
-
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var userContext = filterContext.HttpContext.User;

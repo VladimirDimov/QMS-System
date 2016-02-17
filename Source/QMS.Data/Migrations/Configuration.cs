@@ -60,7 +60,17 @@ namespace QMS.Data.Migrations
             var store = new RoleStore<IdentityRole>(context);
             var manager = new RoleManager<IdentityRole>(store);
 
-            var roles = new string[] { "admin", "manage-all-areas" };
+            var roles = new string[]
+            {
+                "admin",
+                "manage-all-areas" ,
+                "admin-documents",
+                "admin-divisions",
+                "admin-areas",
+                "admin-users",
+                "admin-departments",
+                "admin-procedures"
+            };
 
             foreach (var role in roles)
             {

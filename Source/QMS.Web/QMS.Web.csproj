@@ -411,6 +411,7 @@
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Shared\_ChatHistory.cshtml" />
     <Content Include="Views\Shared\_NewMessagesNote.cshtml" />
+    <Content Include="Views\Shared\_AdministrationMenuOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

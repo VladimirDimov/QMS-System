@@ -1,15 +1,13 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using QMS.Services;
-using QMS.Web.Models.Procedures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Areas.Admin.Controllers
+﻿namespace QMS.Web.Areas.Admin.Controllers
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using QMS.Services;
+    using QMS.Web.Models.Procedures;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    [Authorize(Roles = "admin, admin-procedures")]
     public class ProceduresController : Controller
     {
         private ProceduresServices procedures;

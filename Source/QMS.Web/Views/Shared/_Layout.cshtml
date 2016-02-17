@@ -27,21 +27,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (this.User.Identity.IsAuthenticated)
-                    {
-                        @Html.Partial("_PrivateMenuOptions")
-                    }
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Administration <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="~/admin/divisions">Divisions</a></li>
-                            <li><a href="~/admin/departments">Departments</a></li>
-                            <li><a href="~/admin/areas">Areas</a></li>
-                            <li><a href="~/admin/procedures">Procedures</a></li>
-                            <li><a href="~/admin/documents">Documents</a></li>
-                            <li><a href="~/admin/users">Users</a></li>
-                        </ul>
-                    </li>
+                    @Html.Partial("_PrivateMenuOptions")
+                    @Html.Partial("_AdministrationMenuOptions")
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Company structure <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

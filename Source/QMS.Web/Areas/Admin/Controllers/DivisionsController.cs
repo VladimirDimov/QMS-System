@@ -1,18 +1,15 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Microsoft.Ajax.Utilities;
-using QMS.Models;
-using QMS.Services;
-using QMS.Web.Models.Divisions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Areas.Admin.Controllers
+﻿namespace QMS.Web.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "admin")]
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using QMS.Models;
+    using QMS.Services;
+    using QMS.Web.Models.Divisions;
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    [Authorize(Roles = "admin, admin-divisions")]
     public class DivisionsController : Controller
     {
         private DivisionsServices divisions;

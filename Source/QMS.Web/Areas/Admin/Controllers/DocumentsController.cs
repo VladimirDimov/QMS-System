@@ -8,12 +8,12 @@ namespace QMS.Web.Areas.Admin.Controllers
     using QMS.Web.Models.Documents;
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
-    using System.IO;
-    using Models.Procedures;
 
+    [Authorize(Roles = "admin, admin-documents")]
     public class DocumentsController : Controller
     {
         private DocumentsServices documents;

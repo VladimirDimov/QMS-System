@@ -62,7 +62,7 @@
             return PartialView("_UserAreasDropDownList", currentUserAreas);
         }
 
-        [AuthorizeArea(RolesProvided = new string[] { "admin" }, RolesRequired = new string[] { "admin" })]
+        [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
         public ActionResult Manage(int id)
         {
             var records = this.records.GetByAreaId(id)
@@ -72,6 +72,7 @@
             return this.ShowRecords(id, records);
         }
 
+        [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
         public ActionResult GetMissedRecords(int id)
         {
             var records = this.records.GetMissedByAreaId(id)
@@ -81,6 +82,7 @@
             return this.ShowRecords(id, records);
         }
 
+        [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
         public ActionResult GetUpcomingRecords(int id)
         {
             var records = this.records.GetUpcomingByAreaId(id)
@@ -90,6 +92,7 @@
             return this.ShowRecords(id, records);
         }
 
+        [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
         public ActionResult CreateRecord()
         {
             ViewBag.Documents = this.GetDocumentsSelectListItems();
@@ -98,6 +101,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
         public ActionResult CreateRecord(int id, RecordCreateModel model)
         {
             if (ModelState.IsValid)

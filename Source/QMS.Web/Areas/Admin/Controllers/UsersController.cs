@@ -20,6 +20,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Data;
 
+    [Authorize(Roles = "admin, admin-users")]
     public class UsersController : Controller
     {
         private ApplicationUserManager _userManager;
