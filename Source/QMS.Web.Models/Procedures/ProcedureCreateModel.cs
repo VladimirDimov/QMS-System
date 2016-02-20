@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Procedures
+﻿namespace QMS.Web.Models.Procedures
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public class ProcedureCreateModel
     {
         [Required]
         [MaxLength(100)]
+        [AllowHtml]
         public string Name { get; set; }
 
         [MaxLength(200)]
+        [AllowHtml]
+        [UIHint("TextArea")]
         public string Description { get; set; }
     }
 }

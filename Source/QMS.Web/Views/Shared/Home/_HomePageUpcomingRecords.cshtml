@@ -1,0 +1,23 @@
+﻿@using PagedList
+@using GridMvc.Html
+@model IQueryable<QMS.Web.Models.Records.RecordListModel>
+
+<div class="col-md-4">
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Title)
+    .Titled("My notes")
+    .Sortable(true)
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink(m.Title, "Edit", "Records", new { id = m.Id, area = "Private" }, null))
+    .SetWidth(20);
+
+    col.Add(m => m.FinishingDate).Titled("Finishing date").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add(m => m.Area.Name).Titled("Area").Filterable(true).Sortable(true).SetWidth(40);
+
+}).WithPaging(10, 5).Selectable(false)
+</div>
+
+<div class="clearfix"></div>

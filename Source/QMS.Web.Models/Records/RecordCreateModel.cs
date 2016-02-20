@@ -1,21 +1,22 @@
-﻿using QMS.Models;
-using QMS.Web.Models.RecordFiles;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Records
+﻿namespace QMS.Web.Models.Records
 {
+    using QMS.Models;
+    using QMS.Web.Models.RecordFiles;
+    using System;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public class RecordCreateModel
     {
         [Required]
         [MaxLength(100)]
+        [AllowHtml]
         public string Title { get; set; }
 
         [MaxLength(200)]
+        [AllowHtml]
+        [UIHint("TextArea")]
         public string Description { get; set; }
 
         [Required]
@@ -24,9 +25,11 @@ namespace QMS.Web.Models.Records
         [Required]
         public DateTime DateCreated { get; set; }
 
+        [DisplayName("End date")]
         public DateTime? FinishingDate { get; set; }
 
         [Required]
+        [DisplayName("Status date")]
         public DateTime StatusDate { get; set; }
 
         [Required]

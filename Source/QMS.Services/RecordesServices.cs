@@ -63,6 +63,14 @@
             return record;
         }
 
+        public IQueryable<Record> GetUserUpcomingRecords(string userId)
+        {
+            var records = this.data.Records.All()
+                .Where(r => r.Area.EmployeeId == userId && r.FinishingDate != null && r.FinishingDate > DateTime.UtcNow);
+
+            return records;
+        }
+
         public Record GetById(int id)
         {
             return this.data.Records.GetById(id);

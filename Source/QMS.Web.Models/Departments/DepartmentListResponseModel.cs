@@ -13,6 +13,6 @@
 
         public int DivisionId { get; set; }
 
-        public virtual Division Division { get; set; }
+        public Division Division { get; set; }
     }
 }

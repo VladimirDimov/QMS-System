@@ -220,6 +220,7 @@
     <Compile Include="Areas\Private\Controllers\AreasController.cs" />
     <Compile Include="Areas\Private\Controllers\NotesController.cs" />
     <Compile Include="Areas\Private\Controllers\RecordsController.cs" />
+    <Compile Include="Areas\Private\Controllers\UsersController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyAreasController.cs" />
@@ -325,9 +326,11 @@
     <Content Include="Areas\Private\Views\Areas\CreateRecord.cshtml" />
     <Content Include="Areas\Private\Views\Areas\Timesheet.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_SetPassword.cshtml" />
     <Content Include="Areas\Private\Views\Records\Edit.cshtml" />
     <Content Include="Areas\Private\Views\Shared\_AddNote.cshtml" />
+    <Content Include="Areas\Private\Views\Users\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_SetPassword.cshtml" />
+    <Content Include="Areas\Private\Views\Shared\_SetPassword.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -412,6 +415,9 @@
     <Content Include="Views\Shared\_ChatHistory.cshtml" />
     <Content Include="Views\Shared\_NewMessagesNote.cshtml" />
     <Content Include="Views\Shared\_AdministrationMenuOptions.cshtml" />
+    <Content Include="Views\Shared\_SetPassword.cshtml" />
+    <Content Include="Views\Shared\Home\_HomePageNotes.cshtml" />
+    <Content Include="Views\Shared\Home\_HomePageUpcomingRecords.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

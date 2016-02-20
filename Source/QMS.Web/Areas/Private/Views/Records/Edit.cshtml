@@ -67,13 +67,15 @@
         @foreach (var note in Model.Notes)
         {
             <div class="well well-lg">
+                <p class="text-muted">@note.CreatedOn.ToLongDateString()</p>
                 <p>@note.Title</p>
                 <p>@note.Text</p>
                 @Ajax.ActionLink("Delete", "DeleteNote", "Notes", new { recordId = Model.Id, noteId = note.Id }, new AjaxOptions
            {
                HttpMethod = "Post",
                OnComplete = "refresh()"
-           })
+           },
+           new { @class = "btn btn-danger" })
             </div>
         }
     </fieldset>

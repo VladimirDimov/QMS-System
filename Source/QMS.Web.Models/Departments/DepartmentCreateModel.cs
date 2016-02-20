@@ -4,6 +4,7 @@
     using QMS.Web.Infrastructure.Mappings;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public class DepartmentCreateModel : IMapFrom<Department>
     {
@@ -11,6 +12,7 @@
 
         [Required]
         [MaxLength(100)]
+        [AllowHtml]
         public string Name { get; set; }
 
         [MaxLength(200)]

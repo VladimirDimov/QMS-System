@@ -1,14 +1,11 @@
-﻿using QMS.Models;
-using QMS.Web.Infrastructure.Mappings;
-using QMS.Web.Models.Procedures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Documents
+﻿namespace QMS.Web.Models.Documents
 {
+    using QMS.Models;
+    using QMS.Web.Infrastructure.Mappings;
+    using QMS.Web.Models.Procedures;
+    using System;
+    using System.ComponentModel;
+
     public class DocumentListModel : IMapFrom<Document>
     {
         public int Id { get; set; }
@@ -21,6 +18,7 @@ namespace QMS.Web.Models.Documents
 
         public string FilePath { get; set; }
 
+        [DisplayName("Last update")]
         public DateTime LastUpdate { get; set; }
 
         public ProcedureShortModel Procedure { get; set; }

@@ -1,0 +1,33 @@
+﻿@model QMS.Web.Models.Users.UserEditViewModel
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h1>
+        <span class="label label-default">Update your profile</span>
+    </h1>
+</div>
+
+@Ajax.ActionLink("Reset password", "ResetPassword", new AjaxOptions {HttpMethod="Get", UpdateTargetId="reset-password-container", InsertionMode=InsertionMode.Replace })
+<div id="reset-password-container"></div>
+@using (Html.BeginForm("Update", "Users", new { area = "Private" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.UserName)
+
+    <div class="form-group">
+        <label for="UserName">Username</label>
+        <input type="text" name="UserName" id="UserName" value="@Model.UserName" class="form-control" disabled />
+    </div>
+    @Html.EditorFor(m => m.FirstName);
+    @Html.EditorFor(m => m.LastName);
+    @Html.EditorFor(m => m.Email);
+    @Html.EditorFor(m => m.PhoneNumber);
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+    <a href="~/" class="btn btn-default">Cancel</a>
+}

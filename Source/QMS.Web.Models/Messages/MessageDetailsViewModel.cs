@@ -2,9 +2,10 @@
 {
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
-    using Users;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using Users;
 
     public class MessageDetailsViewModel : IMapFrom<Message>
     {
@@ -14,6 +15,7 @@
 
         public UserShortModel Sender { get; set; }
 
+        [DisplayName("Sent on")]
         public DateTime CreatedOn { get; set; }
 
         public virtual ICollection<UserShortModel> Users { get; set; }

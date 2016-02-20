@@ -3,16 +3,10 @@
     using Qms.Common;
     using System.ComponentModel.DataAnnotations;
 
-    public class UserResetPasswordViewModel
+    public class UserResetPasswordFromAdminViewModel
     {
         [Required]
         public string UserId { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [UIHint("Password")]
-        [Display(Name = "Old password")]
-        public string OldPassword { get; set; }
 
         [Required]
         [MinLength(UserConstants.PasswordMinLength)]

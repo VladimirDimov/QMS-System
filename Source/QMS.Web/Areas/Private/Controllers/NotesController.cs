@@ -34,7 +34,7 @@ namespace QMS.Web.Areas.Private.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.notes.create(model.RecordId, model.Title, model.Text);
+                this.notes.Create(model.RecordId, model.Title, model.Text);
                 return Redirect($"~/Private/Records/Edit/{model.RecordId}");
             }
 

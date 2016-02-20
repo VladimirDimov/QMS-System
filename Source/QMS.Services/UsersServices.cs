@@ -56,5 +56,14 @@ namespace QMS.Services
                 this.data.SaveChanges();
             }
         }
+
+        public void SetPassword(string userId, string password)
+        {
+            var user = this.data.Users.GetById(userId);
+            user.PasswordHash = this.data.UserManager.PasswordHasher.HashPassword(password);
+            user.SecurityStamp = Guid.NewGuid().ToString();
+
+            this.data.SaveChanges();
+        }
     }
 }

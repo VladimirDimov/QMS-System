@@ -1,9 +1,10 @@
 ﻿namespace QMS.Web.Models.Documents
 {
-    using QMS.Models;
     using Infrastructure.Mappings;
+    using QMS.Models;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using Procedures;
+    using System.Web.Mvc;
 
     public class DocumentUpdateModel : IMapFrom<Document>
     {
@@ -11,9 +12,11 @@
 
         [Required]
         [MaxLength(50)]
+        [AllowHtml]
         public string Title { get; set; }
 
         [MaxLength(500)]
+        [AllowHtml]
         public string Description { get; set; }
 
         [Required]
@@ -21,6 +24,7 @@
         public string Code { get; set; }
 
         [Required]
+        [DisplayName("Procedure")]
         public int ProcedureId { get; set; }
     }
 }

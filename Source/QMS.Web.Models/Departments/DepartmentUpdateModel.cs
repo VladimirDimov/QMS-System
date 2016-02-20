@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Departments
+﻿namespace QMS.Web.Models.Departments
 {
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public class DepartmentUpdateModel
     {
         [Required]
@@ -15,10 +11,12 @@ namespace QMS.Web.Models.Departments
 
         [Required]
         [MaxLength(100)]
+        [AllowHtml]
         public string Name { get; set; }
 
         [MaxLength(200)]
         [UIHint("TextArea")]
+        [AllowHtml]
         public string Description { get; set; }
 
         [Required]

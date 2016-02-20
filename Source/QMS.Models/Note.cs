@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace QMS.Models
 {
@@ -14,6 +15,9 @@ namespace QMS.Models
         public string Text { get; set; }
 
         public int RecordId { get; set; }
+
+        [Required]
+        public DateTime CreatedOn { get; set; }
 
         public virtual Record Record { get; set; }
     }

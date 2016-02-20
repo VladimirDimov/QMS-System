@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Messages
+﻿namespace QMS.Web.Models.Messages
 {
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public class MessageCreateViewModel
     {
         [Required]
         [MinLength(1)]
         [MaxLength(50)]
+        [AllowHtml]
         public string Title { get; set; }
 
         [Required]
         [MinLength(1)]
         [MaxLength(200)]
         [UIHint("TextArea")]
+        [AllowHtml]
         public string Content { get; set; }
 
         [Required]
+        [DisplayName("Send to")]
         public string ReceiverId { get; set; }
     }
 }

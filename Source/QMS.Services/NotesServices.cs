@@ -17,13 +17,14 @@ namespace QMS.Services
             this.data = data;
         }
 
-        public void create(int recordId, string title, string text)
+        public void Create(int recordId, string title, string text)
         {
             var note = new Note
             {
                 Title = title,
                 Text = text,
-                RecordId = recordId
+                RecordId = recordId,
+                CreatedOn = DateTime.UtcNow
             };
 
             this.data.Notes.Add(note);
@@ -34,6 +35,14 @@ namespace QMS.Services
         {
             this.data.Notes.Delete(id);
             this.data.SaveChanges();
+        }
+
+        public IQueryable<Note> GetUserNotes(string userId)
+        {
+            var notes = this.data.Notes.All()
+                .Where(n => n.Record.Area.EmployeeId == userId);
+
+            return notes;
         }
     }
 }

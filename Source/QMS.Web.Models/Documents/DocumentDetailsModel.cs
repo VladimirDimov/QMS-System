@@ -4,6 +4,7 @@
     using QMS.Web.Infrastructure.Mappings;
     using QMS.Web.Models.Procedures;
     using System;
+    using System.ComponentModel;
 
     public class DocumentDetailsModel : IMapFrom<Document>
     {
@@ -17,6 +18,7 @@
 
         public string FilePath { get; set; }
 
+        [DisplayName("Last update")]
         public DateTime LastUpdate { get; set; }
 
         public ProcedureShortModel Procedure { get; set; }

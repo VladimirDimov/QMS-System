@@ -1,16 +1,12 @@
-﻿using QMS.Models;
-using QMS.Web.Infrastructure.Mappings;
-using QMS.Web.Models.Areas;
-using QMS.Web.Models.Divisions;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Departments
+﻿namespace QMS.Web.Models.Departments
 {
+    using QMS.Models;
+    using QMS.Web.Infrastructure.Mappings;
+    using QMS.Web.Models.Areas;
+    using QMS.Web.Models.Divisions;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+
     public class DepartmentDetailsModel : IMapFrom<Department>
     {
         public int Id { get; set; }
@@ -22,8 +18,8 @@ namespace QMS.Web.Models.Departments
         public int DivisionId { get; set; }
 
         [DisplayName("Division")]
-        public virtual DivisionsDetailsResponseModel Division { get; set; }
+        public DivisionsDetailsResponseModel Division { get; set; }
 
-        public virtual ICollection<AreaDetailsModel> Areas { get; set; }
+        public ICollection<AreaDetailsModel> Areas { get; set; }
     }
 }

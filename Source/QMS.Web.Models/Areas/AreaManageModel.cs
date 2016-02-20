@@ -6,6 +6,7 @@
     public class AreaManageModel
     {
         public AreaDetailsModel Area { get; set; }
+
         public IQueryable<RecordListModel> Records { get; set; }
     }
 }

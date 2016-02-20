@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.RecordFiles
+﻿namespace QMS.Web.Models.RecordFiles
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class RecordFileCreateEditModel
     {
         public int Id { get; set; }

@@ -1,8 +1,9 @@
 ﻿namespace QMS.Web.Models.Procedures
 {
-    using QMS.Models;
     using Infrastructure.Mappings;
+    using QMS.Models;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public class ProcedureUpdateModel : IMapFrom<Procedure>
     {
@@ -10,9 +11,12 @@
 
         [Required]
         [MaxLength(100)]
+        [AllowHtml]
         public string Name { get; set; }
 
         [MaxLength(200)]
+        [UIHint("TextArea")]
+        [AllowHtml]
         public string Description { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace QMS.Web.Models
         [Required]
         [Display(Name = "Code")]
         public string Code { get; set; }
+
         public string ReturnUrl { get; set; }
 
         [Display(Name = "Remember this browser?")]
@@ -75,7 +76,7 @@ namespace QMS.Web.Models
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [UIHint("Password")]
         [Display(Name = "Password")]

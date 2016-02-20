@@ -18,7 +18,9 @@
             @Html.DropDownListFor(m => m.ReceiverId, ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
             @Html.EditorFor(m => m.Title, null, new { id = "title", name = "title", @class = "form-control" })
             @Html.EditorFor(m => m.Content, null, new { type = "text", @class = "form-control" })
-            <input type="submit" id="sendmessage" value="Send" class="btn btn-default" />
+            <div class="form-group">
+                <input type="submit" id="sendmessage" value="Send" class="btn btn-default" />
+            </div>
         </div>
         <div class="clearfix"></div>
     }

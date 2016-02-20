@@ -1,14 +1,10 @@
-﻿using QMS.Models;
-using QMS.Web.Infrastructure.Mappings;
-using QMS.Web.Models.Documents;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Web.Models.Procedures
+﻿namespace QMS.Web.Models.Procedures
 {
+    using QMS.Models;
+    using QMS.Web.Infrastructure.Mappings;
+    using QMS.Web.Models.Documents;
+    using System.Collections.Generic;
+
     public class ProcedureDetailsModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }

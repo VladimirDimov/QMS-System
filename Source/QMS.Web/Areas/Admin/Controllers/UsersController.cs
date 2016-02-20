@@ -1,24 +1,18 @@
 ﻿namespace QMS.Web.Areas.Admin.Controllers
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
+    using Models.Users;
     using QMS.Models;
     using QMS.Web.Models;
-    using Models.Users;
+    using Services;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using Services;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-    using System.Net.Mail;
-    using System.ComponentModel;
-    using System.Web.Security;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Data;
 
     [Authorize(Roles = "admin, admin-users")]
     public class UsersController : Controller
@@ -153,16 +147,16 @@
 
         public ActionResult SetPassword(string userId)
         {
-            return PartialView("_SetPassword", new UserResetPasswordViewModel { UserId = userId });
+            return PartialView("_SetPassword", new UserResetPasswordFromAdminViewModel { UserId = userId });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SetPassword(UserResetPasswordViewModel model)
+        public ActionResult SetPassword(UserResetPasswordFromAdminViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = this.users.GetById(model.UserId);
+                User user = this.users.GetById(model.UserId);
                 user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.Password);
                 TempData["Success"] = "User password has been reset";
 

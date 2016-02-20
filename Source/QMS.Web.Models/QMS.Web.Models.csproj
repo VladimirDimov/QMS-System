@@ -156,6 +156,7 @@
     <Compile Include="Users\UserEditViewModel.cs" />
     <Compile Include="Users\UserManageViewModel.cs" />
     <Compile Include="Users\UserResetPasswordViewModel.cs" />
+    <Compile Include="Users\UserResetPasswordFromAdminViewModel.cs" />
     <Compile Include="Users\UserShortModel.cs" />
   </ItemGroup>
   <ItemGroup>
