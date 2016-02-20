@@ -2,8 +2,25 @@
     ViewBag.Title = "Home Page";
 }
 
-@if (User.Identity.IsAuthenticated)
-{
-    @Html.Action("GetUserNotes")
-    @Html.Action("GetUserUpcomingRecords")
-}
+<ul class="nav nav-pills">
+    <li><a>Number of registered users<span class="badge">@ViewBag.NumberOfRegisteredUsers</span></a></li>
+    <li><a>Users online<span class="badge">@ViewBag.NumberOfUsersOnLine</span></a></li>
+</ul>
+
+<div id="home-wrapper">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="col-md-4">
+            @Html.Action("GetUserNotes")
+        </div>
+        <div class="col-md-4">
+            @Html.Action("GetUserUpcomingRecords")
+        </div>
+    }
+
+    <div class="col-md-4">
+        @Html.Action("GetMostResentDocuments")
+    </div>
+</div>
+
+<div class="clearfix"></div>

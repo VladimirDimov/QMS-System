@@ -5,10 +5,10 @@
     var receivers = String.Join(", ", message.Users.Select(u => u.UserName));
     <li class="list-group-item">
         <div class="well well-lg">
-            <p><strong>@message.CreatedOn</strong></p>
-            <p><strong>from @message.Sender.UserName to @receivers</strong></p>
-            <p><strong>@message.Title</strong></p>
-            <p><strong>@message.Content</strong></p>
+            <p class="text-muted">@message.CreatedOn.ToShortDateString() @message.CreatedOn.ToShortTimeString()</p>
+            <p class="text-info">from @message.Sender.UserName to @receivers</p>
+            <p class="panel-title">@message.Title</p>
+            <p>@message.Content</p>
         </div>
     </li>
 }

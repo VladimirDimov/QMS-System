@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using System;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Owin;
 using QMS.Data;
@@ -13,7 +14,11 @@ namespace QMS.Web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            this.ConfigureSignalR(app);
+        }
 
+        private void ConfigureSignalR(IAppBuilder app)
+        {
             GlobalHost.DependencyResolver.Register(
                 typeof(ChatHub),
                 () => new ChatHub(new MessagesServices(new QmsData())));

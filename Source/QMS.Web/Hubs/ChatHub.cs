@@ -16,15 +16,14 @@
         //TODO: Make dictionary concurrent (use: ConcurrentDictionary)
         private MessagesServices messages;
 
-        //public ChatHub()
-        //    : this(new MessagesServices(new QmsData()), new UsersServices(new QmsData()))
-        //{
-
-        //}
-
         public ChatHub(MessagesServices messages)
         {
             this.messages = messages;
+        }
+
+        public static int NumberOfUsersOnLine
+        {
+            get { return dict.Count; }
         }
 
         public void Send(string receiverId, string title, string content)
@@ -42,19 +41,22 @@
                 Context.User.Identity.GetUserId(),
                 new List<string> { receiverId });
 
+            // Broadcast message to receiver
             if (dict.ContainsKey(receiverId))
             {
                 var receiverClient = Clients.Client(dict[receiverId]);
-                if (receiverClient != null)
-                {
-                    receiverClient.broadcastMessage(Context.User.Identity.Name,
-                    message.Title, message.Content, message.CreatedOn);
-                }
+                receiverClient.broadcastMessage(Context.User.Identity.Name,
+                message.Title, message.Content, message.CreatedOn);
             }
-            else
+
+            // Broadcast notification to sender if receipent is not on line
+            if (!dict.ContainsKey(receiverId))
             {
                 Clients.Client(Context.ConnectionId).broadcastMessage("Server", "User is not connected");
             }
+            // Broadcast message to sender
+            Clients.Client(Context.ConnectionId).broadcastMessage(Context.User.Identity.Name, message.Title,
+                message.Content, message.CreatedOn);
         }
 
         public override Task OnConnected()

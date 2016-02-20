@@ -1,0 +1,14 @@
+﻿@using PagedList
+@using GridMvc.Html
+@model IQueryable<QMS.Web.Models.Documents.DocumentListModel>
+
+<fieldset>
+    <legend>Recent documents</legend>
+    <div>
+        @Html.Grid(Model).Columns(col =>
+        {
+            col.Add(m => m.Title).Titled("Title").Sortable(true).Filterable(true).SetWidth(20);
+            col.Add(m => m.LastUpdate).Titled("Last update").Sortable(true).Filterable(true).SetWidth(20);
+        }).WithPaging(10, 5).Selectable(false)
+    </div>
+</fieldset>

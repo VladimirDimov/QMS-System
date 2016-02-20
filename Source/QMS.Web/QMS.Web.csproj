@@ -418,6 +418,7 @@
     <Content Include="Views\Shared\_SetPassword.cshtml" />
     <Content Include="Views\Shared\Home\_HomePageNotes.cshtml" />
     <Content Include="Views\Shared\Home\_HomePageUpcomingRecords.cshtml" />
+    <Content Include="Views\Shared\Home\_HomePageMostRecentDocuments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

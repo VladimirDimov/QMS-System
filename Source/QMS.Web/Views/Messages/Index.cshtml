@@ -8,27 +8,30 @@
 
 <div class="container">
     <h1 class="text-left"><span class="label label-default">Messages</span></h1>
-    @using (Ajax.BeginForm("SendMessage", "Messages", new { area = "" }, new AjaxOptions
-    {
-        HttpMethod = "GET"
-    }))
-    {
-        <div class="form-group col-md-12" style="background-color: #e9e9e9">
-            @Html.LabelFor(m => m.ReceiverId, new { @class="label-control"})
-            @Html.DropDownListFor(m => m.ReceiverId, ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
-            @Html.EditorFor(m => m.Title, null, new { id = "title", name = "title", @class = "form-control" })
-            @Html.EditorFor(m => m.Content, null, new { type = "text", @class = "form-control" })
-            <div class="form-group">
-                <input type="submit" id="sendmessage" value="Send" class="btn btn-default" />
+    <div class="col-md-4">
+        @using (Ajax.BeginForm("SendMessage", "Messages", new { area = "" }, new AjaxOptions
+        {
+            HttpMethod = "GET"
+        }))
+        {
+            <div class="form-group col-md-12">
+                @Html.LabelFor(m => m.ReceiverId, new { @class = "label-control" })
+                @Html.DropDownListFor(m => m.ReceiverId, ViewBag.Users as IEnumerable<SelectListItem>, new { @class = "form-control", id = "receiverId" })
+                @Html.EditorFor(m => m.Title, null, new { id = "title", name = "title", @class = "form-control" })
+                @Html.EditorFor(m => m.Content)
+                <div class="form-group">
+                    <input type="submit" id="sendmessage" value="Send" class="btn btn-default" />
+                </div>
             </div>
-        </div>
-        <div class="clearfix"></div>
-    }
-    <input type="hidden" id="displayname" />
-    <ul id="discussion" class="list-group">
-        @Html.Action("LoadChatHistory")
-        //TODO: Load history;
-    </ul>
+            <div class="clearfix"></div>
+        }
+    </div>
+    <div class="col-md-6 pre-scrollable">
+        <input type="hidden" id="displayname" />
+        <ul id="discussion" class="list-group">
+            @Html.Action("LoadChatHistory")
+        </ul>
+    </div>
 </div>
 
 @section Scripts{

@@ -48,3 +48,7 @@ textarea {
 body {
     /*background-image: url("Images/inside-background.jpg");*/
 }
+
+#wrapper{
+    height: 75vh;
+}

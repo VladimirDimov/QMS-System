@@ -22,7 +22,7 @@
                 @if (Request.IsAuthenticated)
                 {
                     <span id="new-message-note">@Html.Action("HasNewMessages", "Messages", new { area = "" })</span>
-                   
+
                 }
             </div>
             <div class="navbar-collapse collapse">
@@ -58,7 +58,9 @@
     }
 
     <div class="container body-content">
-        @RenderBody()
+        <div id="wrapper">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
@@ -97,10 +99,10 @@
                 $('#discussion').prepend(
                     '<li class="list-group-item">' +
                         '<div class="well well-lg">' +
-                        '<p><strong>' + encodedSentOn + '</strong></p>' +
-                        '<p><strong>' + encodedName + '</strong></p>' +
-                        '<p>' + encodedTitle + '</p>' +
-                        '<p><strong>' + encodedContent + '</strong></p>' +
+                        '<p class="text-muted">' + encodedSentOn + '</p>' +
+                        '<p class="text-info">' + encodedName + '</p>' +
+                        '<p class="panel-title">' + encodedTitle + '</p>' +
+                        '<p>' + encodedContent + '</p>' +
                         '</div>' +
                         '</li>');
             };

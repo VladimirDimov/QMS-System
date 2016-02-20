@@ -1,4 +1,5 @@
-﻿@model QMS.Web.Models.Users.UserDetailsModel
+﻿@using QMS.Web.Models.Messages
+@model QMS.Web.Models.Users.UserDetailsModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,8 +17,13 @@
     <dt>Areas</dt>
     <dd>
         @foreach (var area in Model.Areas)
-        {
+            {
             <span>@Html.ActionLink(area.Name, "Details", "CompanyAreas", new { id = area.Id }, null)</span>
         }
     </dd>
 </dl>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Send message", "Index", "Messages", new MessageCreateViewModel { ReceiverId = Model.Id }, new { @class = "btn btn-default" })
+}

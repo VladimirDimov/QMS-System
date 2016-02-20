@@ -2,8 +2,10 @@
 @using GridMvc.Html
 @model IQueryable<QMS.Web.Models.Notes.NoteDetailsModel>
 
-<div class="col-md-4">
-    @Html.Grid(Model).Columns(col =>
+<fieldset>
+    <legend>My notes</legend>
+    <div>
+        @Html.Grid(Model).Columns(col =>
 {
     col.Add(m => m.CreatedOn)
     .Titled("My notes")
@@ -15,6 +17,5 @@
 
     //col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
 }).WithPaging(10, 5).Selectable(false)
-</div>
-
-<div class="clearfix"></div>
+    </div>
+</fieldset>

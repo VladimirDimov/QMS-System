@@ -22,7 +22,7 @@ namespace QMS.Web.Controllers
             this.messages = messages;
         }
         // GET: Messages
-        public ActionResult Index()
+        public ActionResult Index(string receiverId)
         {
             var users = this.users.All()
                 .Select(u => new SelectListItem
@@ -32,6 +32,11 @@ namespace QMS.Web.Controllers
                 })
                 .ToList();
             ViewBag.Users = users;
+
+            if (receiverId != null)
+            {
+                ViewBag.ReceiverId = receiverId;
+            }
 
             return View("Index");
         }
