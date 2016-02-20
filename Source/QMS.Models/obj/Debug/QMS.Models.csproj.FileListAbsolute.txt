@@ -12,3 +12,17 @@ D:\Telerik\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Enti
 D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.dll
 D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.pdb
 D:\Telerik\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.csprojResolveAssemblyReference.cache
+E:\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.dll.config
+E:\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.dll
+E:\QMS-System\Source\QMS.Models\bin\Debug\QMS.Models.pdb
+E:\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.dll
+E:\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.xml
+E:\QMS-System\Source\QMS.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\QMS-System\Source\QMS.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.csprojResolveAssemblyReference.cache
+E:\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.dll
+E:\QMS-System\Source\QMS.Models\obj\Debug\QMS.Models.pdb
