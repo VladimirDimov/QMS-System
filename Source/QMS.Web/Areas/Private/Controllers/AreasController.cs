@@ -66,7 +66,7 @@
         public ActionResult Manage(int id)
         {
             var records = this.records.GetByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -76,7 +76,7 @@
         public ActionResult GetMissedRecords(int id)
         {
             var records = this.records.GetMissedByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -86,7 +86,7 @@
         public ActionResult GetUpcomingRecords(int id)
         {
             var records = this.records.GetUpcomingByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -102,7 +102,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
-        public ActionResult CreateRecord(int id, RecordCreateModel model)
+        public ActionResult CreateRecord(int id, RecordCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -162,7 +162,7 @@
             return View("Timesheet", timesheetViewModel);
         }
 
-        private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListModel> recordsListViewModel)
+        private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListViewModel> recordsListViewModel)
         {
             var area = this.areas.GetById(id);
             var areaViewModel = Mapper.Map<AreaDetailsViewModel>(area);

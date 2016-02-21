@@ -4,7 +4,7 @@
     using Infrastructure.Mappings;
     using System;
 
-    public class RecordFileDetailsModel : IMapFrom<RecordFile>
+    public class RecordFileDetailsViewModel : IMapFrom<RecordFile>
     {
         public int Id { get; set; }
 

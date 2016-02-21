@@ -9,7 +9,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class RecordUpdateModel : IMapFrom<Record>
+    public class RecordUpdateViewModel : IMapFrom<Record>
     {
         public int Id { get; set; }
 

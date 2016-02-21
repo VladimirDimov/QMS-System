@@ -7,7 +7,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class RecordCreateModel
+    public class RecordCreateViewModel
     {
         [Required]
         [MaxLength(100)]
@@ -37,6 +37,6 @@
 
         public int AreaId { get; set; }
 
-        public RecordFileCreateEditModel File { get; set; }
+        public RecordFileCreateEditViewModel File { get; set; }
     }
 }

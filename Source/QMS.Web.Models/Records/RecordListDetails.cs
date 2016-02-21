@@ -7,7 +7,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public class RecordListModel : IMapFrom<Record>
+    public class RecordListViewModel : IMapFrom<Record>
     {
         public int Id { get; set; }
 

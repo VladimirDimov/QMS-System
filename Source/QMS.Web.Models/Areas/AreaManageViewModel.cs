@@ -7,6 +7,6 @@
     {
         public AreaDetailsViewModel Area { get; set; }
 
-        public IQueryable<RecordListModel> Records { get; set; }
+        public IQueryable<RecordListViewModel> Records { get; set; }
     }
 }

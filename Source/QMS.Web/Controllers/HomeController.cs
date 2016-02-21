@@ -68,7 +68,7 @@
             var userId = this.User.Identity.GetUserId();
             var upcomingRecords = this.records.GetUserUpcomingRecords(userId)
                 .OrderBy(r => r.FinishingDate)
-                .ProjectTo<RecordListModel>();
+                .ProjectTo<RecordListViewModel>();
 
             return this.PartialView("Home/_HomePageUpcomingRecords", upcomingRecords);
         }

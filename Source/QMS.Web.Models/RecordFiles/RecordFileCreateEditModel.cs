@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class RecordFileCreateEditModel
+    public class RecordFileCreateEditViewModel
     {
         public int Id { get; set; }
 

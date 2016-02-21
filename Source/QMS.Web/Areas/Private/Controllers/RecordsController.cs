@@ -55,13 +55,13 @@
                 return new HttpUnauthorizedResult("You are not authorized for this action.");
             }
 
-            var recordFromModel = Mapper.Map<RecordUpdateModel>(record);
+            var recordFromModel = Mapper.Map<RecordUpdateViewModel>(record);
 
             ViewBag.Documents = this.GetDocumentsSelectListItems();
             return View("Edit", recordFromModel);
         }
 
-        public ActionResult Update(RecordUpdateModel model, HttpPostedFileBase file)
+        public ActionResult Update(RecordUpdateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
