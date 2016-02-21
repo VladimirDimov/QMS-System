@@ -21,6 +21,6 @@
         [DisplayName("Last update")]
         public DateTime LastUpdate { get; set; }
 
-        public ProcedureShortModel Procedure { get; set; }
+        public ProcedureShortViewModel Procedure { get; set; }
     }
 }

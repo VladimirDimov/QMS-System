@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class NoteCreateModel
+    public class NoteCreateViewModel
     {
         [MaxLength(50)]
         [AllowHtml]

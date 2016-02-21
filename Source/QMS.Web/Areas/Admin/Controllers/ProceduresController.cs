@@ -21,7 +21,7 @@
         public ActionResult Index()
         {
             var procedures = this.procedures.All()
-                .ProjectTo<ProcedureListModel>()
+                .ProjectTo<ProcedureListViewModel>()
                 .ToList();
 
             return View("Index", procedures);
@@ -34,7 +34,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProcedureCreateModel model)
+        public ActionResult Create(ProcedureCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -48,14 +48,14 @@
         public ActionResult Edit(int id)
         {
             var procedure = this.procedures.GetById(id);
-            var procedureViewModel = Mapper.Map<ProcedureUpdateModel>(procedure);
+            var procedureViewModel = Mapper.Map<ProcedureUpdateViewModel>(procedure);
 
             return View("Edit", procedureViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(ProcedureUpdateModel model)
+        public ActionResult Update(ProcedureUpdateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@
         public ActionResult Details(int id)
         {
             var procedure = this.procedures.GetById(id);
-            var fromModel = Mapper.Map<ProcedureDetailsModel>(procedure);
+            var fromModel = Mapper.Map<ProcedureDetailsViewModel>(procedure);
             return View(fromModel);
         }
     }

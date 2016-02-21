@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class ProcedureUpdateModel : IMapFrom<Procedure>
+    public class ProcedureUpdateViewModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }
 

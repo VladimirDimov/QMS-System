@@ -3,7 +3,7 @@
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
 
-    public class ProcedureListModel : IMapFrom<Procedure>
+    public class ProcedureListViewModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }
 

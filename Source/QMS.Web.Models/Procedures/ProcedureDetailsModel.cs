@@ -5,7 +5,7 @@
     using QMS.Web.Models.Documents;
     using System.Collections.Generic;
 
-    public class ProcedureDetailsModel : IMapFrom<Procedure>
+    public class ProcedureDetailsViewModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }
 

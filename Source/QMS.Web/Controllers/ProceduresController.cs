@@ -17,7 +17,7 @@
         public ActionResult Index()
         {
             var procedures = this.procedures.All()
-                .ProjectTo<QMS.Web.Models.Procedures.ProcedureListModel>()
+                .ProjectTo<QMS.Web.Models.Procedures.ProcedureListViewModel>()
                 .OrderBy(p => p.Name);
 
             return View("Index", procedures);

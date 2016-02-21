@@ -4,7 +4,7 @@
     using QMS.Web.Infrastructure.Mappings;
     using System.ComponentModel;
 
-    public class ProcedureShortModel : IMapFrom<Procedure>
+    public class ProcedureShortViewModel : IMapFrom<Procedure>
     {
         public int Id { get; set; }
 

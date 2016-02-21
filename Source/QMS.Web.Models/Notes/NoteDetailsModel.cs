@@ -5,7 +5,7 @@
     using System;
     using System.ComponentModel;
 
-    public class NoteDetailsModel : IMapFrom<Note>
+    public class NoteDetailsViewModel : IMapFrom<Note>
     {
         public int Id { get; set; }
 
