@@ -223,10 +223,12 @@
     <Compile Include="Areas\Private\Controllers\UsersController.cs" />
     <Compile Include="Areas\Private\PrivateAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CompanyAreasController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\DocumentsController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
@@ -419,6 +421,9 @@
     <Content Include="Views\Shared\Home\_HomePageNotes.cshtml" />
     <Content Include="Views\Shared\Home\_HomePageUpcomingRecords.cshtml" />
     <Content Include="Views\Shared\Home\_HomePageMostRecentDocuments.cshtml" />
+    <Content Include="Views\Errors\Error404.cshtml" />
+    <Content Include="Views\Errors\Error401.cshtml" />
+    <Content Include="Views\Errors\Error500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +434,7 @@
     <Folder Include="Files\Records\" />
     <Folder Include="Models\" />
     <Folder Include="Views\AuthorizeArea\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
   <ItemGroup>

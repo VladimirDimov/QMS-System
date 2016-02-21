@@ -1,19 +1,17 @@
-﻿using AutoMapper.QueryableExtensions;
-using Microsoft.AspNet.Identity;
-using QMS.Services;
-using QMS.Web.Hubs;
-using QMS.Web.Models.Documents;
-using QMS.Web.Models.Notes;
-using QMS.Web.Models.Records;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Controllers
+﻿namespace QMS.Web.Controllers
 {
-    public class HomeController : Controller
+    using AutoMapper.QueryableExtensions;
+    using Microsoft.AspNet.Identity;
+    using QMS.Services;
+    using QMS.Web.Hubs;
+    using QMS.Web.Models.Documents;
+    using QMS.Web.Models.Notes;
+    using QMS.Web.Models.Records;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    public class HomeController : BaseController
     {
         private NotesServices notes;
         private RecordsServices records;

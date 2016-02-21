@@ -113,6 +113,14 @@ namespace QMS.Data
             }
         }
 
+        public IRepository<Log> Logs
+        {
+            get
+            {
+                return this.GetRepository<Log>();
+            }
+        }
+
         public void Dispose()
         {
             if (this.context != null)

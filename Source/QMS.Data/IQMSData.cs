@@ -34,6 +34,8 @@ namespace QMS.Data
 
         IRepository<Message> Messages { get; }
 
+        IRepository<Log> Logs { get; }
+
         int SaveChanges();
 
         RoleManager<IdentityRole> RolesManager { get; }

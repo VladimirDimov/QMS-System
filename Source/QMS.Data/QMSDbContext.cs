@@ -31,6 +31,8 @@
 
         public virtual IDbSet<Message> Messages { get; set; }
 
+        public virtual IDbSet<Log> Logs { get; set; }
+
         public static QmsDbContext Create()
         {
             return new QmsDbContext();
