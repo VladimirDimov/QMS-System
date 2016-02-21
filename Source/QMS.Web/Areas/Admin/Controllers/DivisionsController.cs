@@ -23,8 +23,8 @@
         public ActionResult Index()
         {
             var allDivisions = this.divisions.GetAll()
-                .ProjectTo<DivisionsListResponseModel>()
-                .ToList();
+                .OrderBy(d => d.Name)
+                .ProjectTo<DivisionsListResponseModel>();
 
             return View("Index", allDivisions);
         }
