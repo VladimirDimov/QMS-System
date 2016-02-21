@@ -2,29 +2,29 @@
 {
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using FIlters;
     using Microsoft.AspNet.Identity;
     using QMS.Models;
-    using QMS.Services;
-    using QMS.Web.Models.Areas;
-    using QMS.Web.Models.Records;
-    using Models.Timesheet;
+    using QMS.Web.ViewModels.Areas;
+    using QMS.Web.ViewModels.Records;
+    using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using FIlters;
+    using ViewModels.Timesheet;
 
     public class AreasController : Controller
     {
-        private AreasServices areas;
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private UsersServices users;
+        private IAreasServices areas;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IUsersServices users;
 
         public AreasController(
-            AreasServices areas,
-            RecordsServices records,
-            DocumentsServices documents,
-            UsersServices users)
+            IAreasServices areas,
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IUsersServices users)
         {
             this.areas = areas;
             this.records = records;
@@ -35,7 +35,7 @@
         public ActionResult Index(int page = 1)
         {
             var areas = this.areas.all()
-                .ProjectTo<AreaListModel>()
+                .ProjectTo<AreaListViewModel>()
                 .OrderBy(a => a.Name);
 
             return View(areas);
@@ -45,7 +45,7 @@
         {
             var userId = this.User.Identity.GetUserId();
             var myAreas = this.areas.GetByUserId(userId)
-                    .ProjectTo<AreaListModel>()
+                    .ProjectTo<AreaListViewModel>()
                     .OrderBy(a => a.Name);
 
             return View("Index", myAreas);
@@ -55,7 +55,7 @@
         {
             var userId = this.User.Identity.GetUserId();
             var currentUserAreas = this.areas.GetByUserId(userId)
-                    .ProjectTo<AreaShortModel>()
+                    .ProjectTo<AreaShortViewModel>()
                     .OrderBy(a => a.Name)
                     .ToList();
 
@@ -66,7 +66,7 @@
         public ActionResult Manage(int id)
         {
             var records = this.records.GetByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -76,7 +76,7 @@
         public ActionResult GetMissedRecords(int id)
         {
             var records = this.records.GetMissedByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -86,7 +86,7 @@
         public ActionResult GetUpcomingRecords(int id)
         {
             var records = this.records.GetUpcomingByAreaId(id)
-                .ProjectTo<RecordListModel>()
+                .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
 
             return this.ShowRecords(id, records);
@@ -102,7 +102,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AuthorizeArea(RolesRequired = new string[] { "admin", "manage-all-areas" })]
-        public ActionResult CreateRecord(int id, RecordCreateModel model)
+        public ActionResult CreateRecord(int id, RecordCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -162,11 +162,11 @@
             return View("Timesheet", timesheetViewModel);
         }
 
-        private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListModel> recordsListViewModel)
+        private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListViewModel> recordsListViewModel)
         {
             var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
-            var areaManageViewModel = new AreaManageModel
+            var areaViewModel = Mapper.Map<AreaDetailsViewModel>(area);
+            var areaManageViewModel = new AreaManageViewModel
             {
                 Area = areaViewModel,
                 Records = recordsListViewModel

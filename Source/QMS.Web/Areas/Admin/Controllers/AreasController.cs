@@ -4,7 +4,8 @@
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
     using QMS.Services;
-    using QMS.Web.Models.Areas;
+    using Services.Contracts;
+    using QMS.Web.ViewModels.Areas;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -12,14 +13,14 @@
     [Authorize(Roles = "admin, admin-areas")]
     public class AreasController : Controller
     {
-        private AreasServices areas;
-        private DepartmentsServices departments;
-        private UsersServices users;
+        private IAreasServices areas;
+        private IDepartmentsServices departments;
+        private IUsersServices users;
 
         public AreasController(
-            AreasServices areas,
-            DepartmentsServices departments,
-            UsersServices users)
+            IAreasServices areas,
+            IDepartmentsServices departments,
+            IUsersServices users)
         {
             this.areas = areas;
             this.departments = departments;
@@ -30,8 +31,8 @@
         public ActionResult Index()
         {
             var allAreas = this.areas.all()
-                .ProjectTo<AreaListModel>()
-                .ToList();
+                .OrderBy(a => a.Name)
+                .ProjectTo<AreaListViewModel>();
 
             return View("Index", allAreas);
         }
@@ -46,7 +47,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AreaCreateModel model)
+        public ActionResult Create(AreaCreateViewModel model)
         {
             if (this.ModelState.IsValid)
             {
@@ -62,7 +63,7 @@
         public ActionResult Details(int id)
         {
             var area = this.areas.GetById(id);
-            var fromModel = Mapper.Map(area, typeof(Area), typeof(AreaDetailsModel));
+            var fromModel = Mapper.Map(area, typeof(Area), typeof(AreaDetailsViewModel));
             return View("Details", fromModel);
         }
 
@@ -77,11 +78,11 @@
 
             ViewBag.Users = users;
             var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaEditModel>(area);
+            var areaViewModel = Mapper.Map<AreaEditViewModel>(area);
             return View(areaViewModel);
         }
 
-        public ActionResult Update(AreaEditModel model)
+        public ActionResult Update(AreaEditViewModel model)
         {
             if (this.ModelState.IsValid)
             {

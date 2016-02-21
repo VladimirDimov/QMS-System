@@ -2,15 +2,16 @@
 {
     using AutoMapper.QueryableExtensions;
     using QMS.Services;
+    using Services.Contracts;
     using System;
     using System.Linq;
     using System.Web.Mvc;
 
     public class DocumentsController : Controller
     {
-        private DocumentsServices documents;
+        private IDocumentsServices documents;
 
-        public DocumentsController(DocumentsServices documents)
+        public DocumentsController(IDocumentsServices documents)
         {
             this.documents = documents;
         }
@@ -19,7 +20,7 @@
         {
             var documents = this.documents.All()
                 .Where(p => procedureId == null ? true : p.ProcedureId == procedureId)
-                .ProjectTo<QMS.Web.Models.Documents.DocumentListModel>()
+                .ProjectTo<QMS.Web.ViewModels.Documents.DocumentListViewModel>()
                 .OrderBy(d => d.Title);
 
             return View("Index", documents);

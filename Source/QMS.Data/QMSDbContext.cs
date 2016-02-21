@@ -7,7 +7,7 @@
     public class QmsDbContext : IdentityDbContext<User>
     {
         public QmsDbContext()
-            : base("AzureConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
@@ -30,6 +30,8 @@
         public virtual IDbSet<RecordFile> RecordFiles { get; set; }
 
         public virtual IDbSet<Message> Messages { get; set; }
+
+        public virtual IDbSet<Log> Logs { get; set; }
 
         public static QmsDbContext Create()
         {

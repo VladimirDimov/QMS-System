@@ -3,16 +3,17 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Services;
-    using QMS.Web.Models.Procedures;
+    using Services.Contracts;
+    using QMS.Web.ViewModels.Procedures;
     using System.Linq;
     using System.Web.Mvc;
 
     [Authorize(Roles = "admin, admin-procedures")]
     public class ProceduresController : Controller
     {
-        private ProceduresServices procedures;
+        private IProceduresServices procedures;
 
-        public ProceduresController(ProceduresServices procedures)
+        public ProceduresController(IProceduresServices procedures)
         {
             this.procedures = procedures;
         }
@@ -21,7 +22,7 @@
         public ActionResult Index()
         {
             var procedures = this.procedures.All()
-                .ProjectTo<ProcedureListModel>()
+                .ProjectTo<ProcedureListViewModel>()
                 .ToList();
 
             return View("Index", procedures);
@@ -34,7 +35,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProcedureCreateModel model)
+        public ActionResult Create(ProcedureCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -48,14 +49,14 @@
         public ActionResult Edit(int id)
         {
             var procedure = this.procedures.GetById(id);
-            var procedureViewModel = Mapper.Map<ProcedureUpdateModel>(procedure);
+            var procedureViewModel = Mapper.Map<ProcedureUpdateViewModel>(procedure);
 
             return View("Edit", procedureViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(ProcedureUpdateModel model)
+        public ActionResult Update(ProcedureUpdateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +70,7 @@
         public ActionResult Details(int id)
         {
             var procedure = this.procedures.GetById(id);
-            var fromModel = Mapper.Map<ProcedureDetailsModel>(procedure);
+            var fromModel = Mapper.Map<ProcedureDetailsViewModel>(procedure);
             return View(fromModel);
         }
     }

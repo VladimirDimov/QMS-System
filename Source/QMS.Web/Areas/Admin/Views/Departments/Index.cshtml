@@ -1,4 +1,7 @@
-﻿@model ICollection<QMS.Web.Models.Departments.DepartmentListResponseModel>
+﻿@using PagedList
+@using GridMvc.Html
+@model IQueryable<QMS.Web.ViewModels.Departments.DepartmentListViewModel>
+
 @{
     ViewBag.Title = "Index";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -12,29 +15,19 @@
 
 <a href="~/admin/departments/create" class="btn btn-default pull-right">Create</a>
 
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th> Name </th>
-            <th> Description </th>
-            <th> Division </th>
-            <th> Details </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var department in Model)
-        {
-            <tr>
-                <td>@department.Name</td>
-                <td>@department.Description</td>
-                <td>@department.Division.Name</td>
-                <td><a href="~/admin/departments/details/@department.Id">Details</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-@if (Model.Count == 0)
+<div>
+    @Html.Grid(Model).Columns(col =>
 {
-    <h3 class="text-center">No departments yet to display!</h3>
-}
+    col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Description).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Division.Name).Titled("Division").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("Details", "Details", "Departments", new { id = m.Id }, null))
+    .SetWidth(20);
+}).WithPaging(10, 5).Selectable(false).EmptyText("There are no departments yet to display")
+</div>
+
+<div class="clearfix"></div>

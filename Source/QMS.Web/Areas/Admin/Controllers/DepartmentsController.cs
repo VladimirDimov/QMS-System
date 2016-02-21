@@ -4,7 +4,8 @@
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
     using QMS.Services;
-    using QMS.Web.Models.Departments;
+    using Services.Contracts;
+    using QMS.Web.ViewModels.Departments;
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -14,10 +15,10 @@
     [Authorize(Roles = "admin, admin-departments")]
     public class DepartmentsController : Controller
     {
-        private DepartmentsServices departments;
-        private DivisionsServices divisions;
+        private IDepartmentsServices departments;
+        private IDivisionsServices divisions;
 
-        public DepartmentsController(DepartmentsServices departments, DivisionsServices divisions)
+        public DepartmentsController(IDepartmentsServices departments, IDivisionsServices divisions)
         {
             this.departments = departments;
             this.divisions = divisions;
@@ -26,8 +27,8 @@
         public ActionResult Index()
         {
             var departments = this.departments.All()
-                .ProjectTo<DepartmentListResponseModel>()
-                .ToList();
+                .OrderBy(d => d.Name)
+                .ProjectTo<DepartmentListViewModel>();
 
             return View("Index", departments);
         }
@@ -47,7 +48,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DepartmentCreateModel model)
+        public ActionResult Create(DepartmentCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +70,7 @@
             }
 
             ViewBag.Divisions = this.GetDivisionsListItems();
-            return View(Mapper.Map(department, typeof(Department), typeof(DepartmentCreateModel)));
+            return View(Mapper.Map(department, typeof(Department), typeof(DepartmentCreateViewModel)));
         }
 
         private IEnumerable<SelectListItem> GetDivisionsListItems()
@@ -93,12 +94,12 @@
             var fromModel = Mapper.Map(
                 model,
                 typeof(Department),
-                typeof(DepartmentDetailsModel));
+                typeof(DepartmentDetailsViewModel));
 
             return View("Details", fromModel);
         }
 
-        public ActionResult Update(DepartmentUpdateModel model)
+        public ActionResult Update(DepartmentUpdateViewModel model)
         {
             if (ModelState.IsValid)
             {

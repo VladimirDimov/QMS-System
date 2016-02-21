@@ -1,8 +1,9 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.AspNet.Identity;
 using QMS.Services;
+using QMS.Services.Contracts;
 using QMS.Web.Hubs;
-using QMS.Web.Models.Messages;
+using QMS.Web.ViewModels.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace QMS.Web.Controllers
 {
     public class MessagesController : Controller
     {
-        private UsersServices users;
-        private MessagesServices messages;
+        private IUsersServices users;
+        private IMessagesServices messages;
 
-        public MessagesController(UsersServices users, MessagesServices messages)
+        public MessagesController(IUsersServices users, IMessagesServices messages)
         {
             this.users = users;
             this.messages = messages;

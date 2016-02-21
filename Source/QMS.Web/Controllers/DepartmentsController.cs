@@ -1,19 +1,16 @@
-﻿using AutoMapper.QueryableExtensions;
-using QMS.Services;
-using QMS.Web.Models.Departments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Controllers
+﻿namespace QMS.Web.Controllers
 {
+    using AutoMapper.QueryableExtensions;
+    using QMS.Services.Contracts;
+    using QMS.Web.ViewModels.Departments;
+    using System.Linq;
+    using System.Web.Mvc;
+
     public class DepartmentsController : Controller
     {
-        private DepartmentsServices departments;
+        private IDepartmentsServices departments;
 
-        public DepartmentsController(DepartmentsServices departments)
+        public DepartmentsController(IDepartmentsServices departments)
         {
             this.departments = departments;
         }
@@ -24,7 +21,7 @@ namespace QMS.Web.Controllers
             var departments = this.departments.All()
                 .Where(d => divisionId == null ? true : d.DivisionId == divisionId)
                 .OrderBy(d => d.Name)
-                .ProjectTo<DepartmentListResponseModel>();
+                .ProjectTo<DepartmentListViewModel>();
 
             return View("Index", departments);
         }

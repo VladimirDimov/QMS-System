@@ -12,7 +12,7 @@
         public static void RegisterMappings()
         {
             var types = Assembly.GetExecutingAssembly().GetExportedTypes();
-            var viewModelTypes = Assembly.Load("QMS.Web.Models").GetExportedTypes();
+            var viewModelTypes = Assembly.Load("QMS.Web.ViewModels").GetExportedTypes();
 
             LoadStandardMappings(types);
             LoadStandardMappings(viewModelTypes);

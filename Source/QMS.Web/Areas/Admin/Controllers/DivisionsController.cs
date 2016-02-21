@@ -3,8 +3,8 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
-    using QMS.Services;
-    using QMS.Web.Models.Divisions;
+    using QMS.Web.ViewModels.Divisions;
+    using Services.Contracts;
     using System;
     using System.Linq;
     using System.Web.Mvc;
@@ -12,9 +12,9 @@
     [Authorize(Roles = "admin, admin-divisions")]
     public class DivisionsController : Controller
     {
-        private DivisionsServices divisions;
+        private IDivisionsServices divisions;
 
-        public DivisionsController(DivisionsServices divisions)
+        public DivisionsController(IDivisionsServices divisions)
         {
             this.divisions = divisions;
         }
@@ -23,8 +23,8 @@
         public ActionResult Index()
         {
             var allDivisions = this.divisions.GetAll()
-                .ProjectTo<DivisionsListResponseModel>()
-                .ToList();
+                .OrderBy(d => d.Name)
+                .ProjectTo<DivisionListViewModel>();
 
             return View("Index", allDivisions);
         }
@@ -36,7 +36,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DivisionRequestModel model)
+        public ActionResult Create(DivisionRequestViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@
 
             if (division != null)
             {
-                var divisionFromModel = Mapper.Map<DivisionsDetailsResponseModel>(division);
+                var divisionFromModel = Mapper.Map<DivisionDetailsViewModel>(division);
                 return View("Details", divisionFromModel);
             }
             else
@@ -71,7 +71,7 @@
 
             if (division != null)
             {
-                return View("Edit", Mapper.Map(division, typeof(Division), typeof(DivisionsUpdateModel)));
+                return View("Edit", Mapper.Map(division, typeof(Division), typeof(DivisionUpdateViewModel)));
             }
             else
             {
@@ -81,7 +81,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(DivisionsUpdateModel model)
+        public ActionResult Update(DivisionUpdateViewModel model)
         {
             try
             {

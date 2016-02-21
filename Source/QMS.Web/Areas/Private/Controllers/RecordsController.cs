@@ -1,28 +1,27 @@
 ﻿namespace QMS.Web.Areas.Private.Controllers
 {
-    using QMS.Services;
-    using QMS.Web.Models.Records;
-    using System.Web.Mvc;
+    using AutoMapper;
+    using Microsoft.AspNet.Identity;
+    using QMS.Web.ViewModels.Records;
+    using Services.Contracts;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.AspNet.Identity;
-    using AutoMapper;
     using System.Web;
+    using System.Web.Mvc;
 
     public class RecordsController : Controller
     {
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private AreasServices areas;
-        private RecordFilesServices recordFiles;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IAreasServices areas;
+        private IRecordFilesServices recordFiles;
 
         public RecordsController(
-            RecordsServices records,
-            DocumentsServices documents,
-            AreasServices areas,
-            RecordFilesServices recordFiles)
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IAreasServices areas,
+            IRecordFilesServices recordFiles)
         {
             this.records = records;
             this.documents = documents;
@@ -55,13 +54,13 @@
                 return new HttpUnauthorizedResult("You are not authorized for this action.");
             }
 
-            var recordFromModel = Mapper.Map<RecordUpdateModel>(record);
+            var recordFromModel = Mapper.Map<RecordUpdateViewModel>(record);
 
             ViewBag.Documents = this.GetDocumentsSelectListItems();
             return View("Edit", recordFromModel);
         }
 
-        public ActionResult Update(RecordUpdateModel model, HttpPostedFileBase file)
+        public ActionResult Update(RecordUpdateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {

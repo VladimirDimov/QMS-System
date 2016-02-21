@@ -1,30 +1,29 @@
-﻿using AutoMapper.QueryableExtensions;
-using Microsoft.AspNet.Identity;
-using QMS.Services;
-using QMS.Web.Hubs;
-using QMS.Web.Models.Documents;
-using QMS.Web.Models.Notes;
-using QMS.Web.Models.Records;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Controllers
+﻿namespace QMS.Web.Controllers
 {
-    public class HomeController : Controller
+    using AutoMapper.QueryableExtensions;
+    using Microsoft.AspNet.Identity;
+    using QMS.Services;
+    using Services.Contracts;
+    using QMS.Web.Hubs;
+    using QMS.Web.ViewModels.Documents;
+    using QMS.Web.ViewModels.Notes;
+    using QMS.Web.ViewModels.Records;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    public class HomeController : BaseController
     {
-        private NotesServices notes;
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private UsersServices users;
+        private INotesServices notes;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IUsersServices users;
 
         public HomeController(
-            NotesServices notes,
-            RecordsServices records,
-            DocumentsServices documents,
-            UsersServices users)
+            INotesServices notes,
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IUsersServices users)
         {
             this.notes = notes;
             this.records = records;
@@ -60,7 +59,7 @@ namespace QMS.Web.Controllers
             var userId = this.User.Identity.GetUserId();
             var notes = this.notes.GetUserNotes(userId)
                 .OrderByDescending(n => n.CreatedOn)
-                .ProjectTo<NoteDetailsModel>();
+                .ProjectTo<NoteDetailsViewModel>();
 
             return this.PartialView("Home/_HomePageNotes", notes);
         }
@@ -70,7 +69,7 @@ namespace QMS.Web.Controllers
             var userId = this.User.Identity.GetUserId();
             var upcomingRecords = this.records.GetUserUpcomingRecords(userId)
                 .OrderBy(r => r.FinishingDate)
-                .ProjectTo<RecordListModel>();
+                .ProjectTo<RecordListViewModel>();
 
             return this.PartialView("Home/_HomePageUpcomingRecords", upcomingRecords);
         }
@@ -79,7 +78,7 @@ namespace QMS.Web.Controllers
         public ActionResult GetMostResentDocuments()
         {
             var mostRecentDocuments = this.documents.All()
-                .ProjectTo<DocumentListModel>()
+                .ProjectTo<DocumentListViewModel>()
                 .OrderBy(d => d.LastUpdate);
 
             return this.PartialView("Home/_HomePageMostRecentDocuments", mostRecentDocuments);

@@ -1,5 +1,5 @@
 ﻿@using PagedList
-@model IQueryable<QMS.Web.Models.Divisions.DivisionsListResponseModel>
+@model IQueryable<QMS.Web.ViewModels.Divisions.DivisionListViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +13,6 @@
         <span class="label label-default">Divisions</span>
     </h1>
 </div>
-
 
 <div>
     @Html.Grid(Model).Columns(col =>
@@ -36,4 +35,3 @@
 </div>
 
 <div class="clearfix"></div>
-

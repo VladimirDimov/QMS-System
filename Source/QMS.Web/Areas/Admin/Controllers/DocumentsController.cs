@@ -4,8 +4,8 @@ namespace QMS.Web.Areas.Admin.Controllers
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Helpers;
-    using QMS.Services;
-    using QMS.Web.Models.Documents;
+    using QMS.Web.ViewModels.Documents;
+    using Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -16,10 +16,10 @@ namespace QMS.Web.Areas.Admin.Controllers
     [Authorize(Roles = "admin, admin-documents")]
     public class DocumentsController : Controller
     {
-        private DocumentsServices documents;
-        private ProceduresServices procedures;
+        private IDocumentsServices documents;
+        private IProceduresServices procedures;
 
-        public DocumentsController(DocumentsServices documents, ProceduresServices procedures)
+        public DocumentsController(IDocumentsServices documents, IProceduresServices procedures)
         {
             this.documents = documents;
             this.procedures = procedures;
@@ -27,10 +27,9 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var allDocumentsModel = this.documents
-                .All()
-                .ProjectTo<DocumentListModel>()
-                .ToList();
+            var allDocumentsModel = this.documents.All()
+                .OrderBy(d => d.LastUpdate)
+                .ProjectTo<DocumentListViewModel>();
 
             return View(allDocumentsModel);
         }
@@ -44,7 +43,7 @@ namespace QMS.Web.Areas.Admin.Controllers
                 return this.HttpNotFound($"Invalid document id: {id}");
             }
 
-            var fromModel = Mapper.Map<DocumentDetailsModel>(dbModel);
+            var fromModel = Mapper.Map<DocumentDetailsViewModel>(dbModel);
             return View("Details", fromModel);
         }
 
@@ -56,7 +55,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DocumentCreateModel model, HttpPostedFileBase file)
+        public ActionResult Create(DocumentCreateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid && file != null)
             {
@@ -83,13 +82,13 @@ namespace QMS.Web.Areas.Admin.Controllers
             }
 
             ViewBag.Procedures = GetProceduresListItems();
-            var fromModel = Mapper.Map<DocumentUpdateModel>(dbModel);
+            var fromModel = Mapper.Map<DocumentUpdateViewModel>(dbModel);
             return View(fromModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(DocumentUpdateModel model, HttpPostedFileBase file)
+        public ActionResult Update(DocumentUpdateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {

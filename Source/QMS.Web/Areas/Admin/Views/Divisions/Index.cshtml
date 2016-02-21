@@ -1,4 +1,6 @@
-﻿@model ICollection<QMS.Web.Models.Divisions.DivisionsListResponseModel>
+﻿@using PagedList
+@using GridMvc.Html
+@model IQueryable<QMS.Web.ViewModels.Divisions.DivisionListViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +15,22 @@
 
 <span><a href="~/admin/divisions/create" class="btn btn-default pull-right"> Create </a></span>
 
-@{
+<div>
+    @Html.Grid(Model).Columns(col =>
+{
+    col.Add(m => m.Name).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.Description).Titled("Description").Filterable(true).Sortable(true).SetWidth(40);
+
+    col.Add()
+    .Sanitized(false)
+    .Encoded(false)
+    .RenderValueAs(m => Html.ActionLink("Details", "Details", "Divisions", new {area = "Admin", id = m.Id }, null))
+    .SetWidth(20);
+}).WithPaging(10, 5).Selectable(false).EmptyText("There area no divisions yet to display.")
+</div>
+
+<div class="clearfix"></div>
+@*@{
     if (Model.Count == 0)
     {
         <h1>No Divisions yet!</h1>
@@ -40,5 +57,5 @@
             </tbody>
         </table>
     }
-}
+}*@
 

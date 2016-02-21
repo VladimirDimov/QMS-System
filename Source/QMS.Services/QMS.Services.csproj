@@ -91,6 +91,17 @@
     <Compile Include="DepartmentsServices.cs" />
     <Compile Include="DivisionsServices.cs" />
     <Compile Include="DocumentsServices.cs" />
+    <Compile Include="Contracts\IAreasServices.cs" />
+    <Compile Include="Contracts\IDepartmentsServices.cs" />
+    <Compile Include="Contracts\IDivisionsServices.cs" />
+    <Compile Include="Contracts\IDocumentsServices.cs" />
+    <Compile Include="Contracts\IMessagesServices.cs" />
+    <Compile Include="Contracts\INotesServices.cs" />
+    <Compile Include="Contracts\IProceduresServices.cs" />
+    <Compile Include="Contracts\IRecordFilesServices.cs" />
+    <Compile Include="Contracts\IRecordsServices.cs" />
+    <Compile Include="Contracts\IRolesServices.cs" />
+    <Compile Include="Contracts\IUsersServices.cs" />
     <Compile Include="MessagesServices.cs" />
     <Compile Include="NotesServices.cs" />
     <Compile Include="ProceduresServices.cs" />
@@ -114,9 +125,7 @@
       <Name>QMS.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

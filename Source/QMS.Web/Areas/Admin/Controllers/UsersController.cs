@@ -4,25 +4,25 @@
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
-    using Models.Users;
     using QMS.Models;
-    using QMS.Web.Models;
-    using Services;
+    using QMS.Web.ViewModels;
+    using Services.Contracts;
     using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+    using ViewModels.Users;
 
     [Authorize(Roles = "admin, admin-users")]
     public class UsersController : Controller
     {
         private ApplicationUserManager _userManager;
         private ApplicationSignInManager _signInManager;
-        private UsersServices users;
-        private RolesServices roles;
+        private IUsersServices users;
+        private IRolesServices roles;
 
-        public UsersController(UsersServices users, RolesServices roles)
+        public UsersController(IUsersServices users, IRolesServices roles)
         {
             this.users = users;
             this.roles = roles;
@@ -32,7 +32,7 @@
         public ActionResult Index()
         {
             var users = this.users.All()
-                .ProjectTo<UserDetailsModel>()
+                .ProjectTo<UserDetailsViewModel>()
                 .OrderBy(u => u.UserName);
 
             return View("Index", users);
