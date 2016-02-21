@@ -11,6 +11,8 @@ namespace QMS.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Data;
+    using Services.Contracts;
+    using Services;
 
     public static class NinjectWebCommon
     {
@@ -63,6 +65,19 @@ namespace QMS.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IQmsData>().To<QmsData>().InRequestScope();
+
+            //Bind all services to interfaces
+            kernel.Bind<IAreasServices>().To<AreasServices>().InRequestScope();
+            kernel.Bind<IDepartmentsServices>().To<DepartmentsServices>().InRequestScope();
+            kernel.Bind<IDivisionsServices>().To<DivisionsServices>().InRequestScope();
+            kernel.Bind<IDocumentsServices>().To<DocumentsServices>().InRequestScope();
+            kernel.Bind<IMessagesServices>().To<MessagesServices>().InRequestScope();
+            kernel.Bind<INotesServices>().To<NotesServices>().InRequestScope();
+            kernel.Bind<IProceduresServices>().To<ProceduresServices>().InRequestScope();
+            kernel.Bind<IRecordsServices>().To<RecordsServices>().InRequestScope();
+            kernel.Bind<IRecordFilesServices>().To<RecordFilesServices>().InRequestScope();
+            kernel.Bind<IRolesServices>().To<RolesServices>().InRequestScope();
+            kernel.Bind<IUsersServices>().To<UsersServices>().InRequestScope();
         }
     }
 }

@@ -1,14 +1,11 @@
-﻿using QMS.Data;
-using QMS.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QMS.Services
+﻿namespace QMS.Services
 {
-    public class DepartmentsServices
+    using Contracts;
+    using QMS.Data;
+    using QMS.Models;
+    using System.Linq;
+
+    public class DepartmentsServices : IDepartmentsServices
     {
         private IQmsData data;
 

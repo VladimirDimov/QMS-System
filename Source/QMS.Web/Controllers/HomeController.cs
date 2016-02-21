@@ -3,6 +3,7 @@
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
     using QMS.Services;
+    using Services.Contracts;
     using QMS.Web.Hubs;
     using QMS.Web.ViewModels.Documents;
     using QMS.Web.ViewModels.Notes;
@@ -13,16 +14,16 @@
 
     public class HomeController : BaseController
     {
-        private NotesServices notes;
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private UsersServices users;
+        private INotesServices notes;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IUsersServices users;
 
         public HomeController(
-            NotesServices notes,
-            RecordsServices records,
-            DocumentsServices documents,
-            UsersServices users)
+            INotesServices notes,
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IUsersServices users)
         {
             this.notes = notes;
             this.records = records;

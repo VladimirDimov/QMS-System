@@ -1,14 +1,11 @@
 ﻿namespace QMS.Services
 {
-    using QMS.Data;
+    using Contracts;
     using Models;
-    using System;
-    using System.Collections.Generic;
+    using QMS.Data;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    public class ProceduresServices
+    public class ProceduresServices : IProceduresServices
     {
         private IQmsData data;
 

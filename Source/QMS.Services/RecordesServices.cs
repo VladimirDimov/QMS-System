@@ -1,11 +1,12 @@
 ﻿namespace QMS.Services
 {
+    using Contracts;
     using QMS.Data;
     using QMS.Models;
-    using System.Linq;
     using System;
+    using System.Linq;
 
-    public class RecordsServices
+    public class RecordsServices : IRecordsServices
     {
         private IQmsData data;
 
