@@ -26,8 +26,8 @@
         public ActionResult Index()
         {
             var departments = this.departments.All()
-                .ProjectTo<DepartmentListResponseModel>()
-                .ToList();
+                .OrderBy(d => d.Name)
+                .ProjectTo<DepartmentListResponseModel>();
 
             return View("Index", departments);
         }
