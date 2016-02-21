@@ -469,9 +469,9 @@
       <Project>{e864b5e1-4536-4c98-a70b-6b78951cbcac}</Project>
       <Name>QMS.Web.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QMS.Web.Models\QMS.Web.Models.csproj">
+    <ProjectReference Include="..\QMS.Web.ViewModels\QMS.Web.ViewModels.csproj">
       <Project>{07d3141a-d101-4404-9c81-08000bc871e5}</Project>
-      <Name>QMS.Web.Models</Name>
+      <Name>QMS.Web.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using QMS.Web.Models;
+using QMS.Web.ViewModels;
 using QMS.Models;
 using QMS.Data;
 

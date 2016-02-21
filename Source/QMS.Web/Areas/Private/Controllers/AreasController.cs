@@ -5,9 +5,9 @@
     using Microsoft.AspNet.Identity;
     using QMS.Models;
     using QMS.Services;
-    using QMS.Web.Models.Areas;
-    using QMS.Web.Models.Records;
-    using Models.Timesheet;
+    using QMS.Web.ViewModels.Areas;
+    using QMS.Web.ViewModels.Records;
+    using ViewModels.Timesheet;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;

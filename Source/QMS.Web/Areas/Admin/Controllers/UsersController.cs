@@ -4,9 +4,9 @@
     using AutoMapper.QueryableExtensions;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
-    using Models.Users;
+    using ViewModels.Users;
     using QMS.Models;
-    using QMS.Web.Models;
+    using QMS.Web.ViewModels;
     using Services;
     using System;
     using System.Linq;

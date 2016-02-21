@@ -5,7 +5,7 @@ namespace QMS.Web.Areas.Admin.Controllers
     using AutoMapper.QueryableExtensions;
     using QMS.Helpers;
     using QMS.Services;
-    using QMS.Web.Models.Documents;
+    using QMS.Web.ViewModels.Documents;
     using System;
     using System.Collections.Generic;
     using System.IO;

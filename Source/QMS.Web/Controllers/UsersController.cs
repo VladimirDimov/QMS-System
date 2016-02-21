@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using QMS.Services;
-using QMS.Web.Models.Users;
+using QMS.Web.ViewModels.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;

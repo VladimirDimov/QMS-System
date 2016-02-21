@@ -5,7 +5,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using QMS.Models;
     using QMS.Services;
-    using QMS.Web.Models.Users;
+    using QMS.Web.ViewModels.Users;
     using System;
     using System.Web;
     using System.Web.Mvc;

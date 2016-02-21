@@ -4,9 +4,9 @@
     using Microsoft.AspNet.Identity;
     using QMS.Services;
     using QMS.Web.Hubs;
-    using QMS.Web.Models.Documents;
-    using QMS.Web.Models.Notes;
-    using QMS.Web.Models.Records;
+    using QMS.Web.ViewModels.Documents;
+    using QMS.Web.ViewModels.Notes;
+    using QMS.Web.ViewModels.Records;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;

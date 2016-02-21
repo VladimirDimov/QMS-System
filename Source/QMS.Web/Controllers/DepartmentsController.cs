@@ -1,6 +1,6 @@
 ﻿using AutoMapper.QueryableExtensions;
 using QMS.Services;
-using QMS.Web.Models.Departments;
+using QMS.Web.ViewModels.Departments;
 using System;
 using System.Collections.Generic;
 using System.Linq;

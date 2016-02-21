@@ -1,7 +1,7 @@
 ﻿namespace QMS.Web.Areas.Private.Controllers
 {
     using QMS.Services;
-    using QMS.Web.Models.Records;
+    using QMS.Web.ViewModels.Records;
     using System.Web.Mvc;
     using System;
     using System.Collections;

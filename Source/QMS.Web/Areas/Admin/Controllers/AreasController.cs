@@ -4,7 +4,7 @@
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
     using QMS.Services;
-    using QMS.Web.Models.Areas;
+    using QMS.Web.ViewModels.Areas;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;

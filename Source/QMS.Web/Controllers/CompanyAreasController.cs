@@ -3,7 +3,7 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Services;
-    using QMS.Web.Models.Areas;
+    using QMS.Web.ViewModels.Areas;
     using System.Linq;
     using System.Web.Mvc;
 

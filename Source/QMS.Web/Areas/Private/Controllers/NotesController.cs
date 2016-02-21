@@ -1,5 +1,5 @@
 ﻿using QMS.Services;
-using QMS.Web.Models.Notes;
+using QMS.Web.ViewModels.Notes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

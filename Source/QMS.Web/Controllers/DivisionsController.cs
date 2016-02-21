@@ -1,7 +1,7 @@
 ﻿namespace QMS.Web.Controllers
 {
     using QMS.Services;
-    using QMS.Web.Models.Divisions;
+    using QMS.Web.ViewModels.Divisions;
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using System.Linq;

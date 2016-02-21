@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity;
 using QMS.Services;
 using QMS.Web.Hubs;
-using QMS.Web.Models.Messages;
+using QMS.Web.ViewModels.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
