@@ -27,10 +27,9 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var allDocumentsModel = this.documents
-                .All()
-                .ProjectTo<DocumentListModel>()
-                .ToList();
+            var allDocumentsModel = this.documents.All()
+                .OrderBy(d => d.LastUpdate)
+                .ProjectTo<DocumentListModel>();
 
             return View(allDocumentsModel);
         }
