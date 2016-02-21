@@ -114,12 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountViewModels.cs" />
-    <Compile Include="Areas\AreaCreateModel.cs" />
-    <Compile Include="Areas\AreaDetailsModel.cs" />
-    <Compile Include="Areas\AreaEditModel.cs" />
-    <Compile Include="Areas\AreaListModel.cs" />
-    <Compile Include="Areas\AreaManageModel.cs" />
-    <Compile Include="Areas\AreaShortModel.cs" />
+    <Compile Include="Areas\AreaCreateViewModel.cs" />
+    <Compile Include="Areas\AreaDetailsViewModel.cs" />
+    <Compile Include="Areas\AreaEditViewModel.cs" />
+    <Compile Include="Areas\AreaListViewModel.cs" />
+    <Compile Include="Areas\AreaManageViewModel.cs" />
+    <Compile Include="Areas\AreaShortViewModel.cs" />
     <Compile Include="Departments\DepartmentCreateModel.cs" />
     <Compile Include="Departments\DepartmentDetailsSmallResponseModel.cs" />
     <Compile Include="Departments\DepartmentDetailsModel.cs" />

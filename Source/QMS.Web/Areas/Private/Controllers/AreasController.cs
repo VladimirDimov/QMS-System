@@ -35,7 +35,7 @@
         public ActionResult Index(int page = 1)
         {
             var areas = this.areas.all()
-                .ProjectTo<AreaListModel>()
+                .ProjectTo<AreaListViewModel>()
                 .OrderBy(a => a.Name);
 
             return View(areas);
@@ -45,7 +45,7 @@
         {
             var userId = this.User.Identity.GetUserId();
             var myAreas = this.areas.GetByUserId(userId)
-                    .ProjectTo<AreaListModel>()
+                    .ProjectTo<AreaListViewModel>()
                     .OrderBy(a => a.Name);
 
             return View("Index", myAreas);
@@ -55,7 +55,7 @@
         {
             var userId = this.User.Identity.GetUserId();
             var currentUserAreas = this.areas.GetByUserId(userId)
-                    .ProjectTo<AreaShortModel>()
+                    .ProjectTo<AreaShortViewModel>()
                     .OrderBy(a => a.Name)
                     .ToList();
 
@@ -165,8 +165,8 @@
         private ActionResult ShowRecords(int id, IOrderedQueryable<RecordListModel> recordsListViewModel)
         {
             var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaDetailsModel>(area);
-            var areaManageViewModel = new AreaManageModel
+            var areaViewModel = Mapper.Map<AreaDetailsViewModel>(area);
+            var areaManageViewModel = new AreaManageViewModel
             {
                 Area = areaViewModel,
                 Records = recordsListViewModel

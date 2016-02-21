@@ -20,6 +20,6 @@
         [DisplayName("Division")]
         public DivisionsDetailsResponseModel Division { get; set; }
 
-        public ICollection<AreaDetailsModel> Areas { get; set; }
+        public ICollection<AreaDetailsViewModel> Areas { get; set; }
     }
 }

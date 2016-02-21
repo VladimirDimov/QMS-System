@@ -31,7 +31,7 @@
         {
             var allAreas = this.areas.all()
                 .OrderBy(a => a.Name)
-                .ProjectTo<AreaListModel>();
+                .ProjectTo<AreaListViewModel>();
 
             return View("Index", allAreas);
         }
@@ -46,7 +46,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AreaCreateModel model)
+        public ActionResult Create(AreaCreateViewModel model)
         {
             if (this.ModelState.IsValid)
             {
@@ -62,7 +62,7 @@
         public ActionResult Details(int id)
         {
             var area = this.areas.GetById(id);
-            var fromModel = Mapper.Map(area, typeof(Area), typeof(AreaDetailsModel));
+            var fromModel = Mapper.Map(area, typeof(Area), typeof(AreaDetailsViewModel));
             return View("Details", fromModel);
         }
 
@@ -77,11 +77,11 @@
 
             ViewBag.Users = users;
             var area = this.areas.GetById(id);
-            var areaViewModel = Mapper.Map<AreaEditModel>(area);
+            var areaViewModel = Mapper.Map<AreaEditViewModel>(area);
             return View(areaViewModel);
         }
 
-        public ActionResult Update(AreaEditModel model)
+        public ActionResult Update(AreaEditViewModel model)
         {
             if (this.ModelState.IsValid)
             {

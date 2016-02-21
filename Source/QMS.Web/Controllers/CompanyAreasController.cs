@@ -22,7 +22,7 @@
             var areas = this.areas.all()
                 .Where(d => departmentId == null ? true : d.DepartmentId == departmentId)
                 .OrderBy(d => d.Name)
-                .ProjectTo<AreaListModel>();
+                .ProjectTo<AreaListViewModel>();
 
             return View("Index", areas);
         }
@@ -30,7 +30,7 @@
         public ActionResult Details(int id)
         {
             var area = this.areas.GetById(id);
-            var areaFromModel = Mapper.Map<AreaDetailsModel>(area);
+            var areaFromModel = Mapper.Map<AreaDetailsViewModel>(area);
 
             return View("Details", areaFromModel);
         }

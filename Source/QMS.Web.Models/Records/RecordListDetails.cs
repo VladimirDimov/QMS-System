@@ -32,6 +32,6 @@
 
         public int? RecordFileId { get; set; }
 
-        public virtual AreaShortModel Area { get; set; }
+        public virtual AreaShortViewModel Area { get; set; }
     }
 }

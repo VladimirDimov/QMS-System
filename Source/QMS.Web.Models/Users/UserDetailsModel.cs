@@ -26,6 +26,6 @@
         [DisplayName("Username")]
         public string UserName { get; set; }
 
-        public ICollection<AreaShortModel> Areas { get; set; }
+        public ICollection<AreaShortViewModel> Areas { get; set; }
     }
 }
