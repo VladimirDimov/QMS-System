@@ -4,18 +4,17 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using QMS.Models;
-    using QMS.Services;
     using QMS.Web.ViewModels.Users;
-    using System;
+    using Services.Contracts;
     using System.Web;
     using System.Web.Mvc;
 
     [Authorize]
     public class UsersController : Controller
     {
-        private UsersServices users;
+        private IUsersServices users;
 
-        public UsersController(UsersServices users)
+        public UsersController(IUsersServices users)
         {
             this.users = users;
         }

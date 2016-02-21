@@ -2,29 +2,29 @@
 {
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using FIlters;
     using Microsoft.AspNet.Identity;
     using QMS.Models;
-    using QMS.Services;
     using QMS.Web.ViewModels.Areas;
     using QMS.Web.ViewModels.Records;
-    using ViewModels.Timesheet;
+    using Services.Contracts;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using FIlters;
+    using ViewModels.Timesheet;
 
     public class AreasController : Controller
     {
-        private AreasServices areas;
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private UsersServices users;
+        private IAreasServices areas;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IUsersServices users;
 
         public AreasController(
-            AreasServices areas,
-            RecordsServices records,
-            DocumentsServices documents,
-            UsersServices users)
+            IAreasServices areas,
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IUsersServices users)
         {
             this.areas = areas;
             this.records = records;

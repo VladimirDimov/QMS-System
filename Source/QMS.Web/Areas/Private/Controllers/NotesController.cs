@@ -1,18 +1,14 @@
-﻿using QMS.Services;
-using QMS.Web.ViewModels.Notes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Areas.Private.Controllers
+﻿namespace QMS.Web.Areas.Private.Controllers
 {
+    using QMS.Web.ViewModels.Notes;
+    using Services.Contracts;
+    using System.Web.Mvc;
+
     public class NotesController : Controller
     {
-        private NotesServices notes;
+        private INotesServices notes;
 
-        public NotesController(NotesServices notes)
+        public NotesController(INotesServices notes)
         {
             this.notes = notes;
         }

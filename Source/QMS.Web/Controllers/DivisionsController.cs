@@ -5,12 +5,13 @@
     using System.Web.Mvc;
     using AutoMapper.QueryableExtensions;
     using System.Linq;
+    using Services.Contracts;
 
     public class DivisionsController : Controller
     {
-        private DivisionsServices divisions;
+        private IDivisionsServices divisions;
 
-        public DivisionsController(DivisionsServices divisions)
+        public DivisionsController(IDivisionsServices divisions)
         {
             this.divisions = divisions;
         }

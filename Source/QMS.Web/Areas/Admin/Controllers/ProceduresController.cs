@@ -3,6 +3,7 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Services;
+    using Services.Contracts;
     using QMS.Web.ViewModels.Procedures;
     using System.Linq;
     using System.Web.Mvc;
@@ -10,9 +11,9 @@
     [Authorize(Roles = "admin, admin-procedures")]
     public class ProceduresController : Controller
     {
-        private ProceduresServices procedures;
+        private IProceduresServices procedures;
 
-        public ProceduresController(ProceduresServices procedures)
+        public ProceduresController(IProceduresServices procedures)
         {
             this.procedures = procedures;
         }

@@ -2,16 +2,16 @@
 {
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
-    using QMS.Services;
     using QMS.Web.ViewModels.Areas;
+    using Services.Contracts;
     using System.Linq;
     using System.Web.Mvc;
 
     public class CompanyAreasController : Controller
     {
-        private AreasServices areas;
+        private IAreasServices areas;
 
-        public CompanyAreasController(AreasServices areas)
+        public CompanyAreasController(IAreasServices areas)
         {
             this.areas = areas;
         }

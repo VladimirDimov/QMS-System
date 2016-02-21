@@ -3,8 +3,8 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
-    using QMS.Services;
     using QMS.Web.ViewModels.Divisions;
+    using Services.Contracts;
     using System;
     using System.Linq;
     using System.Web.Mvc;
@@ -12,9 +12,9 @@
     [Authorize(Roles = "admin, admin-divisions")]
     public class DivisionsController : Controller
     {
-        private DivisionsServices divisions;
+        private IDivisionsServices divisions;
 
-        public DivisionsController(DivisionsServices divisions)
+        public DivisionsController(IDivisionsServices divisions)
         {
             this.divisions = divisions;
         }

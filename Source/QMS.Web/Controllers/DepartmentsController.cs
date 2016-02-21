@@ -1,19 +1,16 @@
-﻿using AutoMapper.QueryableExtensions;
-using QMS.Services;
-using QMS.Web.ViewModels.Departments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Controllers
+﻿namespace QMS.Web.Controllers
 {
+    using AutoMapper.QueryableExtensions;
+    using QMS.Services.Contracts;
+    using QMS.Web.ViewModels.Departments;
+    using System.Linq;
+    using System.Web.Mvc;
+
     public class DepartmentsController : Controller
     {
-        private DepartmentsServices departments;
+        private IDepartmentsServices departments;
 
-        public DepartmentsController(DepartmentsServices departments)
+        public DepartmentsController(IDepartmentsServices departments)
         {
             this.departments = departments;
         }

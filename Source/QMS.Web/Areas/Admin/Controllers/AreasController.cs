@@ -4,6 +4,7 @@
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
     using QMS.Services;
+    using Services.Contracts;
     using QMS.Web.ViewModels.Areas;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,14 +13,14 @@
     [Authorize(Roles = "admin, admin-areas")]
     public class AreasController : Controller
     {
-        private AreasServices areas;
-        private DepartmentsServices departments;
-        private UsersServices users;
+        private IAreasServices areas;
+        private IDepartmentsServices departments;
+        private IUsersServices users;
 
         public AreasController(
-            AreasServices areas,
-            DepartmentsServices departments,
-            UsersServices users)
+            IAreasServices areas,
+            IDepartmentsServices departments,
+            IUsersServices users)
         {
             this.areas = areas;
             this.departments = departments;

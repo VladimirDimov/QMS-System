@@ -1,20 +1,17 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using QMS.Services;
-using QMS.Web.ViewModels.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace QMS.Web.Controllers
+﻿namespace QMS.Web.Controllers
 {
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using QMS.Services.Contracts;
+    using QMS.Web.ViewModels.Users;
+    using System.Linq;
+    using System.Web.Mvc;
+
     public class UsersController : Controller
     {
-        private UsersServices users;
+        private IUsersServices users;
 
-        public UsersController(UsersServices users)
+        public UsersController(IUsersServices users)
         {
             this.users = users;
         }

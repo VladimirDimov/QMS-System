@@ -2,14 +2,15 @@
 {
     using AutoMapper.QueryableExtensions;
     using QMS.Services;
+    using Services.Contracts;
     using System.Linq;
     using System.Web.Mvc;
 
     public class ProceduresController : Controller
     {
-        private ProceduresServices procedures;
+        private IProceduresServices procedures;
 
-        public ProceduresController(ProceduresServices procedures)
+        public ProceduresController(IProceduresServices procedures)
         {
             this.procedures = procedures;
         }

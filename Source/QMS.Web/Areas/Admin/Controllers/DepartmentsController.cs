@@ -4,6 +4,7 @@
     using AutoMapper.QueryableExtensions;
     using QMS.Models;
     using QMS.Services;
+    using Services.Contracts;
     using QMS.Web.ViewModels.Departments;
     using System;
     using System.Collections;
@@ -14,10 +15,10 @@
     [Authorize(Roles = "admin, admin-departments")]
     public class DepartmentsController : Controller
     {
-        private DepartmentsServices departments;
-        private DivisionsServices divisions;
+        private IDepartmentsServices departments;
+        private IDivisionsServices divisions;
 
-        public DepartmentsController(DepartmentsServices departments, DivisionsServices divisions)
+        public DepartmentsController(IDepartmentsServices departments, IDivisionsServices divisions)
         {
             this.departments = departments;
             this.divisions = divisions;

@@ -4,8 +4,8 @@ namespace QMS.Web.Areas.Admin.Controllers
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using QMS.Helpers;
-    using QMS.Services;
     using QMS.Web.ViewModels.Documents;
+    using Services.Contracts;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -16,10 +16,10 @@ namespace QMS.Web.Areas.Admin.Controllers
     [Authorize(Roles = "admin, admin-documents")]
     public class DocumentsController : Controller
     {
-        private DocumentsServices documents;
-        private ProceduresServices procedures;
+        private IDocumentsServices documents;
+        private IProceduresServices procedures;
 
-        public DocumentsController(DocumentsServices documents, ProceduresServices procedures)
+        public DocumentsController(IDocumentsServices documents, IProceduresServices procedures)
         {
             this.documents = documents;
             this.procedures = procedures;

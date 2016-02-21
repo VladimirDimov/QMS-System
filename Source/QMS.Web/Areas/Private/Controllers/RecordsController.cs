@@ -1,28 +1,27 @@
 ﻿namespace QMS.Web.Areas.Private.Controllers
 {
-    using QMS.Services;
+    using AutoMapper;
+    using Microsoft.AspNet.Identity;
     using QMS.Web.ViewModels.Records;
-    using System.Web.Mvc;
+    using Services.Contracts;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.AspNet.Identity;
-    using AutoMapper;
     using System.Web;
+    using System.Web.Mvc;
 
     public class RecordsController : Controller
     {
-        private RecordsServices records;
-        private DocumentsServices documents;
-        private AreasServices areas;
-        private RecordFilesServices recordFiles;
+        private IRecordsServices records;
+        private IDocumentsServices documents;
+        private IAreasServices areas;
+        private IRecordFilesServices recordFiles;
 
         public RecordsController(
-            RecordsServices records,
-            DocumentsServices documents,
-            AreasServices areas,
-            RecordFilesServices recordFiles)
+            IRecordsServices records,
+            IDocumentsServices documents,
+            IAreasServices areas,
+            IRecordFilesServices recordFiles)
         {
             this.records = records;
             this.documents = documents;
