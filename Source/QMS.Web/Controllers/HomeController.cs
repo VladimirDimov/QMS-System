@@ -58,7 +58,7 @@
             var userId = this.User.Identity.GetUserId();
             var notes = this.notes.GetUserNotes(userId)
                 .OrderByDescending(n => n.CreatedOn)
-                .ProjectTo<NoteDetailsModel>();
+                .ProjectTo<NoteDetailsViewModel>();
 
             return this.PartialView("Home/_HomePageNotes", notes);
         }

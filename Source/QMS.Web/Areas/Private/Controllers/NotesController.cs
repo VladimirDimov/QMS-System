@@ -30,7 +30,7 @@ namespace QMS.Web.Areas.Private.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddNote(NoteCreateModel model)
+        public ActionResult AddNote(NoteCreateViewModel model)
         {
             if (ModelState.IsValid)
             {

@@ -42,6 +42,6 @@
 
         public int AreaId { get; set; }
 
-        public ICollection<NoteDetailsModel> Notes { get; set; }
+        public ICollection<NoteDetailsViewModel> Notes { get; set; }
     }
 }
