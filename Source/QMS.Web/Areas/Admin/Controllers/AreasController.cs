@@ -30,8 +30,8 @@
         public ActionResult Index()
         {
             var allAreas = this.areas.all()
-                .ProjectTo<AreaListModel>()
-                .ToList();
+                .OrderBy(a => a.Name)
+                .ProjectTo<AreaListModel>();
 
             return View("Index", allAreas);
         }

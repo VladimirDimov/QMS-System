@@ -27,34 +27,7 @@
     .Encoded(false)
     .RenderValueAs(m => Html.ActionLink("Details", "Details", "Departments", new { id = m.Id }, null))
     .SetWidth(20);
-}).WithPaging(10, 5).Selectable(false)
+}).WithPaging(10, 5).Selectable(false).EmptyText("There are no departments yet to display")
 </div>
 
 <div class="clearfix"></div>
-
-@*<table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th> Name </th>
-                <th> Description </th>
-                <th> Division </th>
-                <th> Details </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var department in Model)
-            {
-                <tr>
-                    <td>@department.Name</td>
-                    <td>@department.Description</td>
-                    <td>@department.Division.Name</td>
-                    <td><a href="~/admin/departments/details/@department.Id">Details</a></td>
-                </tr>
-            }
-        </tbody>
-    </table>*@
-
-@*@if (Model.Count == 0)
-{
-    <h3 class="text-center">No departments yet to display!</h3>
-}*@
