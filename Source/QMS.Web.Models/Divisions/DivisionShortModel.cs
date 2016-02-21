@@ -1,6 +1,6 @@
 ﻿namespace QMS.Web.Models.Divisions
 {
-    public class DivisionShortModel
+    public class DivisionShortViewModel
     {
         public int Id { get; set; }
 

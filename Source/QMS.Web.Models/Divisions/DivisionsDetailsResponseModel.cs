@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public class DivisionsDetailsResponseModel : IMapFrom<Division>
+    public class DivisionDetailsViewModel : IMapFrom<Division>
     {
         public int Id { get; set; }
 

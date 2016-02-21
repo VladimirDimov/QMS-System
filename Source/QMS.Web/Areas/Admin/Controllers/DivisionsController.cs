@@ -24,7 +24,7 @@
         {
             var allDivisions = this.divisions.GetAll()
                 .OrderBy(d => d.Name)
-                .ProjectTo<DivisionsListResponseModel>();
+                .ProjectTo<DivisionListViewModel>();
 
             return View("Index", allDivisions);
         }
@@ -36,7 +36,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DivisionRequestModel model)
+        public ActionResult Create(DivisionRequestViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@
 
             if (division != null)
             {
-                var divisionFromModel = Mapper.Map<DivisionsDetailsResponseModel>(division);
+                var divisionFromModel = Mapper.Map<DivisionDetailsViewModel>(division);
                 return View("Details", divisionFromModel);
             }
             else
@@ -71,7 +71,7 @@
 
             if (division != null)
             {
-                return View("Edit", Mapper.Map(division, typeof(Division), typeof(DivisionsUpdateModel)));
+                return View("Edit", Mapper.Map(division, typeof(Division), typeof(DivisionUpdateViewModel)));
             }
             else
             {
@@ -81,7 +81,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(DivisionsUpdateModel model)
+        public ActionResult Update(DivisionUpdateViewModel model)
         {
             try
             {

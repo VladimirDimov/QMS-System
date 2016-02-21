@@ -18,7 +18,7 @@
         public int DivisionId { get; set; }
 
         [DisplayName("Division")]
-        public DivisionsDetailsResponseModel Division { get; set; }
+        public DivisionDetailsViewModel Division { get; set; }
 
         public ICollection<AreaDetailsViewModel> Areas { get; set; }
     }

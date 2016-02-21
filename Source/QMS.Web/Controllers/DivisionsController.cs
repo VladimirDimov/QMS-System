@@ -20,7 +20,7 @@
         {
             var divisions = this.divisions.GetAll()
                 .OrderBy(d => d.Name)
-                .ProjectTo<DivisionsListResponseModel>();
+                .ProjectTo<DivisionListViewModel>();
 
             return View("Index", divisions);
         }

@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class DivisionRequestModel
+    public class DivisionRequestViewModel
     {
         public int Id { get; set; }
 
