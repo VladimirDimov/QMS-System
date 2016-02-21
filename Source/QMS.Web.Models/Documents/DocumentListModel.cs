@@ -6,7 +6,7 @@
     using System;
     using System.ComponentModel;
 
-    public class DocumentListModel : IMapFrom<Document>
+    public class DocumentListViewModel : IMapFrom<Document>
     {
         public int Id { get; set; }
 

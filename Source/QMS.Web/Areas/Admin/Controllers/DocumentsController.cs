@@ -29,7 +29,7 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             var allDocumentsModel = this.documents.All()
                 .OrderBy(d => d.LastUpdate)
-                .ProjectTo<DocumentListModel>();
+                .ProjectTo<DocumentListViewModel>();
 
             return View(allDocumentsModel);
         }
@@ -43,7 +43,7 @@ namespace QMS.Web.Areas.Admin.Controllers
                 return this.HttpNotFound($"Invalid document id: {id}");
             }
 
-            var fromModel = Mapper.Map<DocumentDetailsModel>(dbModel);
+            var fromModel = Mapper.Map<DocumentDetailsViewModel>(dbModel);
             return View("Details", fromModel);
         }
 
@@ -55,7 +55,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DocumentCreateModel model, HttpPostedFileBase file)
+        public ActionResult Create(DocumentCreateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid && file != null)
             {
@@ -82,13 +82,13 @@ namespace QMS.Web.Areas.Admin.Controllers
             }
 
             ViewBag.Procedures = GetProceduresListItems();
-            var fromModel = Mapper.Map<DocumentUpdateModel>(dbModel);
+            var fromModel = Mapper.Map<DocumentUpdateViewModel>(dbModel);
             return View(fromModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(DocumentUpdateModel model, HttpPostedFileBase file)
+        public ActionResult Update(DocumentUpdateViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {

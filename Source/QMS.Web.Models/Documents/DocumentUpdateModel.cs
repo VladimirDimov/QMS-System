@@ -6,7 +6,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class DocumentUpdateModel : IMapFrom<Document>
+    public class DocumentUpdateViewModel : IMapFrom<Document>
     {
         public int Id { get; set; }
 

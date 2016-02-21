@@ -13,6 +13,6 @@
 
         public string Description { get; set; }
 
-        public virtual ICollection<DocumentShortModel> Documents { get; set; }
+        public virtual ICollection<DocumentShortViewModel> Documents { get; set; }
     }
 }

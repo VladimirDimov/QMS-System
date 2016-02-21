@@ -3,7 +3,7 @@
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
 
-    public class DocumentShortModel : IMapFrom<Document>
+    public class DocumentShortViewModel : IMapFrom<Document>
     {
         public int Id { get; set; }
 

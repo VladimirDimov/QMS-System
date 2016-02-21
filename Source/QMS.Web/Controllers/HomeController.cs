@@ -77,7 +77,7 @@
         public ActionResult GetMostResentDocuments()
         {
             var mostRecentDocuments = this.documents.All()
-                .ProjectTo<DocumentListModel>()
+                .ProjectTo<DocumentListViewModel>()
                 .OrderBy(d => d.LastUpdate);
 
             return this.PartialView("Home/_HomePageMostRecentDocuments", mostRecentDocuments);

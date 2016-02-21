@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class DocumentCreateModel
+    public class DocumentCreateViewModel
     {
         [Required]
         [MaxLength(50)]

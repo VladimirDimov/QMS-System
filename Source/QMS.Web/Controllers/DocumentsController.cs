@@ -19,7 +19,7 @@
         {
             var documents = this.documents.All()
                 .Where(p => procedureId == null ? true : p.ProcedureId == procedureId)
-                .ProjectTo<QMS.Web.Models.Documents.DocumentListModel>()
+                .ProjectTo<QMS.Web.Models.Documents.DocumentListViewModel>()
                 .OrderBy(d => d.Title);
 
             return View("Index", documents);
