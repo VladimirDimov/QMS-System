@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class DepartmentUpdateModel
+    public class DepartmentUpdateViewModel
     {
         [Required]
         public int Id { get; set; }

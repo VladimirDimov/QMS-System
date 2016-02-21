@@ -24,7 +24,7 @@ namespace QMS.Web.Controllers
             var departments = this.departments.All()
                 .Where(d => divisionId == null ? true : d.DivisionId == divisionId)
                 .OrderBy(d => d.Name)
-                .ProjectTo<DepartmentListResponseModel>();
+                .ProjectTo<DepartmentListViewModel>();
 
             return View("Index", departments);
         }

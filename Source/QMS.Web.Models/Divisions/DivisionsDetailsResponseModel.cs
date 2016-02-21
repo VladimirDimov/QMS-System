@@ -15,6 +15,6 @@
 
         public string Description { get; set; }
 
-        public virtual ICollection<DepartmentDetailsSmallResponseModel> Departments { get; set; }
+        public virtual ICollection<DepartmentShortViewModel> Departments { get; set; }
     }
 }

@@ -6,7 +6,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class DepartmentCreateModel : IMapFrom<Department>
+    public class DepartmentCreateViewModel : IMapFrom<Department>
     {
         public int Id { get; set; }
 

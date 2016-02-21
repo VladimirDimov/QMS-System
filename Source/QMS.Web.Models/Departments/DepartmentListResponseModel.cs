@@ -3,7 +3,7 @@
     using QMS.Models;
     using QMS.Web.Infrastructure.Mappings;
 
-    public class DepartmentListResponseModel : IMapFrom<Department>
+    public class DepartmentListViewModel : IMapFrom<Department>
     {
         public int Id { get; set; }
 

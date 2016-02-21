@@ -27,7 +27,7 @@
         {
             var departments = this.departments.All()
                 .OrderBy(d => d.Name)
-                .ProjectTo<DepartmentListResponseModel>();
+                .ProjectTo<DepartmentListViewModel>();
 
             return View("Index", departments);
         }
@@ -47,7 +47,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DepartmentCreateModel model)
+        public ActionResult Create(DepartmentCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@
             }
 
             ViewBag.Divisions = this.GetDivisionsListItems();
-            return View(Mapper.Map(department, typeof(Department), typeof(DepartmentCreateModel)));
+            return View(Mapper.Map(department, typeof(Department), typeof(DepartmentCreateViewModel)));
         }
 
         private IEnumerable<SelectListItem> GetDivisionsListItems()
@@ -93,12 +93,12 @@
             var fromModel = Mapper.Map(
                 model,
                 typeof(Department),
-                typeof(DepartmentDetailsModel));
+                typeof(DepartmentDetailsViewModel));
 
             return View("Details", fromModel);
         }
 
-        public ActionResult Update(DepartmentUpdateModel model)
+        public ActionResult Update(DepartmentUpdateViewModel model)
         {
             if (ModelState.IsValid)
             {

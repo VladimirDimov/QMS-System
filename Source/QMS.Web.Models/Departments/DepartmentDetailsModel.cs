@@ -7,7 +7,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public class DepartmentDetailsModel : IMapFrom<Department>
+    public class DepartmentDetailsViewModel : IMapFrom<Department>
     {
         public int Id { get; set; }
 
