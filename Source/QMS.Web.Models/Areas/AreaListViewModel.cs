@@ -18,6 +18,6 @@ namespace QMS.Web.Models.Areas
 
         public string Description { get; set; }
 
-        public virtual UserShortModel Employee { get; set; }
+        public virtual UserShortViewModel Employee { get; set; }
     }
 }

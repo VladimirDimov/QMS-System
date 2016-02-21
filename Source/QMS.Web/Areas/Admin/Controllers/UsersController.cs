@@ -32,7 +32,7 @@
         public ActionResult Index()
         {
             var users = this.users.All()
-                .ProjectTo<UserDetailsModel>()
+                .ProjectTo<UserDetailsViewModel>()
                 .OrderBy(u => u.UserName);
 
             return View("Index", users);

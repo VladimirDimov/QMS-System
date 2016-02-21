@@ -20,7 +20,7 @@ namespace QMS.Web.Models.Areas
 
         public string EmployeeId { get; set; }
 
-        public UserDetailsModel Employee { get; set; }
+        public UserDetailsViewModel Employee { get; set; }
 
         public ICollection<RecordListViewModel> Records { get; set; }
     }

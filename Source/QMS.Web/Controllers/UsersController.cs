@@ -25,7 +25,7 @@ namespace QMS.Web.Controllers
                 .Where(u => divisionId == null ? true : u.Areas.Any(a => a.Department.DivisionId == divisionId))
                 .Where(u => departmentId == null ? true : u.Areas.Any(a => a.DepartmentId == departmentId))
                 .OrderBy(u => u.UserName)
-                .ProjectTo<UserDetailsModel>();
+                .ProjectTo<UserDetailsViewModel>();
 
             return View("Index", users);
         }
@@ -33,7 +33,7 @@ namespace QMS.Web.Controllers
         public ActionResult Details(string id)
         {
             var user = this.users.GetById(id);
-            var userFromModel = Mapper.Map<UserDetailsModel>(user);
+            var userFromModel = Mapper.Map<UserDetailsViewModel>(user);
 
             return View("Details", userFromModel);
         }

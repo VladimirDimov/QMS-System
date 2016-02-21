@@ -13,11 +13,11 @@
 
         public string Content { get; set; }
 
-        public UserShortModel Sender { get; set; }
+        public UserShortViewModel Sender { get; set; }
 
         [DisplayName("Sent on")]
         public DateTime CreatedOn { get; set; }
 
-        public virtual ICollection<UserShortModel> Users { get; set; }
+        public virtual ICollection<UserShortViewModel> Users { get; set; }
     }
 }

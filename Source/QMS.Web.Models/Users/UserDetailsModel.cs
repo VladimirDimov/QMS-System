@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public class UserDetailsModel : IMapFrom<User>
+    public class UserDetailsViewModel : IMapFrom<User>
     {
         public string Email { get; set; }
 

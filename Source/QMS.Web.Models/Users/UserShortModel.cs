@@ -4,7 +4,7 @@
     using QMS.Web.Infrastructure.Mappings;
     using System.ComponentModel.DataAnnotations;
 
-    public class UserShortModel : IMapFrom<User>
+    public class UserShortViewModel : IMapFrom<User>
     {
         public string Id { get; set; }
 
