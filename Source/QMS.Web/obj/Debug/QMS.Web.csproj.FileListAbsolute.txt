@@ -48,7 +48,9 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Models.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Services.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.Infrastructure.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\QMS.Web.ViewModels.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Net.Http.Formatting.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Helpers.dll
+D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Http.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Mvc.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Optimization.dll
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Razor.dll
@@ -74,6 +76,8 @@ D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Common.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\Ninject.Web.Mvc.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\PagedList.Mvc.xml
+D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Net.Http.Formatting.xml
+D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Http.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Helpers.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Mvc.xml
 D:\Telerik\QMS-System\Source\QMS.Web\bin\System.Web.Optimization.xml
