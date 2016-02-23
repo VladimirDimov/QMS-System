@@ -11,6 +11,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Qms.Common;
 
     [Authorize(Roles = "admin, admin-departments")]
     public class DepartmentsController : Controller
@@ -53,7 +54,7 @@
             if (ModelState.IsValid)
             {
                 this.departments.Create(model.Name, model.Description, model.DivisionId);
-                TempData["Success"] = "Department successfully created!";
+                TempData["Success"] = SuccessMessagesConstants.DepartmentCreated;
                 return Redirect("~/admin/departments");
             }
 
@@ -106,7 +107,7 @@
                 try
                 {
                     this.departments.Update(model.Id, model.Name, model.Description, model.DivisionId);
-                    TempData["Success"] = "Department successfully updated";
+                    TempData["Success"] = SuccessMessagesConstants.DepartmentUpdated;
                     return this.Details(model.Id);
                 }
                 catch (Exception ex)
@@ -123,7 +124,7 @@
         public ActionResult Delete(int id)
         {
             this.departments.Delete(id);
-            TempData["Success"] = "Department successfully deleted";
+            TempData["Success"] = SuccessMessagesConstants.DepartmentDeleted;
             return RedirectToAction("Index");
         }
     }

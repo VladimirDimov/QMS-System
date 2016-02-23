@@ -24,7 +24,9 @@ textarea {
 }
 
 .notification {
-    position: fixed;
+    position: absolute;
+    top: 50px;
+    right: 10px;
 }
 
 .datepicker {
@@ -50,5 +52,5 @@ body {
 }
 
 #wrapper{
-    height: 75vh;
+    /*height: 75vh;*/
 }

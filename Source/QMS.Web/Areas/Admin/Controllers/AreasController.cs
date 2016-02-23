@@ -9,6 +9,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Qms.Common;
 
     [Authorize(Roles = "admin, admin-areas")]
     public class AreasController : Controller
@@ -87,7 +88,7 @@
             if (this.ModelState.IsValid)
             {
                 this.areas.Update(model.Id, model.Name, model.Description, model.EmployeeId);
-                TempData["Success"] = "Area successfully created!";
+                TempData["Success"] = SuccessMessagesConstants.AreaCreated;
                 return this.Details(model.Id);
             };
 
@@ -98,7 +99,7 @@
         {
             this.areas.Delete(id);
 
-            TempData["Success"] = "Area successfully deleted";
+            TempData["Success"] = SuccessMessagesConstants.AreaDeleted;
             return View("Index");
         }
 

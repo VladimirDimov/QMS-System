@@ -3,6 +3,7 @@
     using AutoMapper;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Qms.Common;
     using QMS.Models;
     using QMS.Web.ViewModels.Users;
     using Services.Contracts;
@@ -43,13 +44,13 @@
             {
                 if (User.Identity.GetUserId() != model.Id)
                 {
-                    throw new HttpException(401, "You can update only your profile");
+                    throw new HttpException(401, ErrorMessagesConstants.YouCanUpdateOnlyYourProfile);
                 }
 
                 this.users.Update(model.Id, model.UserName, model.FirstName, model.LastName,
                     model.PhoneNumber, model.Email);
 
-                TempData["Success"] = "User profile successfully updated";
+                TempData["Success"] = SuccessMessagesConstants.UserProfileUpdated;
             }
 
             return View("Update", model);
@@ -76,7 +77,7 @@
 
                 this.users.SetPassword(model.UserId, model.Password);
 
-                TempData["Success"] = "User password has been reset";
+                TempData["Success"] = SuccessMessagesConstants.UserPasswordResset;
                 return RedirectToAction("Update", new { id = model.UserId });
             }
 

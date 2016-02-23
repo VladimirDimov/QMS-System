@@ -7,15 +7,16 @@
     <div>
         @Html.Grid(Model).Columns(col =>
 {
-    col.Add(m => m.CreatedOn)
+    col.Add(m => m.Title)
     .Titled("My notes")
     .Sortable(true)
+    .Filterable(true)
     .Sanitized(false)
     .Encoded(false)
     .RenderValueAs(m => Html.ActionLink(m.Title, "Edit", "Records", new { id = m.RecordId, area = "Private" }, null))
     .SetWidth(20);
 
-    //col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).SetWidth(40);
+    col.Add(m => m.CreatedOn).Titled("Date created").Filterable(true).Sortable(true).SetWidth(40);
 }).WithPaging(10, 5).Selectable(false)
     </div>
 </fieldset>

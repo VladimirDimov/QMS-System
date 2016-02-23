@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Qms.Common;
     using QMS.Models;
     using QMS.Web.ViewModels.Divisions;
     using Services.Contracts;
@@ -44,6 +45,7 @@
                 return RedirectToAction("Details", new { id = newDivision.Id });
             }
 
+            TempData["Success"] = SuccessMessagesConstants.DivisionCreated;
             return View(model);
         }
 
@@ -83,23 +85,21 @@
         [ValidateAntiForgeryToken]
         public ActionResult Update(DivisionUpdateViewModel model)
         {
-            try
+            if (this.ModelState.IsValid)
             {
                 this.divisions.Update(model.Id, model.Name, model.Description);
-                TempData["Success"] = "Division successfully updated!";
+                TempData["Success"] = SuccessMessagesConstants.DivisionUpdated;
                 return RedirectToAction("Details", new { id = model.Id });
             }
-            catch (Exception ex)
-            {
-                TempData["Error"] = ex.Message;
-                return RedirectToAction("Index");
-            }
+
+            return View("Edit", model);
         }
 
         public ActionResult Delete(int id)
         {
             this.divisions.delete(id);
-            TempData["Success"] = $"Division successfully deleted.";
+
+            TempData["Success"] = SuccessMessagesConstants.DivisionDeleted;
             return RedirectToAction("Index");
         }
     }

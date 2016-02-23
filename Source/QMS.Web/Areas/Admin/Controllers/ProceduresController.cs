@@ -7,6 +7,7 @@
     using QMS.Web.ViewModels.Procedures;
     using System.Linq;
     using System.Web.Mvc;
+    using Qms.Common;
 
     [Authorize(Roles = "admin, admin-procedures")]
     public class ProceduresController : Controller
@@ -40,6 +41,8 @@
             if (ModelState.IsValid)
             {
                 var procedure = this.procedures.Add(model.Name, model.Description);
+
+                TempData["Success"] = SuccessMessagesConstants.ProcedureCreated;
                 return RedirectToAction("Details", new { id = procedure.Id });
             }
 
@@ -61,7 +64,7 @@
             if (ModelState.IsValid)
             {
                 this.procedures.Update(model.Id, model.Name, model.Description);
-                TempData["Success"] = "Procedure successfully updated";
+                TempData["Success"] = SuccessMessagesConstants.ProcedureUpdated;
             }
 
             return View("Edit", model);

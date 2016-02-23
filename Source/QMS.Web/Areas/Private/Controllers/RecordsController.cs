@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using Microsoft.AspNet.Identity;
+    using Qms.Common;
     using QMS.Web.ViewModels.Records;
     using Services.Contracts;
     using System;
@@ -52,7 +53,7 @@
             var area = this.areas.GetById(record.AreaId);
             if (User.Identity.GetUserId() != area.EmployeeId)
             {
-                return new HttpUnauthorizedResult("You are not authorized for this action.");
+                return new HttpUnauthorizedResult(ErrorMessagesConstants.NotAuthorizedForThisAction);
             }
 
             var recordFromModel = Mapper.Map<RecordUpdateViewModel>(record);
@@ -108,7 +109,7 @@
             var record = records.GetById(id);
             if (User.Identity.GetUserId() != record.Area.EmployeeId)
             {
-                return new HttpUnauthorizedResult("You are not authorized for this action.");
+                return new HttpUnauthorizedResult(ErrorMessagesConstants.NotAuthorizedForThisAction);
             }
 
             this.records.Delete(id);

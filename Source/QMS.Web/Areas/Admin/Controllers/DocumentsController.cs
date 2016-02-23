@@ -3,6 +3,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 {
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using Qms.Common;
     using QMS.Helpers;
     using QMS.Web.ViewModels.Documents;
     using Services.Contracts;
@@ -64,7 +65,7 @@ namespace QMS.Web.Areas.Admin.Controllers
 
                 this.SaveDocumentFile(newDocumentId, file);
 
-                TempData["Success"] = "Document successfully created";
+                TempData["Success"] = SuccessMessagesConstants.DocumentCreated;
                 return RedirectToAction("Details", new { id = newDocumentId });
             }
 
@@ -104,7 +105,7 @@ namespace QMS.Web.Areas.Admin.Controllers
                     this.SaveDocumentFile(model.Id, file);
                 }
 
-                TempData["Success"] = "Document successfully updated";
+                TempData["Success"] = SuccessMessagesConstants.DocumentUpdated;
                 return RedirectToAction("Details", new { id = model.Id });
             }
 
@@ -125,7 +126,7 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (file == null)
             {
-                throw new ArgumentNullException("Cannot save null file.");
+                throw new ArgumentNullException(ErrorMessagesConstants.CannotSaveNullFile);
             }
 
             var documentModel = this.documents.GetById(documentId);
@@ -144,7 +145,7 @@ namespace QMS.Web.Areas.Admin.Controllers
         {
             if (file == null)
             {
-                throw new ArgumentNullException("Cannot save null file.");
+                throw new ArgumentNullException(ErrorMessagesConstants.CannotSaveNullFile);
             }
 
             var savingDirName = documentId % 100;

@@ -25,8 +25,8 @@
 @Html.Grid(Model.Records).Columns(col =>
 {
     col.Add(m => m.Status).Filterable(true).Sortable(true).Width = "10%";
-    col.Add(m => m.Document.Title).Filterable(true).Sortable(true).Width = "10%";
-    col.Add(m => m.Document.Code).Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Title).Titled("Title").Filterable(true).Sortable(true).Width = "10%";
+    col.Add(m => m.Document.Code).Titled("Document Code").Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Title).Titled("Name").Filterable(true).Sortable(true).Width = "10%";
     col.Add(m => m.Description).Filterable(true).Sortable(true).Width = "20%";
     col.Add(m => m.DateCreated).Filterable(true).Sortable(true).Format("{0:dd/MM/yyyy}").SetWidth(10);
