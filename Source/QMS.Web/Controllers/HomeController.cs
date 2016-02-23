@@ -56,6 +56,11 @@
         [ChildActionOnly]
         public ActionResult GetUserNotes()
         {
+            if (!Request.IsAuthenticated)
+            {
+                throw new HttpException(401, "Unauthorized users can't get notes");
+            }
+
             var userId = this.User.Identity.GetUserId();
             var notes = this.notes.GetUserNotes(userId)
                 .OrderByDescending(n => n.CreatedOn)
@@ -66,6 +71,11 @@
 
         public ActionResult GetUserUpcomingRecords()
         {
+            if (!Request.IsAuthenticated)
+            {
+                throw new HttpException(401, "Unauthorized users can't get notes");
+            }
+
             var userId = this.User.Identity.GetUserId();
             var upcomingRecords = this.records.GetUserUpcomingRecords(userId)
                 .OrderBy(r => r.FinishingDate)
