@@ -29,7 +29,7 @@
     .Sanitized(false)
     .Encoded(false)
     .RenderValueAs(m => Html.ActionLink("Manage", "Edit", "Users", new { id = m.Id, area = "Admin" }, null));
-}).WithPaging(10, 5).Selectable(false).Named("Users")
+}).WithPaging(5, 5).Selectable(false).Named("Users")
 </div>
 
 <div class="clearfix"></div>

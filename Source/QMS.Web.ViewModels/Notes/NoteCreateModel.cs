@@ -12,6 +12,7 @@
         [Required]
         [MaxLength(200)]
         [AllowHtml]
+        [UIHint("TextArea")]
         public string Text { get; set; }
 
         public int RecordId { get; set; }

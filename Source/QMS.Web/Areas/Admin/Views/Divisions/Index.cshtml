@@ -26,7 +26,7 @@
     .Encoded(false)
     .RenderValueAs(m => Html.ActionLink("Details", "Details", "Divisions", new {area = "Admin", id = m.Id }, null))
     .SetWidth(20);
-}).WithPaging(10, 5).Selectable(false).EmptyText("There area no divisions yet to display.")
+}).WithPaging(5, 5).Selectable(false).EmptyText("There area no divisions yet to display.")
 </div>
 
 <div class="clearfix"></div>

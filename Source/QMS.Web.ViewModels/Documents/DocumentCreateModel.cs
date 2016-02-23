@@ -12,6 +12,7 @@
         public string Title { get; set; }
 
         [MaxLength(500)]
+        [UIHint("TextArea")]
         public string Description { get; set; }
 
         [Required]

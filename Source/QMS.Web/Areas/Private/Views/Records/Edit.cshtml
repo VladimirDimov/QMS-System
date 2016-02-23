@@ -85,13 +85,14 @@
 @section scripts{
     <script>
         $('.datepicker').datepicker({
-            format: 'dd-mm-yyyy',
-            dateFormat: 'dd-mm-yy'
+            dateFormat: 'mm/dd/yyyy',
+            format: 'yyyy/mm/dd'
         });
 
         function refresh() {
             location.reload(true);
         }
     </script>
-}
 
+    @Scripts.Render("~/bundles/jqueryval")
+}

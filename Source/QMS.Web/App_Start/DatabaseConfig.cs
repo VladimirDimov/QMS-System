@@ -1,13 +1,9 @@
-﻿using QMS.Data;
-using QMS.Data.Migrations;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace QMS.Web.App_Start
+﻿namespace QMS.Web.App_Start
 {
+    using QMS.Data;
+    using QMS.Data.Migrations;
+    using System.Data.Entity;
+
     public static class DatabaseConfig
     {
         public static void Initialize()

@@ -35,4 +35,4 @@
     m.Employee != null && (m.Employee.Id.ToString() == User.Identity.GetUserId().ToString() ||
     User.IsInRole("admin") || User.IsInRole("manage-all-roles")) ?
     Html.ActionLink("Manage", "Manage", "Areas", new { id = m.Id, area = "Private" }, null) : MvcHtmlString.Create(string.Empty));
-}).WithPaging(2, 3).Selectable(false)
+}).WithPaging(5, 3).Selectable(false)
