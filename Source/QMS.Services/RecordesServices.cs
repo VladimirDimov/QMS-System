@@ -29,7 +29,6 @@
         public Record Create(string title, string description, DateTime dateCreated, DateTime? finishingDate,
             RecordStatus status, DateTime statusDate, int documentId, int areaId, string fileExtension)
         {
-            //Create record
             var record = new Record
             {
                 Title = title,

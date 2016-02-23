@@ -13,7 +13,7 @@ namespace QMS.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            this.ConfigureAuth(app);
             this.ConfigureSignalR(app);
         }
 

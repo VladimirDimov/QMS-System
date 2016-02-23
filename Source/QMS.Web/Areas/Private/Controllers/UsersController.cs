@@ -47,8 +47,7 @@
                     throw new HttpException(401, ErrorMessagesConstants.YouCanUpdateOnlyYourProfile);
                 }
 
-                this.users.Update(model.Id, model.UserName, model.FirstName, model.LastName,
-                    model.PhoneNumber, model.Email);
+                this.users.Update(model.Id, model.UserName, model.FirstName, model.LastName, model.PhoneNumber, model.Email);
 
                 TempData["Success"] = SuccessMessagesConstants.UserProfileUpdated;
             }

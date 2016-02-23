@@ -66,8 +66,7 @@
         {
             if (ModelState.IsValid)
             {
-                var record = this.records.Update(model.Id, model.Title, model.Description, model.Status,
-                model.StatusDate, model.DateCreated, model.FinishingDate, model.DocumentId);
+                var record = this.records.Update(model.Id, model.Title, model.Description, model.Status, model.StatusDate, model.DateCreated, model.FinishingDate, model.DocumentId);
 
                 if (file != null)
                 {

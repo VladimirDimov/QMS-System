@@ -66,7 +66,7 @@ namespace QMS.Web.App_Start
         {
             kernel.Bind<IQmsData>().To<QmsData>().InRequestScope();
 
-            //Bind all services to interfaces
+            // Bind all services to interfaces
             kernel.Bind<IAreasServices>().To<AreasServices>().InRequestScope();
             kernel.Bind<IDepartmentsServices>().To<DepartmentsServices>().InRequestScope();
             kernel.Bind<IDivisionsServices>().To<DivisionsServices>().InRequestScope();

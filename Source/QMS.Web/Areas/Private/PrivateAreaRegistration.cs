@@ -17,15 +17,13 @@ namespace QMS.Web.Areas.Private
             context.MapRoute(
                 "Private_default",
                 "Private/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional });
 
             context.MapRoute(
                 "CreateNewRecord",
                 "Private/{controller}/manage/{id}/{action}",
                 new { action = "Index", id = UrlParameter.Optional },
-                constraints: new { controller = "Areas" }
-            );
+                constraints: new { controller = "Areas" });
         }
     }
 }

@@ -63,7 +63,7 @@ namespace QMS.Data.Migrations
             var roles = new string[]
             {
                 "admin",
-                "manage-all-areas" ,
+                "manage-all-areas",
                 "admin-documents",
                 "admin-divisions",
                 "admin-areas",

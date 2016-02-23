@@ -36,17 +36,17 @@
                 return;
             }
 
-            var message = this.messages.Create(
-                title, content,
-                Context.User.Identity.GetUserId(),
-                new List<string> { receiverId });
+            var message = this.messages.Create(title, content, Context.User.Identity.GetUserId(), new List<string> { receiverId });
 
             // Broadcast message to receiver
             if (dict.ContainsKey(receiverId))
             {
                 var receiverClient = Clients.Client(dict[receiverId]);
-                receiverClient.broadcastMessage(Context.User.Identity.Name,
-                message.Title, message.Content, message.CreatedOn);
+                receiverClient.broadcastMessage(
+                    Context.User.Identity.Name,
+                    message.Title,
+                    message.Content,
+                    message.CreatedOn);
             }
 
             // Broadcast notification to sender if receipent is not on line
@@ -55,8 +55,11 @@
                 Clients.Client(Context.ConnectionId).broadcastMessage("Server", "User is not connected");
             }
             // Broadcast message to sender
-            Clients.Client(Context.ConnectionId).broadcastMessage(Context.User.Identity.Name, message.Title,
-                message.Content, message.CreatedOn);
+            Clients.Client(Context.ConnectionId).broadcastMessage(
+                Context.User.Identity.Name,
+                message.Title,
+                message.Content,
+                message.CreatedOn);
         }
 
         public override Task OnConnected()

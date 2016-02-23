@@ -13,8 +13,7 @@
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "QMS.Web.Controllers" }
-            );
+                namespaces: new string[] { "QMS.Web.Controllers" });
 
             // Add this code to handle non-existing urls
             routes.MapRoute(
@@ -23,8 +22,7 @@
                 url: "{*url}",
                 // "Shared" is the name of your error controller, and "Error" is the action/page
                 // that handles all your custom errors
-                defaults: new { controller = "Errors", action = "Index" }
-            );
+                defaults: new { controller = "Errors", action = "Index" });
         }
     }
 }

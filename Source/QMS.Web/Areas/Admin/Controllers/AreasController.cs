@@ -90,7 +90,7 @@
                 this.areas.Update(model.Id, model.Name, model.Description, model.EmployeeId);
                 TempData["Success"] = SuccessMessagesConstants.AreaCreated;
                 return this.Details(model.Id);
-            };
+            }
 
             return View(model);
         }

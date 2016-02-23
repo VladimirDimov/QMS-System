@@ -79,7 +79,7 @@
             var records = this.records.GetMissedByAreaId(id)
                 .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
-            
+
             return this.ShowRecords(id, records);
         }
 
@@ -109,8 +109,7 @@
             {
                 var documentTemplateFilePath = Server.MapPath(this.documents.GetById(model.DocumentId).FilePath);
                 var fileExtension = System.IO.Path.GetExtension(documentTemplateFilePath);
-                var newRecord = this.records.Create(model.Title, model.Description, model.DateCreated, model.FinishingDate,
-                model.Status, model.StatusDate, model.DocumentId, id, fileExtension);
+                var newRecord = this.records.Create(model.Title, model.Description, model.DateCreated, model.FinishingDate, model.Status, model.StatusDate, model.DocumentId, id, fileExtension);
 
                 this.CreateFileOfRecord(this.documents.GetById(model.DocumentId).FilePath, newRecord.RecordFiles.ToList()[newRecord.RecordFiles.ToList().Count - 1].Path);
 
