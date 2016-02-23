@@ -146,20 +146,26 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Actions\HomeControllerTests.cs" />
-    <Compile Include="Actions\PrivateAreasControllerTests.cs" />
+    <Compile Include="ActionsTests\HomeControllerTests.cs" />
+    <Compile Include="ActionsTests\PrivateAreasControllerTests.cs" />
     <Compile Include="Fakes\FakeAreasController.cs" />
     <Compile Include="Fakes\FakeControllerContext.cs" />
     <Compile Include="Fakes\IdentityFake.cs" />
-    <Compile Include="Filters\AuthorizeAreasFilterTests.cs" />
-    <Compile Include="Routes\PublicRoutesTests.cs" />
+    <Compile Include="FiltersTests\AuthorizeAreasFilterTests.cs" />
+    <Compile Include="RoutesTests\PublicRoutesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesTests\AreasServicesTests.cs" />
+    <Compile Include="ServicesTests\NotesServicesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QMS.Data\QMS.Data.csproj">
+      <Project>{cf200301-22dc-4dea-b0a9-f40714a76116}</Project>
+      <Name>QMS.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QMS.Models\QMS.Models.csproj">
       <Project>{b53bc96e-b958-420f-8097-2a28def561f5}</Project>
       <Name>QMS.Models</Name>

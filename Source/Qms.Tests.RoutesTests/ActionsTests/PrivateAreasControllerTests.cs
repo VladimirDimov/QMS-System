@@ -170,66 +170,20 @@
                 .WithModel<AreaManageViewModel>(x => Assert.AreEqual(4, x.Records.Count()));
         }
 
-        //[Test]
-        //public void CreateRecordShouldReturnPropperResultIfModelStateIsInvalid()
-        //{
-        //    var areasFake = new Mock<IAreasServices>();
-        //    areasFake.Setup(a => a.GetByUserId(It.IsAny<string>())).Returns(areas);
-
-        //    var recordsFake = new Mock<IRecordsServices>();
-        //    recordsFake.Setup(x => x.GetByAreaId(It.IsAny<int>())).Returns(this.records);
-
-        //    var documentsFake = new Mock<IDocumentsServices>().Object;
-        //    var usersFake = new Mock<IUsersServices>().Object;
-
-        //    var controller = new AreasController(areasFake.Object, recordsFake.Object, documentsFake, usersFake);
-        //    controller.ModelState.AddModelError("Invalid model", "Error message");
-
-        //    Mapper.CreateMap<Area, AreaShortViewModel>();
-        //    Mapper.CreateMap<Area, AreaListViewModel>();
-        //    Mapper.CreateMap<User, UserShortViewModel>();
-        //    Mapper.CreateMap<Record, RecordListViewModel>();
-
-        //    ViewResult viewResult = controller.Index() as ViewResult;
-        //    var invalidViewModel = new RecordCreateViewModel();
-
-        //    controller.WithCallTo(c => c.CreateRecord(1, invalidViewModel))
-        //        .ShouldRenderView(string.Empty)
-        //        .WithModel<RecordCreateViewModel>(x => Assert.AreSame(invalidViewModel, x));
-        //}
-
         [Test]
-        public void CreateRecordShouldReturnPropperResultIfModelStateIsValid()
+        public void CreateRecordShouldReturnPropperResultIfModelStateIsInvalid()
         {
             var areasFake = new Mock<IAreasServices>();
             areasFake.Setup(a => a.GetByUserId(It.IsAny<string>())).Returns(areas);
 
             var recordsFake = new Mock<IRecordsServices>();
+            recordsFake.Setup(x => x.GetByAreaId(It.IsAny<int>())).Returns(this.records);
 
-            recordsFake.Setup(x => x.Create(
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<DateTime>(),
-                It.IsAny<DateTime>(),
-                It.IsAny<RecordStatus>(),
-                It.IsAny<DateTime>(),
-                It.IsAny<int>(),
-                It.IsAny<int>(),
-                It.IsAny<string>()))
-                .Returns(new Record()
-                {
-                    RecordFiles = new List<RecordFile>() { new RecordFile { Path = "~/", RecordId = 1 } }
-                });
-
-            var documentsFake = new Mock<IDocumentsServices>();
-            documentsFake.Setup<Document>(x => x.GetById(It.IsAny<int>())).Returns(new Document { FilePath = "~/" });
-
+            var documentsFake = new Mock<IDocumentsServices>().Object;
             var usersFake = new Mock<IUsersServices>().Object;
 
-            var controller = new FakeAreasController(areasFake.Object, recordsFake.Object, documentsFake.Object, usersFake)
-            {
-                ControllerContext = FakeControllerContext.GetFakeControllerContextWithFakeIdentity()
-            };
+            var controller = new AreasController(areasFake.Object, recordsFake.Object, documentsFake, usersFake);
+            controller.ModelState.AddModelError("Invalid model", "Error message");
 
             Mapper.CreateMap<Area, AreaShortViewModel>();
             Mapper.CreateMap<Area, AreaListViewModel>();
@@ -237,14 +191,60 @@
             Mapper.CreateMap<Record, RecordListViewModel>();
 
             ViewResult viewResult = controller.Index() as ViewResult;
-            var validViewModel = new RecordCreateViewModel()
-            {
-                DocumentId = 1
-            };
+            var invalidViewModel = new RecordCreateViewModel();
 
-            controller.WithCallTo(c => c.CreateRecord(1, validViewModel))
+            controller.WithCallTo(c => c.CreateRecord(1, invalidViewModel))
                 .ShouldRenderView(string.Empty)
-                .WithModel<RecordCreateViewModel>(x => Assert.AreSame(validViewModel, x));
+                .WithModel<RecordCreateViewModel>(x => Assert.AreSame(invalidViewModel, x));
         }
+
+        //[Test]
+        //public void CreateRecordShouldReturnPropperResultIfModelStateIsValid()
+        //{
+        //    var areasFake = new Mock<IAreasServices>();
+        //    areasFake.Setup(a => a.GetByUserId(It.IsAny<string>())).Returns(areas);
+
+        //    var recordsFake = new Mock<IRecordsServices>();
+
+        //    recordsFake.Setup(x => x.Create(
+        //        It.IsAny<string>(),
+        //        It.IsAny<string>(),
+        //        It.IsAny<DateTime>(),
+        //        It.IsAny<DateTime>(),
+        //        It.IsAny<RecordStatus>(),
+        //        It.IsAny<DateTime>(),
+        //        It.IsAny<int>(),
+        //        It.IsAny<int>(),
+        //        It.IsAny<string>()))
+        //        .Returns(new Record()
+        //        {
+        //            RecordFiles = new List<RecordFile>() { new RecordFile { Path = "~/", RecordId = 1 } }
+        //        });
+
+        //    var documentsFake = new Mock<IDocumentsServices>();
+        //    documentsFake.Setup<Document>(x => x.GetById(It.IsAny<int>())).Returns(new Document { FilePath = "~/" });
+
+        //    var usersFake = new Mock<IUsersServices>().Object;
+
+        //    var controller = new FakeAreasController(areasFake.Object, recordsFake.Object, documentsFake.Object, usersFake)
+        //    {
+        //        ControllerContext = FakeControllerContext.GetFakeControllerContextWithFakeIdentity()
+        //    };
+
+        //    Mapper.CreateMap<Area, AreaShortViewModel>();
+        //    Mapper.CreateMap<Area, AreaListViewModel>();
+        //    Mapper.CreateMap<User, UserShortViewModel>();
+        //    Mapper.CreateMap<Record, RecordListViewModel>();
+
+        //    ViewResult viewResult = controller.Index() as ViewResult;
+        //    var validViewModel = new RecordCreateViewModel()
+        //    {
+        //        DocumentId = 1
+        //    };
+
+        //    controller.WithCallTo(c => c.CreateRecord(1, validViewModel))
+        //        .ShouldRenderView(string.Empty)
+        //        .WithModel<RecordCreateViewModel>(x => Assert.AreSame(validViewModel, x));
+        //}
     }
 }
