@@ -10,6 +10,7 @@
     using System.Web;
     using System.Web.Mvc;
 
+    [Authorize]
     public class RecordsController : Controller
     {
         private IRecordsServices records;

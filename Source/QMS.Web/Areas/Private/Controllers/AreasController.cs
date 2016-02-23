@@ -13,6 +13,7 @@
     using System.Web.Mvc;
     using ViewModels.Timesheet;
 
+    [Authorize]
     public class AreasController : Controller
     {
         private IAreasServices areas;
@@ -31,14 +32,14 @@
             this.documents = documents;
             this.users = users;
         }
-        // GET: Private/Areas
+
         public ActionResult Index(int page = 1)
         {
             var areas = this.areas.all()
                 .ProjectTo<AreaListViewModel>()
                 .OrderBy(a => a.Name);
 
-            return View(areas);
+            return View("Index", areas);
         }
 
         public ActionResult MyAreas()
@@ -78,7 +79,7 @@
             var records = this.records.GetMissedByAreaId(id)
                 .ProjectTo<RecordListViewModel>()
                 .OrderBy(r => r.DateCreated);
-
+            
             return this.ShowRecords(id, records);
         }
 

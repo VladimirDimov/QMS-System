@@ -3,6 +3,7 @@
     using Microsoft.AspNet.Identity;
     using Ninject;
     using QMS.Services;
+    using Services.Contracts;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -10,7 +11,7 @@
     {
 
         [Inject]
-        public UsersServices UsersServices { get; set; }
+        public IUsersServices UsersServices { get; set; }
 
         public string[] RolesRequired { get; set; }
 

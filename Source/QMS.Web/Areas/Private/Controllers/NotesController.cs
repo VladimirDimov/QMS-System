@@ -4,6 +4,7 @@
     using Services.Contracts;
     using System.Web.Mvc;
 
+    [Authorize]
     public class NotesController : Controller
     {
         private INotesServices notes;
@@ -12,7 +13,7 @@
         {
             this.notes = notes;
         }
-        // GET: Private/Notes
+
         public ActionResult Index()
         {
             return View();

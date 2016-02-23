@@ -5,6 +5,7 @@
     using QMS.Web;
     using QMS.Web.Areas.Admin.Controllers;
     using QMS.Web.Controllers;
+    using System;
     using System.Net.Http;
     using System.Web.Http;
     using System.Web.Mvc;
@@ -99,6 +100,28 @@
             routeCollection
                 .ShouldMap(HttpMethod.Get, "~/Procedures/Index")
                 .To<QMS.Web.Controllers.ProceduresController>(c => c.Index());
+        }
+
+        [Test]
+        public void ShouldMapUsersControllerIndex()
+        {
+            var routeCollection = new RouteCollection();
+            RouteConfig.RegisterRoutes(routeCollection);
+
+            routeCollection
+                .ShouldMap(HttpMethod.Get, "~/Users/Index")
+                .To<QMS.Web.Controllers.UsersController>(c => c.Index(null, null));
+        }
+
+        [Test]
+        public void ShouldMapUsersControllerDetails()
+        {
+            var routeCollection = new RouteCollection();
+            RouteConfig.RegisterRoutes(routeCollection);
+
+            routeCollection
+                .ShouldMap(HttpMethod.Get, "~/Users/Details")
+                .To<QMS.Web.Controllers.UsersController>(c => c.Details(Guid.NewGuid().ToString()));
         }
     }
 }
