@@ -14,5 +14,7 @@
         void SetUserToNoNewMessages(string id);
 
         User Update(string id, string userName, string firstName, string lastName, string phoneNumber, string email);
+
+        void DeleteUser(string id);
     }
 }

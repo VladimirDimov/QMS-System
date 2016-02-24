@@ -63,5 +63,11 @@
 
             this.data.SaveChanges();
         }
+
+        public void DeleteUser(string id)
+        {
+            this.data.Users.Delete(id);
+            this.data.SaveChanges();
+        }
     }
 }

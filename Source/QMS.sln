@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qms.Common", "Qms.Common\Qm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS.Web.ViewModels", "QMS.Web.ViewModels\QMS.Web.ViewModels.csproj", "{07D3141A-D101-4404-9C81-08000BC871E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qms.Tests.RoutesTests", "Qms.Tests.RoutesTests\Qms.Tests.RoutesTests.csproj", "{59C2A8EB-4B36-4D56-A945-6A075663E5ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qms.Tests", "Qms.Tests.RoutesTests\Qms.Tests.csproj", "{59C2A8EB-4B36-4D56-A945-6A075663E5ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

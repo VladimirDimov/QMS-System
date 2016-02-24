@@ -191,5 +191,18 @@
 
             return RedirectToAction("Index");
         }
+
+        [HttpDelete]
+        public ActionResult Delete(string id)
+        {
+            var userToDelete = this.users.GetById(id);
+            if (userToDelete == null)
+            {
+                throw new HttpException(404, "User with such ID don't exist");
+            }
+
+            this.users.DeleteUser(id);
+            return RedirectToAction("Index");
+        }
     }
 }

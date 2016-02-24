@@ -1,25 +1,16 @@
 ﻿namespace Qms.Tests.RoutesTests.Filters
 {
-    using AutoMapper;
     using Fakes;
     using Moq;
     using NUnit.Framework;
     using QMS.Models;
-    using QMS.Services;
     using QMS.Services.Contracts;
-    using QMS.Web.Areas.Private.Controllers;
     using QMS.Web.FIlters;
-    using QMS.Web.ViewModels.Areas;
-    using QMS.Web.ViewModels.Records;
-    using QMS.Web.ViewModels.Users;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Security.Principal;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using TestStack.FluentMVCTesting;
 
     class AuthorizeAreasFilterTests
     {
@@ -92,7 +83,7 @@
         }
 
         [Test]
-        public void AuthorizeAreasFilterContextResultShouldNotBeNullIfUserDontHaveRoleAndArea()
+        public void AuthorizeAreasFilterContextResultShouldRedirectToLoginIfUserDontHaveRoleAndArea()
         {
             var principalFake = new Mock<IPrincipal>();
             principalFake.Setup(x => x.IsInRole("admin")).Returns(false);
